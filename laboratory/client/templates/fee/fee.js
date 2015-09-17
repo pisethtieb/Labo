@@ -162,8 +162,7 @@ AutoForm.hooks({
                     doc.status = 'Partial';
                 }
                 var prefix = Session.get('currentBranch') + '-';
-                doc._id = idGenerator.genWithPrefix(Laboratory.Collection.Payment, prefix, 3);
-                doc.cpanel_branchId = Session.get('currentBranch');
+                Meteor.call('labo', prefix);
                 return doc;
             }
         },

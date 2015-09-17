@@ -193,9 +193,7 @@ AutoForm.hooks({
         before: {
             insert: function (doc) {
                 var prefix = Session.get('currentBranch') + '-';
-                doc._id = idGenerator.genWithPrefix(Laboratory.Collection.Patient,
-                    prefix, 4);
-                doc.cpanel_branchId = Session.get('currentBranch');
+                Meteor.call('labo', prefix);
                 return doc;
             }
         },
