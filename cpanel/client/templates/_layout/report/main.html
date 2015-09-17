@@ -1,0 +1,15 @@
+<!--Layout-->
+<template name="reportLayout">
+    <!--Content-->
+    {{> Template.dynamic template=content}}
+
+</template>
+
+<!--Template-->
+<template name="reportTpl">
+    <div class="report-body{{#if fontSize}}-{{fontSize}}{{/if}}">
+        <div class="paper-{{paper}}-{{orientation}}">
+            {{> Template.contentBlock}}
+        </div>
+    </div>
+</template>

@@ -1,0 +1,36 @@
+<template name="headerLayout">
+    <!-- header -->
+    <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            {{#if navbar.show}}
+                {{> Template.dynamic template=navbar.template.left}}
+            {{/if}}
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <!-- Navbar right-->
+            {{#if navbar.show}}
+                {{> Template.dynamic template=navbar.template.right}}
+            {{/if}}
+
+            <!--Sub is ready-->
+            <li class="{{isActiveRoute regex='cpanel.welcome'}}">
+                {{#if isSubReady "cpanel_branch"}}
+                    {{#if currentBranch.show}}
+                        <a href="{{pathFor 'cpanel.welcome'}}">
+                            <i class="fa fa-sitemap"></i>
+                            {{currentBranch.title}}
+                        </a>
+                    {{/if}}
+
+                {{else}}
+                    <a>{{> iconLoading}}</a>
+                {{/if}}
+            </li>
+
+            {{> loginButtons}}
+        </ul>
+
+    </div>
+    <!-- /header -->
+</template>

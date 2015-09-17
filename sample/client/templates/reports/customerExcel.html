@@ -1,0 +1,17 @@
+<!--Form-->
+<template name="sample_customerExcelReport">
+    {{#autoForm schema=Sample.Schema.CustomerReport id="sample_customerExcelReport"}}
+        <div class="row">
+            <div class="col-md-6">
+                {{> afQuickField name="branch"}}
+                {{> afQuickField name="name"}}
+            </div>
+            <div class="col-md-6">
+                {{> afQuickField name="date"}}
+
+                <button type="submit" class="btn btn-primary">{{fa "file-text"}} Generate (Excel)</button>
+                <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
+            </div>
+        </div>
+    {{/autoForm}}
+</template>

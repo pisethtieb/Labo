@@ -1,0 +1,83 @@
+<template name="cpanel_welcome">
+    <!--Server date time-->
+    <h3 class="text-center">
+        <span class="label label-{{serverDateTime.css}}">
+            <i class="fa fa-calendar"></i> {{serverDateTime.val}}
+        </span>
+    </h3>
+
+    {{#if currentUser}}
+        {{#if role}}
+            {{> cpanel_welcomeConfig}}
+        {{else}}
+            {{> cpanel_welcomeAccessDenied}}
+        {{/if}}
+    {{else}}
+        {{> cpanel_welcomeInfo}}
+    {{/if}}
+</template>
+
+<template name="cpanel_welcomeInfo">
+    <div class="jumbotron">
+
+        <h1>
+            <!--<img style="display: inline-block" alt="Rabbit" width="40" height="40" src="/rabbit.png">-->
+            Rabbit Training Center
+        </h1>
+
+        <h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul style="list-style-type:square">
+                        <li>Computer Training</li>
+                        <li>Application Development</li>
+                        <li>Web Design</li>
+                        <li>IT Consultancy</li>
+                        <li>Network</li>
+                        <li>Maintenance</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul style="list-style-type:square">
+                        <li>Loan Management System</li>
+                        <li>Saving Management System</li>
+                        <li>Accounting Management System</li>
+                        <li>School Management System</li>
+                        <li>Hospital Management System</li>
+                        <li>Ice Factory Management System</li>
+                    </ul>
+                </div>
+            </div>
+        </h3>
+
+    </div>
+</template>
+
+<template name="cpanel_welcomeAccessDenied">
+    <div class="alert alert-danger" role="alert">
+        <h2>[403]</h2>
+
+        <p>
+            Sorry, you couldn't access this application. Please contact administrator.
+        </p>
+    </div>
+</template>
+
+<template name="cpanel_welcomeConfig">
+    {{#if isSubReady  "cpanel_branch"}}
+        {{#autoForm schema=Cpanel.Schema.WelcomeConfig id="cpanel_welcomeConfig" type="normal"}}
+            <div class="row">
+                <div class="col-xs-6">
+                    {{> afQuickField name="module" value=value.module}}
+                </div>
+                <div class="col-xs-6">
+                    {{> afQuickField name="branch" value=value.branch}}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">{{fa "angle-double-right"}} Go</button>
+        {{/autoForm}}
+
+    {{else}}
+        {{> loading}}
+    {{/if}}
+</template>

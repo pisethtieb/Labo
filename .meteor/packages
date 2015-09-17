@@ -1,0 +1,157 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+######
+# Core
+######
+meteor-platform
+accounts-password
+jquery
+underscore
+coffeescript
+markdown
+reactive-var
+random
+ejson
+
+######
+# Community
+######
+# Layout
+twbs:bootstrap
+fortawesome:fontawesome
+
+# Library
+underscorestring:underscore.string
+erasaur:meteor-lodash
+
+# User
+ian:accounts-ui-bootstrap-3
+ongoworks:security
+alanning:roles
+#mizzao:user-status
+255kb:meteor-status
+
+# Session
+u2622:persistent-session
+
+# Router
+meteorhacks:picker
+kadira:flow-router
+kadira:blaze-layout
+cottz:flow-router-auth
+arillo:flow-router-helpers
+zimme:active-route
+tomwasd:flow-router-seo
+tomwasd:flow-router-autoscroll
+meteorhacks:subs-manager
+meteorhacks:fast-render
+
+# Collection
+matb33:collection-hooks
+dburles:collection-helpers
+aldeed:collection2
+meteorhacks:aggregate
+aldeed:simple-schema
+zimme:collection-softremovable
+percolate:migrations
+moonco:fixtures
+
+# Pub-Sub
+reywood:publish-composite
+tmeasday:publish-counts
+meteorhacks:unblock
+
+# Loading
+sacha:spin
+
+# Method
+simple:reactive-method
+okgrow:promise
+
+# Faker
+digilord:faker
+anti:fake
+
+# Form
+aldeed:autoform
+natestrauser:select2
+zimme:select2-bootstrap3-css
+aldeed:autoform-select2
+chhib:selectize-bootstrap-3
+comerc:autoform-selectize
+rajit:bootstrap3-datepicker
+aldeed:autoform-bs-datepicker
+tsega:bootstrap3-datetimepicker
+aldeed:autoform-bs-datetimepicker
+dburles:spacebars-tohtml
+raix:handlebar-helpers
+
+# Date
+momentjs:moment
+lbee:moment-helpers
+
+# List View
+aldeed:tabular
+matteodem:easy-search
+
+# Modal
+mizzao:bootboxjs
+ovcharik:alertifyjs
+czbaker:lightbox2
+
+# File
+cfs:standard-packages
+cfs:gridfs
+yogiben:autoform-file
+
+# Reactive
+xamfoo:reactive-obj
+manuel:reactivearray
+frozeman:template-var
+
+# Excel
+netanelgilad:excel
+netanelgilad:node-uuid
+netanelgilad:mkdirp
+vsivsi:file-collection
+
+# PDF
+nilsdannemann:pdfmake
+
+# Npm
+meteorhacks:npm
+npm-container
+
+# Backup/Restore
+phirum:backup-restore
+
+# Other
+ecwyne:mathjs
+lepozepo:accounting
+numeral:numeral
+bigdsk:inputmask
+natestrauser:animate-css
+rzymek:fullcalendar
+#froatsnook:sleep
+meteorhacks:kadira
+
+######
+# Local
+######
+theara:collection-cache
+theara:id-generator
+theara:relation-exist
+theara:moneyjs
+theara:fa-helpers
+theara:events
+theara:round-khr
+theara:lightbox-helpers
+theara:call-async
+theara:flow-router-breadcrumb
+theara:autoprint
+theara:reactive-list
+yousour:label-condition

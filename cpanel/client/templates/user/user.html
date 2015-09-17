@@ -1,0 +1,84 @@
+<!--Index-->
+<template name="cpanel_user">
+    <p>
+        <button type="button" class="btn btn-primary insert">{{fa "plus"}} Add New</button>
+    </p>
+
+    {{#if isSubReady}}
+        {{> tabular table=Cpanel.TabularTable.User class="table table-striped table-bordered table-condensed table-hover"}}
+    {{else}}
+        {{> loading}}
+    {{/if}}
+</template>
+
+<!--Action-->
+<template name="cpanel_userAction">
+    {{#tabularAction}}
+        <li><a href="#" class="update">{{fa "pencil"}} Update</a></li>
+        <li><a href="#" class="remove">{{fa "remove"}} Remove</a></li>
+        <li><a href="#" class="show">{{fa "eye"}} Show</a></li>
+    {{/tabularAction}}
+</template>
+
+<!--Insert-->
+<template name="cpanel_userInsert">
+    {{#autoForm schema=Cpanel.Schema.User id="cpanel_userInsert"}}
+        <div class="row">
+            <div class="col-xs-6">
+                {{> afQuickField name='username'}}
+                {{> afQuickField name='email'}}
+                {{> afQuickField name='password' type="password"}}
+                {{> afQuickField name='confirmPassword' type="password"}}
+                {{> afQuickField name='profile.fullName'}}
+            </div>
+            <div class="col-xs-6">
+                {{> afQuickField name='roles' size=6}}
+                {{> afQuickField name='rolesBranch' size=6}}
+
+                <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
+                <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
+            </div>
+        </div>
+    {{/autoForm}}
+</template>
+
+<!--Update-->
+<template name="cpanel_userUpdate">
+    {{#autoForm schema=Cpanel.Schema.User id="cpanel_userUpdate" doc=this}}
+        <div class="row">
+            <div class="col-xs-6">
+                {{> afQuickField name='username'}}
+                {{> afQuickField name='email'}}
+                {{> afQuickField name='password' type="password"}}
+                {{> afQuickField name='confirmPassword' type="password"}}
+                {{> afQuickField name='profile.fullName'}}
+            </div>
+            <div class="col-xs-6">
+                {{> afQuickField name='roles' size=6}}
+                {{> afQuickField name='rolesBranch' size=6}}
+
+                <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
+                <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
+            </div>
+        </div>
+    {{/autoForm}}
+</template>
+
+<!--Show-->
+<template name="cpanel_userShow">
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>{{_id}}</dd>
+        <dt>Username</dt>
+        <dd>{{username}}</dd>
+        <dt>Email</dt>
+        <dd>{{emails}}</dd>
+        <dt>Full Name</dt>
+        <dd>{{profile.fullName}}</dd>
+        <dt>Role</dt>
+        <dd>{{roles}}</dd>
+        <dt>Rol For Branch</dt>
+        <dd>{{rolesBranch}}</dd>
+    </dl>
+</template>
+

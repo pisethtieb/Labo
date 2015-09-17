@@ -1,0 +1,14 @@
+.patient > tbody > tr {
+    cursor: pointer;
+}
+
+.patient > tbody > tr:hover{
+    color: #337AB7;
+}
+
+.patient > .input-sm{
+    width: 200px;
+}
+#patient-header{
+    background-color:#f0ad4e;
+}

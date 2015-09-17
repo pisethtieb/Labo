@@ -1,0 +1,15 @@
+<template name="laboratory_navbarRight">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            Tool <i class="fa fa-database"></i>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="{{isActiveRoute name='cpanel.exchange'}}">
+                <a href="{{pathFor 'cpanel.exchange'}}"><i class="fa fa-arrow-down"></i> BackUp</a>
+            </li>
+            <li class="{{isActiveRoute name='Laboratory.address'}}">
+                <a href="{{pathFor 'Laboratory.address'}}"><i class="fa fa-arrow-up"></i> Restore</a>
+            </li>
+        </ul>
+    </li>
+</template>

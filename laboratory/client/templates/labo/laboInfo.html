@@ -1,0 +1,14 @@
+<template name="laboratory_laboInfo">
+    <ul class="list-unstyled">
+        {{#with labo}}
+            <li><strong>ID:</strong> {{_id}}</li>
+            <li><strong>Labo Date:</strong> {{laboDate}}</li>
+            <li><strong>Staff:</strong> {{_staff.name}}</li>
+            <li><strong>Agent:</strong> {{_agent.name}}</li>
+            <li><strong>Patient:</strong> {{_patient.name}}</li>
+            <li><strong>Total:</strong> {{total}}</li>
+            <li><strong>Total Fee:</strong> {{totalFee}}</li>
+            <li><strong>Labo Items:</strong> {{laboItem}}</li>
+        {{/with}}
+    </ul>
+</template>

@@ -1,0 +1,15 @@
+<template name="sample_navbarRight">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            Settings <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="{{isActiveRoute name='cpanel.exchange'}}">
+                <a href="{{pathFor 'cpanel.exchange'}}">Exchange</a>
+            </li>
+            <li class="{{isActiveRoute name='sample.address'}}">
+                <a href="{{pathFor 'sample.address'}}">Address</a>
+            </li>
+        </ul>
+    </li>
+</template>

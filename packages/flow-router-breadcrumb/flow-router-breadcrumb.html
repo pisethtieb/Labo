@@ -1,0 +1,11 @@
+<template name="breadcrumb">
+    <ol class="breadcrumb">
+        {{#each breadcrumb}}
+            {{#if cssClassActive}}
+                <li class="{{cssClassActive}}">{{title}}</li>
+            {{else}}
+                <li><a href="{{url}}">{{title}}</a></li>
+            {{/if}}
+        {{/each}}
+    </ol>
+</template>

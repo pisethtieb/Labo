@@ -1,0 +1,77 @@
+<head>
+    <link rel="icon" href="/favicon.ico">
+    <title>Rabbit Project</title>
+</head>
+
+<template name="mainLayout">
+    <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{pathFor 'cpanel.welcome'}}">
+                    <!--<a class="navbar-brand" href="#">-->
+                    <!--<img style="display: inline" alt="Brand" width="20" height="20" src="/rabbit.png">-->
+                    {{appName}}
+                </a>
+            </div>
+
+            <!-- header -->
+            {{> headerLayout}}
+
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+
+        {{#if currentUser}}
+            <div class="page-header">
+                <h3>
+                    <!--Page header-->
+                    {{pageHeader}}
+
+                    <!--Breadcrumb-->
+                    <!--{{> breadcrumb}}-->
+                    <ol class="breadcrumb pull-right"
+                        style="display: inline; font-size: 12px; font-weight: bold; padding: 10px 0px; margin-bottom: 0px">
+                        {{#each breadcrumb}}
+                            {{#if activeClass}}
+                                <li class="{{activeClass}}">{{title}}</li>
+                            {{else}}
+                                <li><a href="{{url}}">{{title}}</a></li>
+                            {{/if}}
+                        {{/each}}
+                    </ol>
+
+                    <!--Server date-time-->
+                    <!--<p class="text-{{serverDateTime.css}} pull-right"-->
+                    <!--style="display: inline; font-size: 12px; font-weight: bold; padding: 10px 0px; margin-bottom: 0px">-->
+                    <!--<i class="fa fa-calendar"></i> {{serverDateTime.val}}-->
+                    <!--</p>-->
+                </h3>
+            </div>
+        {{/if}}
+
+        <!--Content-->
+        {{> Template.dynamic template=content}}
+
+    </div>
+    <!-- /Container -->
+
+    <!-- Footer -->
+    <!--{{> footerLayout}}-->
+
+    <!-- Status -->
+    {{> meteorStatus}}
+
+    </body>
+</template>

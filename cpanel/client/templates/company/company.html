@@ -1,0 +1,64 @@
+<!--List-->
+<template name="cpanel_company">
+    {{#if isSubReady "cpanel_company"}}
+        {{#with data}}
+            <p>
+                <button type="button" class="btn btn-primary update">{{fa "pencil"}} Update</button>
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <dl class="dl-horizontal">
+                        <dt>Kh Name</dt>
+                        <dd>{{khName}}</dd>
+                        <dt>Kh Short Name</dt>
+                        <dd>{{khShortName}}</dd>
+                        <dt>En Name</dt>
+                        <dd>{{enName}}</dd>
+                        <dt>En Short Name</dt>
+                        <dd>{{enShortName}}</dd>
+                        <dt>Kh Address</dt>
+                        <dd>{{khAddress}}</dd>
+                    </dl>
+                </div>
+                <div class="col-md-6">
+                    <dl class="dl-horizontal">
+                        <dt>En Address</dt>
+                        <dd>{{enAddress}}</dd>
+                        <dt>Telephone</dt>
+                        <dd>{{telephone}}</dd>
+                        <dt>Email</dt>
+                        <dd>{{email}}</dd>
+                        <dt>Website</dt>
+                        <dd>{{website}}</dd>
+                    </dl>
+                </div>
+            </div>
+        {{/with}}
+    {{else}}
+        {{> loading}}
+    {{/if}}
+</template>
+
+<!--Update-->
+<template name="cpanel_companyUpdate">
+    {{#autoForm collection=Cpanel.Collection.Company id="cpanel_companyUpdate" doc=this type="update"}}
+        <div class="row">
+            <div class="col-md-6">
+                {{> afQuickField name='khName'}}
+                {{> afQuickField name='khShortName'}}
+                {{> afQuickField name='enName'}}
+                {{> afQuickField name='enShortName'}}
+                {{> afQuickField name='khAddress' row=3}}
+            </div>
+            <div class="col-md-6">
+                {{> afQuickField name='enAddress' row=3}}
+                {{> afQuickField name='telephone'}}
+                {{> afQuickField name='email'}}
+                {{> afQuickField name='website'}}
+
+                <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
+                <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
+            </div>
+        </div>
+    {{/autoForm}}
+</template>

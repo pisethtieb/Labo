@@ -1,0 +1,100 @@
+<!--Form-->
+<template name="cpanel_eventReport">
+    {{#if isSubReady}}
+        {{#autoForm schema=Cpanel.Schema.EventReport id="cpanel_eventReport" action="eventReportGen" target="_blank"}}
+            <div class="row">
+                <div class="col-md-6">
+                    {{> afQuickField name='user'}}
+                    {{> afQuickField name='type'}}
+                    {{> afQuickField name='module'}}
+                </div>
+                <div class="col-md-6">
+                    {{> afQuickField name='branch'}}
+                    {{> afQuickField name='date'}}
+
+                    <button type="submit" class="btn btn-primary">{{fa "file-text"}} Generate</button>
+                    <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
+                </div>
+            </div>
+        {{/autoForm}}
+    {{else}}
+        {{> loading}}
+    {{/if}}
+</template>
+
+
+<!--Generate-->
+<template name="cpanel_eventReportGen">
+    {{#if data}}
+        {{#reportTpl options}}
+
+            {{#with data}}
+
+                <!--Title-->
+                {{#with title}}
+                    <div class="title">
+                        <div class="title-1x-kh-muol">{{khName}}</div>
+                        <div class="title-1x">{{enName}}</div>
+                        <div><u>Event Report</u></div>
+                        <div class="title-2x">{{enAddress}}</div>
+                    </div>
+                {{/with}}
+
+                <!--Header-->
+                {{#with header}}
+                    <div style="width: 100%">
+                        <div style="width: 50%; float: left">
+                            <ul class="list-unstyled">
+                                <li><strong>User:</strong> {{user}}</li>
+                                <li><strong>Type:</strong> {{type}}</li>
+                                <li><strong>Module:</strong> {{module}}</li>
+                            </ul>
+                        </div>
+
+                        <div style="width: 50%; float: right">
+                            <ul class="list-unstyled">
+                                <li><strong>Branch:</strong> {{branch}}</li>
+                                <li><strong>Date:</strong> {{date}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {{/with}}
+
+                <!--Content-->
+                <table class="report-content">
+                    <thead class="header">
+                    <tr>
+                        <th>Index</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Module</th>
+                        <th>Branch</th>
+                    </tr>
+                    </thead>
+
+                    <tbody class="body">
+                    {{#each content}}
+                        <tr>
+                            <td>{{index}}</td>
+                            <td>{{date}}</td>
+                            <td>{{type}}</td>
+                            <td>{{description}}</td>
+                            <td>{{module}}</td>
+                            <td>{{branch}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+
+            {{/with}}
+
+            <!--Sign-->
+            {{> signFooter}}
+
+        {{/reportTpl}}
+
+    {{else}}
+        {{> loading}}
+    {{/if}}
+</template>

@@ -1,0 +1,67 @@
+<template name="sample_customerSearch">
+    <!--Search input-->
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    <div class="input-group">
+                        {{> esInput index="sample_customerSearch" value=data allDocsOnEmpty="true" placeholder="Search customer..." class="form-control"}}
+                        <div class="input-group-addon">
+                            <a href="#" class="insert">
+                                {{fa "plus"}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    <!--Filter-->
+    <span>Filtered by category: </span>
+    <select class="filter-select">
+        <option value="all">All</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+    </select>
+
+    <span>, sorted by </span>
+    <select class="sort-select">
+        <option value="name">name</option>
+        <option value="dob">date of birth</option>
+    </select>
+
+    <!--Search List-->
+    <dl>
+        {{#esEach index="sample_customerSearch"}}
+            {{> sample_customerSearchList}}
+        {{/esEach}}
+    </dl>
+
+    <!--Load more/Pagination-->
+    <div align="center">
+        {{> esLoadMoreButton index="sample_customerSearch" class="btn btn-primary"}}
+        <!--{{> esPagination index="sample_customerSearch"}}-->
+    </div>
+
+    <!--No result-->
+    {{#ifEsHasNoResults index="sample_customerSearch"}}
+        <div class="alert alert-danger" role="alert">No Result !!!</div>
+    {{/ifEsHasNoResults}}
+
+    <!--Loading-->
+    {{#ifEsIsSearching index="sample_customerSearch"}}
+        {{> loading}}
+    {{/ifEsIsSearching}}
+</template>
+
+<template name="sample_customerSearchList">
+    {{#with data}}
+        <dt><a href="#" class="item">{{_id}}</a></dt>
+        <dd style="border-bottom:1px solid">
+            {{lightbox url=photoUrl title=name}}
+            Name: {{name}} | Gender: {{gender}} | Date Of Birth: {{dobVal}}
+        </dd>
+    {{/with}}
+</template>
