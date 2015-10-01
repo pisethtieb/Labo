@@ -73,7 +73,8 @@ Laboratory.Schema.Patient = new SimpleSchema({
     },
     cpanel_branchId: {
         type: String,
-        label: "Branch"
+        label: "Branch",
+        optional:true
     }
 });
 

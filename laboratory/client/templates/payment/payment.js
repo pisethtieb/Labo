@@ -6,6 +6,7 @@ var insertTpl = Template.laboratory_paymentInsert;
 var updateTpl = Template.laboratory_paymentUpdate;
 var showTpl = Template.laboratory_paymentShow;
 var laboInfo = Template.laboratory_laboInfo;
+var actionPaymentTpl = Template.laboratory_paymentLinkAction;
 /**
  * Index
  */
@@ -13,19 +14,72 @@ indexTpl.onCreated(function () {
     // Create new  alertify
     createNewAlertify(["payment", "addressAddon"]);
 });
-
-indexTpl.onRendered(function () {
-    //
-});
-// index helpers
+/// index helpers
 laboInfo.helpers({
-    patient: function () {
-        var id = FlowRouter.getParam("laboId");
-        console.log(id);
-        var patient = Laboratory.Collection.Labo.findOne(id);
-        patient.photoUrl = Files.findOne(patient._patient.photo).url();
-        console.log(patient.photoUrl);
-        return patient;
+
+    labo: function () {
+        var Id = FlowRouter.getParam("laboId");
+        var labo = ReactiveMethod.call('findLabo', Id);
+
+        var str = "<table class='table table-bordered'><thead>" +
+            "<tr>" +
+            "<th>Item ID</th>" +
+            "<th>Qty</th>" +
+            "<th>Price</th>" +
+            "<th>Fee</th>" +
+            "<th>Amount</th>" +
+            "</tr>" +
+            "</thead><tbody>";
+        labo.laboItem.forEach(function (o) {
+            str += '<tr>' +
+                '<td>' + o.itemId + '</td>' +
+                '<td>' + o.qty + '</td>' +
+                '<td>' + numeral(o.price).format('0,0.00') + 'R </td>' +
+                '<td>' + numeral(o.fee).format('0,0.00') + 'R</td>' +
+                '<td>' + numeral(o.amount).format('0,0.00') + 'R</td>' +
+                '</tr>'
+        });
+        str += "</tbody></table>";
+        labo.items = str;
+        return labo;
+    },
+    laboItems: function () {
+        debugger;
+        var Id = FlowRouter.getParam("laboId");
+        var labo = ReactiveMethod.call('findLabo', Id);
+        var str = "<table class='table table-bordered'><thead>" +
+            "<tr>" +
+            "<th>Item ID</th>" +
+            "<th>Qty</th>" +
+            "<th>Price</th>" +
+            "<th>Fee</th>" +
+            "<th>Amount</th>" +
+            "</tr>" +
+            "</thead><tbody>";
+        labo.laboItem.forEach(function (o) {
+            str += '<tr>' +
+                '<td>' + o.itemId + '</td>' +
+                '<td>' + o.qty + '</td>' +
+                '<td>' + numeral(o.price).format('0,0.00') + 'R </td>' +
+                '<td>' + numeral(o.fee).format('0,0.00') + 'R</td>' +
+                '<td>' + numeral(o.amount).format('0,0.00') + 'R</td>' +
+                '</tr>'
+        });
+        str += "</tbody></table>";
+        return new Spacebars.SafeString(str);
+    }
+
+});
+actionPaymentTpl.helpers({
+    labo: function () {
+        debugger;
+        var labo = FlowRouter.getParam("laboId");
+        var checkAvailable = Laboratory.Collection.Payment.findOne({laboId: labo}, {sort: {_id: -1}});
+        if (checkAvailable.status == 'Full') {
+            $('.paymentAction').attr('disabled', true);
+        } else {
+            $('.paymentAction').attr('disabled', false);
+        }
     }
 });
 indexTpl.helpers({
@@ -37,21 +91,19 @@ indexTpl.helpers({
     labo: function () {
         return getCurrentLabo();
     },
-    paymentData: function () {
-        var patientId = FlowRouter.getParam('patientId');
-        var laboId = FlowRouter.getParam('laboId');
-
-        return {
-            selector: {laboId: laboId},
-            patientId: patientId,
-            laboId: laboId
-        };
+    checkAvailable: function () {
+        return checkAvailable();
     }
 });
 // Index events
 indexTpl.events({
+    'click .btn-link': function (e, t) {
+        var self = this;
+        checkLastPayment(self);
+    },
     'click .insert': function (e, t) {
         //debugger;
+        e.preventDefault();
         var laboId = FlowRouter.getParam("laboId");
         var data = Laboratory.Collection.Labo.findOne(laboId);
         var lastPayment = Laboratory.Collection.Payment.findOne({
@@ -62,13 +114,14 @@ indexTpl.events({
         var doc = {};
         if (!_.isUndefined(lastPayment)) {
             if (lastPayment.outstandingAmoun = "0") {
+
                 lastPayment.paidAmount = lastPayment.outstandingAmount;
                 lastPayment.overdueAmount = lastPayment.outstandingAmount;
             } else {
                 lastPayment.overdueAmount = lastPayment.outstandingAmount;
                 lastPayment.paidAmount = lastPayment.overdueAmount;
             }
-
+            lastPayment.paymentDate = moment().format("YYYY-MM-DD HH:mm:ss");
             alertify.payment(fa("plus", "Payment"),
                 renderTemplate(insertTpl, lastPayment));
 
@@ -76,12 +129,12 @@ indexTpl.events({
             console.log(data.total);
             doc.laboId = data._id;
             doc.patientId = data.patientId;
-            doc.paymentDate = moment().format("YYYY-MM-DD HH:mm:ss");
+            //doc.paymentDate = moment().format("YYYY-MM-DD HH:mm:ss");
             doc.overdueAmount = data.total;
             doc.paidAmount = data.total;
+            doc.paymentDate = moment().format("YYYY-MM-DD HH:mm:ss");
             alertify.payment(fa("plus", "Payment"),
                 renderTemplate(insertTpl, doc));
-
 
         }
     },
@@ -105,15 +158,10 @@ indexTpl.events({
             },
             null
         );
-
     },
     'click .show': function (e, t) {
         var data = Laboratory.Collection.Payment.findOne({_id: this._id});
         alertify.alert(fa("eye", "Payment"), renderTemplate(showTpl, data));
-    },
-    'click .btn-link': function () {
-        var self = this;
-        checkLastPayment(self);
     }
 });
 
@@ -126,6 +174,8 @@ indexTpl.onDestroyed(function () {
  */
 insertTpl.onRendered(function () {
     datePicker();
+    // cal balance on payment
+    calculateBalance();
 });
 // Insert events
 insertTpl.events({
@@ -139,6 +189,11 @@ insertTpl.events({
  */
 updateTpl.onRendered(function () {
     datePicker();
+});
+updateTpl.helpers({
+    checkAvailable: function () {
+
+    }
 });
 // Update events
 updateTpl.events({
@@ -213,9 +268,9 @@ function onChangelaboId(e) {
 //check OnAction
 function checkLastPayment(self) {
     var checkingLastPayment = Laboratory.Collection.Payment.findOne({laboId: self.laboId}, {sort: {_id: -1}});
-    var lastPayment = checkingLastPayment.paymentDate;
-
-    if (lastPayment == self.paymentDate) {
+    var lastPaymentId = checkingLastPayment._id;
+    console.log(lastPaymentId == self._id);
+    if (lastPaymentId == self._id) {
         $('.updatePayment').show();
         $('.removePayment').show();
     } else {
@@ -243,3 +298,15 @@ var getCurrentLabo = function () {
     }
     return data;
 };
+//cheack buttion add new for payment
+function checkAvailable() {
+    debugger;
+    var labo = FlowRouter.getParam("laboId");
+    var checkAvailable = Laboratory.Collection.Payment.findOne({laboId: labo}, {sort: {_id: -1}});
+    if (checkAvailable.status == 'Full') {
+        return true
+    } else {
+        return false
+    }
+
+}

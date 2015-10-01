@@ -17,17 +17,10 @@ indexTpl.onCreated(function () {
         description: 'Description for this page'
     });
     // Create new  alertify
-    createNewAlertify(["Patient", "address", "labo"]);
+    createNewAlertify(["Patient","Labo"]);
 });
-indexTpl.helpers({
-    selector: function () {
-        return {
-            cpanel_branchId: Session.get('currentBranch')
-        }
-    }
-});
+indexTpl.helpers({});
 indexTpl.onRendered(function () {
-    //
 });
 
 indexTpl.helpers({});
@@ -39,6 +32,7 @@ indexTpl.events({
     },
     'click .update': function (e, t) {
         var id = this._id;
+        //get value from server
         Meteor.call('findPatient', id, function (err, data) {
             if (err) {
                 console.log(err);
@@ -85,10 +79,10 @@ indexTpl.events({
     'dblclick tbody > tr': function (event) {
         var dataTable = $(event.target).closest('table').DataTable();
         var rowData = dataTable.row(event.currentTarget).data();
+        //check already excite patient on labo
         Meteor.call('checkLaboForPatient', rowData._id, function (err, result) {
-            debugger;
             if (_.isUndefined(result.labo)) {
-                alertify.labo(fa('plus', 'Add Labo'),
+                alertify.Labo(fa('plus', 'Add Labo'),
                     renderTemplate(Template.laboratory_laboInsert, result.id)
                 )
                     .maximize();
@@ -99,9 +93,10 @@ indexTpl.events({
             }
         });
     },
+    //click to add new labo
     'click .laboAction': function () {
 
-        alertify.labo(fa('plus', 'Add Labo'),
+        alertify.Labo(fa('plus', 'Add Labo'),
             renderTemplate(Template.laboratory_laboInsert, this._id)
         )
             .maximize();
@@ -126,24 +121,7 @@ insertTpl.events({
             addressAddonTpl))
     },
     'blur .dob': function (e, t) {
-        debugger;
-        var dob = $('.dob').val();
-        var age = moment().diff(dob, 'years');
-        if (age == 0) {
-            var underzero = moment().diff(dob, 'months');
-            if (underzero == 1 || underzero == 0) {
-                $('.age').val('A Month');
-            } else {
-                $('.age').val(underzero + ' ' + 'Months');
-            }
-        } else {
-            if (age == 1) {
-                $('.age').val('A Year');
-            } else {
-                $('.age').val(age + ' ' + "Years");
-            }
-
-        }
+        calculateAge(e);
     }
 });
 
@@ -163,24 +141,8 @@ updateTpl.events({
     },
     //onChange DoB to calculate
     'blur .dob': function (e, t) {
-        debugger;
-        var dob = $('.dob').val();
-        var age = moment().diff(dob, 'years');
-        if (age == 0) {
-            var underzero = moment().diff(dob, 'months');
-            if (underzero == 1 || underzero == 0) {
-                $('.age').val('A Month');
-            } else {
-                $('.age').val(underzero + ' ' + 'Months');
-            }
-        } else {
-            if (age == 1) {
-                $('.age').val('A Year');
-            } else {
-                $('.age').val(age + ' ' + "Years");
-            }
 
-        }
+        calculateAge(e);
     }
 });
 
@@ -236,27 +198,25 @@ var configOnRender = function () {
     // date
     var dob = $('[name="dob"]');
     DateTimePicker.date(dob);
-
-    // Remote select2
-    //$('[name="addressId"]').select2({
-    //    placeholder: "Search address",
-    //    allowClear: true,
-    //    ajax: {
-    //        url: function (param) {
-    //            var url = "/Laboratory/addressRemote/" + param;
-    //            return url;
-    //        },
-    //        type: "GET",
-    //        dataType: 'json',
-    //        delay: 250,
-    //        //data: function (param) {
-    //        //    return {term: param};
-    //        //},
-    //        results: function (data, page) {
-    //            return {results: data};
-    //        },
-    //        cache: true
-    //    },
-    //    minimumInputLength: 3
-    //});
 };
+
+//calculate age for patient
+function calculateAge(e) {
+    var dob = $('.dob').val();
+    var age = moment().diff(dob, 'years');
+    if (age == 0) {
+        var underzero = moment().diff(dob, 'months');
+        if (underzero == 1 || underzero == 0) {
+            $('.age').val('A Month');
+        } else {
+            $('.age').val(underzero + ' ' + 'Months');
+        }
+    } else {
+        if (age == 1) {
+            $('.age').val('A Year');
+        } else {
+            $('.age').val(age + ' ' + "Years");
+        }
+
+    }
+}

@@ -7,7 +7,7 @@ var indexTpl = Template.laboratory_agent,
 // Index
 indexTpl.onCreated(function () {
     // Create new  alertify
-    createNewAlertify(["agent", "address"]);
+    createNewAlertify(["agent", "address", "fee"]);
 });
 
 indexTpl.onRendered(function () {
@@ -60,6 +60,12 @@ indexTpl.events({
         }
 
         alertify.alert(fa("eye", "agent"), renderTemplate(showTpl, data));
+    },
+    'dblclick tbody > tr': function (event) {
+        debugger;
+        var dataTable = $(event.target).closest('table').DataTable();
+        var rowData = dataTable.row(event.currentTarget).data();
+        FlowRouter.go('laboratory.fee', {agentId: rowData._id});
     }
 });
 

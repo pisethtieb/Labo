@@ -13,7 +13,6 @@ Laboratory.TabularTable.Payment = new Tabular.Table({
         {data: "_id", title: "ID"},
         {data: "paymentDate", title: "Date"},
         {data: "_patient.name", title: "Patient"},
-        {data: "laboId", title: "labo"},
         {data: "overdueAmount", title: "Over Amount"},
         {data: "paidAmount", title: "Paid Amount"},
         {

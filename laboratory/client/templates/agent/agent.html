@@ -5,7 +5,7 @@
     </p>
 
     {{#if isSubReady "laboratory_agent"}}
-        {{> tabular table=Laboratory.TabularTable.Agent selector=selector class="table table-striped table-bordered table-condensed table-hover"}}
+        {{> tabular table=Laboratory.TabularTable.Agent  class="table table-striped table-bordered table-condensed table-hover double_click"}}
 
     {{else}}
         {{> loading}}
@@ -83,4 +83,15 @@
         <dt>Photo :</dt>
         <dd>{{lightbox url=photoUrl title=name}}</dd>
     </dl>
+</template>
+
+<!--lao action ceoch count-->
+<template name="laboratory_paymentLinkAction">
+    <button type="button" class="btn btn-primary btn-sm paymentAction">
+        {{#if _paymentCount}}
+            {{_paymentCount}}
+        {{else}}
+            0
+        {{/if}}
+    </button>
 </template>

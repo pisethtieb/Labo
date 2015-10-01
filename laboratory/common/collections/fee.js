@@ -14,13 +14,7 @@ Laboratory.Schema.Fee = new SimpleSchema({
     agentId: {
         type: String,
         label: "Agent ID",
-        max: 250,
-        autoform: {
-            type: "select2",
-            options: function () {
-                return Laboratory.List.agentId();
-            }
-        }
+        max: 250
     },
     laboId: {
         type: String,
@@ -50,7 +44,12 @@ Laboratory.Schema.Fee = new SimpleSchema({
     paidAmount: {
         type: Number,
         label: "Paid Amount",
-        decimal: true
+        min: 1,
+        custom: function () {
+            if (this.value > this.field('overdueAmount').value) {
+                return "greaterThan";
+            }
+        }
     },
     outstandingAmount: {
         type: Number,
@@ -63,7 +62,8 @@ Laboratory.Schema.Fee = new SimpleSchema({
     },
     cpanel_branchId: {
         type: String,
-        label: "Branch"
+        label: "Branch",
+        optional: true
     }
 });
 
@@ -72,3 +72,6 @@ Laboratory.Collection.Fee.attachSchema(Laboratory.Schema.Fee);
 
 // Attach soft remove
 Laboratory.Collection.Fee.attachBehaviour('softRemovable');
+SimpleSchema.messages({
+    "greaterThan": "PaidAmount mustn't be greater than OverdueAmount!"
+});

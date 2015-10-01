@@ -12,7 +12,7 @@ Laboratory.TabularTable.Fee = new Tabular.Table({
         {title: '<i class="fa fa-bars"></i>', tmpl: Meteor.isClient && Template.laboratory_feeAction},
         {data: "_id", title: "ID"},
         {data: "feeDate", title: "Date"},
-        {data: "_agent.name", title: "Agent"},
+        //{data: "_agent.name", title: "Agent"},
         {data: "laboId", title: "labo"},
         {data: "staffId", title: "Staff"},
         {data: "overdueAmount", title: "Over Amount"},

@@ -72,7 +72,7 @@ Laboratory.Schema.Staff = new SimpleSchema({
     },
     cpanel_branchId: {
         type: String,
-        label: "Branch"
+        label: "Branch", optional: true
     }
 });
 

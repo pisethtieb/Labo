@@ -43,7 +43,7 @@ Laboratory.Schema.Items = new SimpleSchema({
         optional: true,
         label: "Prepend Value",
         autoform: {
-            type: "selectize",
+            type: "select2",
             options: function () {
                 return Laboratory.List.prepend();
             }
@@ -56,7 +56,7 @@ Laboratory.Schema.Items = new SimpleSchema({
         optional: true,
         label: "Append Value",
         autoform: {
-            type: "selectize",
+            type: "select2",
             options: function () {
                 return Laboratory.List.Append();
             }

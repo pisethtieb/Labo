@@ -1,11 +1,12 @@
 Laboratory.laboState = new ReactiveObj();
 Laboratory.ListForLabo = new ReactiveObj();
+Laboratory.laboState = new ReactiveObj();
 
 var indexTpl = Template.laboratory_fee;
 var insertTpl = Template.laboratory_feeInsert;
 var updateTpl = Template.laboratory_feeUpdate;
 var showTpl = Template.laboratory_feeShow;
-var laboInfo = Template.laboratory_laboInfo;
+var agentInForTpl = Template.laboratory_agentInfo;
 /**
  * Index
  */
@@ -18,75 +19,42 @@ indexTpl.onRendered(function () {
     //
 });
 // index helpers
-laboInfo.helpers({
+agentInForTpl.helpers({
     agent: function () {
-        var id = FlowRouter.getParam("agentId");
-        console.log(id);
-        var agent = Laboratory.Collection.Agent.findOne(id);
-        agent.photoUrl = Files.findOne(agent._agent.photo).url();
-        console.log(agent.photoUrl);
+        debugger;
+        var agentId = FlowRouter.getParam("agentId");
+        var agent = Laboratory.Collection.Agent.findOne({_id: agentId});
+        agent.photoUrl = Files.findOne(agent.photo).url();
         return agent;
     }
 });
 indexTpl.helpers({
+    agent: function () {
+        debugger;
+        var agentId = FlowRouter.getParam("agentId");
+        var agent = Laboratory.Collection.Agent.findOne({_id: agentId});
+        if (!_.isUndefined(agent.photo)) {
+            agent.photoUrl = Files.findOne(agent.photo).url();
+        } else {
+            agent.photoUrl = null;
+        }
+        return agent;
+    },
+
     tabularSelector: function () {
         var id = FlowRouter.getParam("agentId");
-        console.log(id);
         return {agentId: id};
-    },
-    labo: function () {
-        return getCurrentLabo();
-    },
-    feeData: function () {
-        var agentId = FlowRouter.getParam('agentId');
-        var laboId = FlowRouter.getParam('laboId');
-
-        return {
-            selector: {laboId: laboId},
-            agentId: agentId,
-            laboId: laboId
-        };
     }
+
 });
 // Index events
 indexTpl.events({
     'click .insert': function (e, t) {
-        //debugger;
-        var laboId = FlowRouter.getParam("laboId");
-        var data = Laboratory.Collection.Labo.findOne(laboId);
-        var lastPayment = Laboratory.Collection.Payment.findOne({
-                laboId: laboId
-            },
-            {sort: {_id: -1}}
-        );
-        var doc = {};
-        if (!_.isUndefined(lastPayment)) {
-            if (lastPayment.outstandingAmoun = "0") {
-                lastPayment.paidAmount = lastPayment.outstandingAmount;
-                lastPayment.overdueAmount = lastPayment.outstandingAmount;
-            } else {
-                lastPayment.overdueAmount = lastPayment.outstandingAmount;
-                lastPayment.paidAmount = lastPayment.overdueAmount;
-            }
-
-            alertify.fee(fa("plus", "Fee"),
-                renderTemplate(insertTpl, lastPayment));
-
-        } else {
-            console.log(data.totalFee);
-            doc.laboId = data._id;
-            doc.patientId = data.patientId;
-            doc.feeDate = moment().format("YYYY-MM-DD HH:mm:ss");
-            doc.overdueAmount = data.total;
-            doc.paidAmount = data.total;
-            alertify.fee(fa("plus", "Payment"),
-                renderTemplate(insertTpl, doc));
-
-
-        }
+        alertify.fee(fa("plus", "Fee"),
+            renderTemplate(insertTpl))
     },
     'click .update': function (e, t) {
-        var data = Laboratory.Collection.Payment.findOne(this._id);
+        var data = Laboratory.Collection.Fee.findOne(this._id);
         alertify.fee(fa("pencil", "Payment"), renderTemplate(updateTpl, data));
     },
     'click .remove': function (e, t) {
@@ -95,7 +63,7 @@ indexTpl.events({
             fa("remove", "Payment"),
             "Are you sure to delete [" + id + "]?",
             function () {
-                Laboratory.Collection.Payment.remove(id, function (error) {
+                Laboratory.Collection.Fee.remove(id, function (error) {
                     if (error) {
                         alertify.error(error.message);
                     } else {
@@ -113,14 +81,12 @@ indexTpl.events({
     },
     'click .btn-link': function () {
         var self = this;
-        checkLastPayment(self);
+        checkLastFee(self);
     }
 });
-
 indexTpl.onDestroyed(function () {
     //
 });
-
 /**
  * Insert
  */
@@ -131,9 +97,39 @@ insertTpl.onRendered(function () {
 insertTpl.events({
     'keyup .paidAmount': function () {
         calculateBalance();
+    },
+    'change .laboId': function (e) {
+        debugger;
+        var laboId = $(e.currentTarget).val();
+        //onChangeLaboId(e);
+        var totalFee = Laboratory.Collection.Labo.findOne({_id: laboId}).totalFee;
+        Laboratory.Collection.Labo.find({_id: laboId}).forEach(function (obj) {
+            var fee = Laboratory.Collection.Fee.findOne({
+                    testId: obj._id
+                },
+                {
+                    sort: {
+                        _id: -1
+                    }
+                });
+            if (fee != null && fee.outstandingAmount > 0 && fee.status == "Partial") {
+                $('.overdueAmount').val(fee.outstandingAmount);
+                $('.paidAmount').val(fee.outstandingAmount);
+            } else if (fee == null) {
+                $('.overdueAmount').val(totalFee);
+                $('.paidAmount').val(totalFee);
+            }
+        });
     }
 });
-
+insertTpl.helpers({
+    agent: function () {
+        debugger;
+        var agentId = FlowRouter.getParam("agentId");
+        var agent = Laboratory.Collection.Agent.findOne({_id: agentId});
+        return agent;
+    }
+});
 /**
  * Update
  */
@@ -211,19 +207,17 @@ function onChangelaboId(e) {
     }
 }
 //check OnAction
-function checkLastPayment(self) {
-    var checkingLastPayment = Laboratory.Collection.Payment.findOne({laboId: self.laboId}, {sort: {_id: -1}});
-    var lastPayment = checkingLastPayment.feeDate;
-
-    if (lastPayment == self.feeDate) {
-        $('.updatePayment').show();
-        $('.removePayment').show();
+function checkLastFee(self) {
+    debugger;
+    var checkingLastFee = Laboratory.Collection.Fee.findOne({laboId: self.laboId}, {sort: {_id: -1}})._id;
+    if (checkingLastFee == self._id) {
+        $('.updateFee').show();
+        $('.removeFee').show();
     } else {
-        $('.updatePayment').hide();
-        $('.removePayment').hide();
+        $('.updateFee').hide();
+        $('.removeFee').hide();
     }
 }
-
 // calculate Balance
 function calculateBalance() {
     var overdueAmount = $('.overdueAmount').val();
@@ -231,15 +225,3 @@ function calculateBalance() {
     var balance = math.round(overdueAmount - paidAmount, 2);
     $('.balance').val(balance);
 }
-// getCurrentLabo
-var getCurrentLabo = function () {
-    var id = FlowRouter.getParam('laboId');
-
-    var data = Laboratory.Collection.Labo.findOne(id);
-    if (!_.isUndefined(data._patient.photo)) {
-        data.photoUrl = Files.findOne(data._patient.photo).url();
-    } else {
-        data.photoUrl = null;
-    }
-    return data;
-};

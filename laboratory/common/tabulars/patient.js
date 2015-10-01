@@ -35,7 +35,7 @@ Laboratory.TabularTable.Patient = new Tabular.Table({
             }
         },
         {
-            data: "_laboCount", title: "LaboCo",
+            data: "_laboCount", title: "Labo",
             tmpl: Meteor.isClient && Template.laboratory_laboLinkAction
         }
     ]

@@ -27,10 +27,10 @@ Laboratory.TabularTable.Labo = new Tabular.Table({
         },
         {data: "_staff.name", title: "Staff"},
         {data: "_agent.name", title: "Agent"},
-        {data: "_patient.name", title: "Patient"},
+        //{data: "_patient.name", title: "Patient"},
         {
             data: "_paymentCount",
-            title: "P+",
+            title: "Pay+",
             tmpl: Meteor.isClient && Template.laboratory_paymentLinkAction
         }
         //{

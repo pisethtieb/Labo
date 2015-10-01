@@ -7,6 +7,7 @@ var indexTpl = Template.laboratory_labo,
     patientInfo = Template.laboratory_patientInfo;
 // Index
 indexTpl.onRendered(function () {
+    ///wrong link to other route
     if (FlowRouter.getParam("patientId") == null || FlowRouter.getParam("patientId") == "") {
         FlowRouter.go('labo.home');
     }
@@ -17,8 +18,13 @@ indexTpl.onRendered(function () {
 patientInfo.helpers({
     patient: function () {
         var patientId = FlowRouter.getParam("patientId");
-        var patient = ReactiveMethod.call('findPatient', patientId)
-        patient.photoUrl = Files.findOne(patient.photo).url();
+        Meteor.subscribe('laboratory_patient');
+        var patient = Laboratory.Collection.Patient.findOne({_id: patientId});
+        if (!_.isUndefined(patient.photo)) {
+            patient.photoUrl = Files.findOne(patient.photo).url();
+        } else {
+            patient.photoUrl = null;
+        }
         return patient;
     }
 });
@@ -32,12 +38,12 @@ indexTpl.helpers({
             patientId: patientId
         };
     }
+
 });
 
 indexTpl.events({
     'click .insert': function () {
         var patientId = FlowRouter.getParam("patientId");
-
         if (patientId == null) {
             alertify.labo(renderTemplate(insertTpl))
                 .set({
@@ -56,7 +62,7 @@ indexTpl.events({
     'click .update': function () {
         var data = Laboratory.Collection.Labo.findOne({_id: this._id});
         //var data = this;
-        alertify.payment(renderTemplate(updateTpl, data))
+        alertify.labo(renderTemplate(updateTpl, data))
             .set({
                 title: fa("pencil", "labo")
             })
@@ -86,7 +92,7 @@ indexTpl.events({
             })
     },
     'click .laboPrintAction': function () {
-        debugger;
+
         var date = moment(this.laboDate).format("YYYY-MM-DD");
         var time = moment(this.laboDate).format("HH:mm:ss");
 
@@ -97,35 +103,59 @@ indexTpl.events({
         var dataTable = $(event.target).closest('table').DataTable();
         var rowData = dataTable.row(event.currentTarget).data();
         var patientId = FlowRouter.getParam('patientId');
-        rowData.paymentDate = moment().format('YYYY-MM-DD H:mm:ss');
-
+        //check excite on payment
         Meteor.call('checkLaboForLabo', rowData._id, function (err, result) {
-            debugger;
+
             if (_.isUndefined(result.payment)) {
-                alertify.payment(fa('plus', 'Add Labo'),
-                    renderTemplate(Template.laboratory_paymentInsert, rowData)
-                )
-                    .maximize();
+                var doc = {};
+                doc.laboId = rowData._id;
+                doc.patientId = rowData.patientId;
+                doc.overdueAmount = rowData.total;
+                doc.paidAmount = rowData.total;
+                doc.paymentDate = moment().format("YYYY-MM-DD HH:mm:ss");
+                alertify.payment(fa("plus", "Payment"),
+                    renderTemplate(Template.laboratory_paymentInsert, doc));
             } else {
+                //result.lastPayment.paymentDate=moment().format("YYYY-MM-DD HH:mm:ss");
                 FlowRouter.go('Laboratory.payment', {
                     laboId: result.id, patientId: patientId
                 });
             }
         });
     },
+    //click to payment
     'click .paymentAction': function () {
+        var self = this;
+        var lastPayment = Laboratory.Collection.Payment.findOne({laboId: self._id}, {sort: {_id: -1}});
+        var doc = {};
+        if (!_.isUndefined(lastPayment)) {
+            if (lastPayment.outstandingAmoun = "0") {
+                lastPayment.paidAmount = lastPayment.outstandingAmount;
+                lastPayment.overdueAmount = lastPayment.outstandingAmount;
+            } else {
+                lastPayment.overdueAmount = lastPayment.outstandingAmount;
+                lastPayment.paidAmount = lastPayment.overdueAmount;
+            }
+            if (lastPayment.status == 'Full') {
+                alertify.error('Labo[' + self._id + ']  is fully paid! ');
+                return false;
+            } else {
+                lastPayment.paymentDate = moment().format("YYYY-MM-DD HH:mm:ss");
+                alertify.payment(fa("plus", "Payment"),
+                    renderTemplate(Template.laboratory_paymentInsert, lastPayment));
+            }
+        } else {
+            doc.laboId = self._id;
+            doc.patientId = self.patientId;
+            doc.overdueAmount = self.total;
+            doc.paidAmount = self.total;
+            doc.paymentDate = moment().format("YYYY-MM-DD HH:mm:ss");
+            alertify.payment(fa("plus", "Payment"),
 
-        //var patientId = FlowRouter.getParam('patientId');
-        //var laboId = this._id;
-        this.paymentDate = moment().format('YYYY-MM-DD H:mm:ss');
-        alertify.payment(fa('plus', 'Add Labo'),
-            renderTemplate(Template.laboratory_paymentInsert, this)
-        )
-            .maximize()
-
+                renderTemplate(Template.laboratory_paymentInsert, doc));
+        }
     }
 });
-
 /**
  * Insert
  */
@@ -134,7 +164,6 @@ insertTpl.onRendered(function () {
     createNewAlertify([
         'staffAddon',
         'agentAddon',
-        'patientAddon',
         'paymentAction'
     ]);
 
@@ -193,12 +222,16 @@ insertTpl.events({
     },
 
     'keyup .price,.qty, click .price,.qty': function (e) {
+
         var thisObj = $(e.currentTarget);
         var price = thisObj.parents('div.row').find('.price').val();
         var qty = thisObj.parents('div.row').find('.qty').val();
-        var fee = thisObj.parents('div.row').find('.fee').val();
+        var calFee = thisObj.parents('div.row').find('.calFee').val();
         var amount = price * qty;
+        var amountFee = calFee * qty;
+
         thisObj.parents('div.row').find('.amount').val(amount);
+        thisObj.parents('div.row').find('.fee').val(amountFee);
         calculateTotal();
 
         if (price != 0 && qty != 0) {
@@ -219,12 +252,6 @@ insertTpl.events({
             .set({
                 title: fa("plus", "Agent")
             })
-    },
-    'click .patientAddon': function () {
-        alertify.patientAddon(renderTemplate(Template.laboratory_patientInsert))
-            .set({
-                title: fa("plus", "Patient")
-            })
     }
 });
 
@@ -233,8 +260,6 @@ insertTpl.events({
  * Update
  */
 updateTpl.onRendered(function () {
-    //datepicker();
-
     //run this function when on update get value for total
     calculateTotal();
 });
@@ -255,37 +280,50 @@ updateTpl.events({
                 }
                 enable = true;
             });
-
             if (enable) {
                 $('.btnAdd').attr('disabled', false);
             } else {
                 $('.btnAdd').attr('disabled', true);
-
             }
-
             calculateTotal();
         }, 300);
-
     },
+    'keyup .price,.qty, click .price,.qty': function (e) {
 
-    'click .btnAdd': function (e) {
         var thisObj = $(e.currentTarget);
-        var itemId = thisObj.parents('div.row').find('.itemId').val();
         var price = thisObj.parents('div.row').find('.price').val();
         var qty = thisObj.parents('div.row').find('.qty').val();
+        var calFee = thisObj.parents('div.row').find('.calFee').val();
+        var amount = price * qty;
+        var amountFee = calFee * qty;
+        thisObj.parents('div.row').find('.amount').val(amount);
+        thisObj.parents('div.row').find('.fee').val(amountFee);
+        calculateTotal();
 
-        if (itemId != "" && qty != 0 && price != 0) {
+        if (price != 0 && qty != 0) {
             $('.btnAdd').removeAttr('disabled');
         } else {
             $('.btnAdd').attr('disabled', "disabled");
         }
     },
     'keyup .price,.qty,click.price,.qty': function (e) {
+
         var thisObj = $(e.currentTarget);
+        var itemId = thisObj.parents('div.row').find('.itemId').val();
+        var itemData = Laboratory.Collection.Items.findOne({_id: itemId});
+        if (itemData.feeType == 'percent') {
+            fee = (itemData.price * itemData.fee) / 100;
+        }
+        else {
+            fee = itemData.fee
+        }
         var price = thisObj.parents('div.row').find('.price').val();
         var qty = thisObj.parents('div.row').find('.qty').val();
+        var amountFee = fee * qty;
         var amount = price * qty;
+
         thisObj.parents('div.row').find('.amount').val(amount);
+        thisObj.parents('div.row').find('.fee').val(amountFee);
         calculateTotal();
 
         if (price != 0 && qty != 0) {
@@ -305,12 +343,6 @@ updateTpl.events({
             .set({
                 title: fa("plus", "Agent")
             })
-    },
-    'click .patientAddon': function () {
-        alertify.patientAddon(renderTemplate(Template.laboratory_patientInsert))
-            .set({
-                title: fa("plus", "Patient")
-            })
     }
 });
 
@@ -320,16 +352,25 @@ updateTpl.events({
 
 showTpl.helpers({
     laboItems: function () {
-
-
-        var str = "";
+        var str = "<table class='table table-bordered'><thead>" +
+            "<tr>" +
+            "<th>Item ID</th>" +
+            "<th>Qty</th>" +
+            "<th>Price</th>" +
+            "<th>Fee</th>" +
+            "<th>Amount</th>" +
+            "</tr>" +
+            "</thead><tbody>";
         this.laboItem.forEach(function (o) {
-            str += '+' + "Product ID: " + o.itemId +
-                " | Qy: " + o.qty +
-                " | Price: " + numeral(o.price).format('0,0.00') + 'R' +
-                " | Fee: " + numeral(o.fee).format('0,0.00') + 'R'
-                + " | Amount: " + numeral(o.amount).format('0,0.00') + 'R' + "<br/>";
+            str += '<tr>' +
+                '<td>' + o.itemId + '</td>' +
+                '<td>' + o.qty + '</td>' +
+                '<td>' + numeral(o.price).format('0,0.00') + 'R </td>' +
+                '<td>' + numeral(o.fee).format('0,0.00') + 'R</td>' +
+                '<td>' + numeral(o.amount).format('0,0.00') + 'R</td>' +
+                '</tr>'
         });
+        str += "</tbody></table>";
         return new Spacebars.SafeString(str);
     }
 });
@@ -341,8 +382,6 @@ AutoForm.hooks({
     laboratory_laboInsert: {
         before: {
             insert: function (doc) {
-                //doc.branchId = Session.get('currentBranch');
-                //return doc;
                 var prefix = Session.get('currentBranch') + '-';
                 Meteor.call('labo', prefix);
                 return doc;
@@ -357,6 +396,7 @@ AutoForm.hooks({
     },
     laboratory_laboUpdate: {
         onSuccess: function (formType, result) {
+
             alertify.labo().close();
             alertify.success('Success');
         },
@@ -378,17 +418,8 @@ var datepicker = function () {
     var laboDate = $('[name="laboDate"]');
     DateTimePicker.dateTime(laboDate);
 };
-
-/**
- * Return current date after Insert Success
- *
- * @returns {currentDate}
- */
-
-/**
- * onchange Item
- */
 function onchangeItem(e) {
+    debugger;
     var thisObj = $(e.currentTarget);
     var itemId = $(e.currentTarget).val();
     if (itemId != "") {
@@ -408,11 +439,10 @@ function onchangeItem(e) {
     var feeType = itemData.feeType;
     if (feeType == 'percent') {
         var fee = (itemData.price * itemData.fee) / 100;
-
         thisObj.parents('div.row').find('.price').val(price);
         thisObj.parents('div.row').find('.qty').val(1);
-
         thisObj.parents('div.row').find('.fee').val(fee);
+        thisObj.parents('div.row').find('.calFee').val(fee);
         thisObj.parents('div.row').find('.amount').val(price);
         calculateTotal();
     } else {
@@ -420,40 +450,12 @@ function onchangeItem(e) {
         thisObj.parents('div.row').find('.price').val(price);
         thisObj.parents('div.row').find('.qty').val(1);
         thisObj.parents('div.row').find('.fee').val(fee);
+        thisObj.parents('div.row').find('.calFee').val(fee);
         thisObj.parents('div.row').find('.amount').val(price);
+
         calculateTotal();
     }
 }
-
-/**
- * Register state
- */
-
-var laboState = function (param) {
-    var laboDoc = Laboratory.Collection.Labo.findOne({_id: param._id});
-    /***** Patient *****/
-        // Photo
-    laboDoc._patient.photoUrl = null;
-    if (!_.isUndefined(laboDoc._patient.photo)) {
-        laboDoc._patient.photoUrl = Files.findOne(laboDoc._patient.photo).url();
-    }
-
-    // Set state
-    Laboratory.laboState.set('data', laboDoc);
-};
-var laboState = function (param) {
-    var laboDoc = Laboratory.Collection.Labo.findOne({_id: param._id});
-    /***** Agent *****/
-        // Photo
-    laboDoc._agent.photoUrl = null;
-    if (!_.isUndefined(laboDoc._agent.photo)) {
-        laboDoc._agent.photoUrl = Files.findOne(laboDoc._agent.photo).url();
-    }
-
-    // Set state
-    Laboratory.laboState.set('data', laboDoc);
-};
-
 /**
  * Calculate all amount to total
  */
@@ -465,34 +467,26 @@ function calculateTotal() {
         total += amount;
     });
     $('[name="total"]').val(total);
-
     var decimal_places = 2;
     var decimal_factor = decimal_places === 0 ? 1 : decimal_places * 10;
-
-
     $('.total')
         .animateNumber(
         {
             number: total * decimal_factor,
-
             numberStep: function (now, tween) {
                 var floored_number = Math.floor(now) / decimal_factor,
                     target = $(tween.elem);
-
                 if (decimal_places > 0) {
                     // force decimal places even if they are 0
                     floored_number = floored_number.toFixed(decimal_places);
-
                     // replace '.' separator with ','
                     floored_number = floored_number.toString().replace('.', ',');
                 }
-
-                target.text('$' + floored_number);
+                target.text('R' + floored_number);
             }
         },
         200
     );
-
     //totalAmount
     var totalFee = 0;
     $('.fee').each(function () {
@@ -522,20 +516,10 @@ function calculateTotal() {
                     floored_number = floored_number.toString().replace('.', ',');
                 }
 
-                target.text('$' + floored_number);
+                target.text('R' + floored_number);
             }
         },
         200
     );
 
 }
-var getCurrentPatient = function () {
-    var id = FlowRouter.getParam('patientId');
-    var data = Laboratory.Collection.Patient.findOne(id);
-    if (!_.isUndefined(data.photo)) {
-        data.photoUrl = Files.findOne(data.photo).url();
-    } else {
-        data.photoUrl = null;
-    }
-    return data;
-};

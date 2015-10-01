@@ -25,12 +25,12 @@ indexTpl.helpers({
 indexTpl.events({
     'click .insert': function (e, t) {
         alertify.category(fa("plus", "Category"), renderTemplate(insertTpl))
-            .maximize();
+
     },
     'click .update': function (e, t) {
         var data = Laboratory.Collection.Category.findOne(this._id);
         alertify.category(fa("pencil", "Category"), renderTemplate(updateTpl, data))
-            .maximize();
+
     },
     'click .remove': function (e, t) {
         var self = this;

@@ -10,6 +10,7 @@ Laboratory.TabularTable.Category = new Tabular.Table({
     order: [['1', 'desc']],
     columns: [
         {title: '<i class="fa fa-bars"></i>', tmpl: Meteor.isClient && Template.laboratory_categoryAction},
+        {data: "_id", title: "ID"},
         {data: "name", title: "Name"},
         {data: "des", title: "Description"}
     ]

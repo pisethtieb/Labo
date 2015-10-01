@@ -1,0 +1,14 @@
+.double_click > tbody > tr {
+    cursor: pointer;
+}
+
+.double_click > tbody > tr:hover{
+    color: #337AB7;
+}
+
+.double_click > .input-sm{
+    width: 200px;
+}
+#double_click-header{
+    background-color:#f0ad4e;
+}

@@ -79,7 +79,7 @@ Laboratory.Schema.Labo = new SimpleSchema({
         autoform: {
             type: "select2",
             options: function () {
-                return Laboratory.List.itemId;
+                return Laboratory.List.itemId();
             }
         },
         max: 250
@@ -87,7 +87,7 @@ Laboratory.Schema.Labo = new SimpleSchema({
     'laboItem.$.qty': {
         type: Number,
         label: "Qty",
-        decimal: true
+        min: 1
     },
     'laboItem.$.price': {
         type: Number,
@@ -98,6 +98,10 @@ Laboratory.Schema.Labo = new SimpleSchema({
         type: Number,
         label: "Fee",
         decimal: true
+    }, 'laboItem.$.calFee': {
+        type: Number,
+        label: "CalFee",
+        decimal: true
     },
     'laboItem.$.amount': {
         type: Number,
@@ -107,6 +111,7 @@ Laboratory.Schema.Labo = new SimpleSchema({
     branchId: {
         type: "String",
         optional: true
+
 
     }
 });

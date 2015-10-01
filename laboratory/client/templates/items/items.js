@@ -3,43 +3,32 @@ var indexTpl = Template.laboratory_items,
     updateTpl = Template.laboratory_itemsUpdate,
     showTpl = Template.laboratory_itemsShow,
     addressAddonTpl = Template.laboratory_addressInsert;
-
-
 /***
  * Index
  */
 indexTpl.onRendered(function () {
     createNewAlertify('item');
     createNewAlertify('categoryAddon');
+    createNewAlertify('insertMoreMeasure');
 });
 insertTpl.onRendered(function () {
-    createNewAlertify( 'categoryAddon');
+    createNewAlertify('categoryAddon');
     $('.btnAdd').attr('disabled', "disabled");
-    $('#child').attr('enable', "enable");
     $('.hideValue').hide();
+    $('#child').attr('enabled', 'enabled');
     $('.hideChildItem').hide();
     $('.fee').attr('disabled', "disabled");
 });
-//Template.laboratory_itemsShow.onRendered(function (e) {
-//    showTpl(e);
-//});
 updateTpl.onRendered(function () {
     createNewAlertify('categoryAddon');
-
-    //$('.btnAdd').attr('disabled', "disabled");
-    //$('.hideValue').hide();
-    //$('.hideChildItem').hide();
     debugger;
     var child = $('#child').val();
     if (child == 'yes') {
-
         $('#child').attr('disabled', true);
     } else {
         $('#child').attr('disabled', false);
     }
 });
-
-
 indexTpl.events({
     'click .insert': function () {
         alertify.item(renderTemplate(insertTpl))
@@ -47,6 +36,13 @@ indexTpl.events({
                 title: fa("plus", "Item")
             })
             .maximize();
+    },
+
+    'click .insertMoreMeasure': function () {
+        alertify.item(renderTemplate(Template.laboratory_measureInsert))
+            .set({
+                title: fa("", "Item")
+            });
     },
     'click .update': function (e) {
         var data = Laboratory.Collection.Items.findOne({_id: this._id});
@@ -73,7 +69,6 @@ indexTpl.events({
             },
             null
         );
-
     },
     'click .show': function () {
         var data = Laboratory.Collection.Items.findOne({_id: this._id});
@@ -85,94 +80,28 @@ indexTpl.events({
         show(childStatus);
     }
 });
+insertTpl.helpers({});
 /**
  * Insert
  */
 insertTpl.events({
-    'change #child': function (e) {
-        onChaneChild(e);
-    },
-    'change .feeType': function (e) {
-        onchangeFeeType(e);
-    },
-    'keyup .childName': function () {
-        var enable = true;
-        $('.childNormalValue').val();
-        $('.childPrependValue').val();
-        $('.childAppendValue').val();
-        $('.items').each(function () {
-            var childName = $(this).find('.childName').val();
-            if (childName == "") {
-                enable = false;
-                return false;
-            }
-        });
-        if (!enable) {
-            $('.btnAdd').attr('disabled', true);
-            $('#child').attr('disabled', true);
-        } else if (enable) {
-            $('#child').attr('disabled', true);
-            $('.btnAdd').attr('disabled', false);
-        }
-    },
-    'click .btnRemove': function () {
-        debugger;
-        setTimeout(function () {
-            var enable = true;
-            $('.childItem').each(function () {
-                var childItem = $(this).val() == "" ? 0 : parseFloat($(this).val());
-                if (childItem == 0) {
-                    enable = false;
-                    return false;
-                }
-                enable = true;
-            });
-
-            if (enable) {
-                $('.btnAdd').attr('disabled', false);
-            } else {
-
-                $('.btnAdd').attr('disabled', true);
-
-            }
-            var enables = true;
-            $('.items').each(function () {
-                var childName = $(this).val() == "" ? 0 : parseFloat($(this).val());
-                if (childName == "") {
-                    enables = false;
-                    return false;
-                }
-                enables = true;
-            });
-            if (enables) {
-                $('#child').attr('disabled', false)
-            } else {
-                $('#child').attr('disabled', true)
-            }
-
-        }, 100);
-
-
-    },
-    'click .btnAdd': function () {
-        $('.btnAdd').attr('disabled', true);
-    },
-    'click .categoryAddon': function () {
-        alertify.categoryAddon(renderTemplate(Template.laboratory_categoryInsert))
-            .set({
-                title: fa("plus", "Category")
-            })
-    }
-});
-/**
- * Update
- */
-updateTpl.events({
+    //on change Child
     'change #child': function (e) {
         var val = $(e.currentTarget).val();
         Session.set('updateItemYesNo', val);
-        onChaneChild(e);
+        onChangeChild(e);
     },
+    //on change feeType to Disable or enable Fee
+    'change .feeType': function (e) {
+        var feeType = $(e.currentTarget).val();
+        if (feeType == '') {
+            $('.fee').attr('disabled', true);
+        } else {
+            $('.fee').attr('disabled', false);
+        }
+
+    },
+    // Keyup childName
     'keyup .childName': function (e) {
         var enable = true;
         $('.childNormalValue').val();
@@ -193,7 +122,7 @@ updateTpl.events({
             $('.btnAdd').attr('disabled', false);
         }
     },
-
+    //remove button Remove on Child
     'click .btnRemove': function () {
         debugger;
         var enable = true;
@@ -209,9 +138,95 @@ updateTpl.events({
             if (enable) {
                 $('.btnAdd').attr('disabled', false);
             } else {
-
                 $('.btnAdd').attr('disabled', true);
+            }
+            var enables = true;
+            $('.items').each(function () {
+                var childName = $(this).val() == "" ? 0 : parseFloat($(this).val());
+                if (childName == "") {
+                    enables = false;
+                    return false;
+                }
+                enables = true;
+            });
+            if (enables) {
+                $('#child').attr('disabled', false)
+            } else {
+                $('#child').attr('disabled', true)
+            }
+        }, 100);
+    },
+    //set button Add Disabled = true
+    'click .btnAdd': function () {
+        $('.btnAdd').attr('disabled', true);
+    },
+    //addOn Category
+    'click .categoryAddon': function () {
+        alertify.categoryAddon(renderTemplate(Template.laboratory_categoryInsert))
+            .set({
+                title: fa("plus", "Category")
+            })
+    }
 
+});
+/**
+ * Update
+ */
+updateTpl.events({
+    //On change child
+    'change #child': function (e) {
+        var val = $(e.currentTarget).val();
+        Session.set('updateItemYesNo', val);
+        //function onchangeChild
+        onChangeChild(e);
+    },
+    //On change FeeType to disable or enable
+    'change .feeType': function (e) {
+        var feeType = $(e.currentTarget).val();
+        if (feeType == '') {
+            $('.fee').attr('disabled', true);
+        } else {
+            $('.fee').attr('disabled', false);
+        }
+    },
+    //keup on childname of child
+    'keyup .childName': function (e) {
+        var enable = true;
+        $('.childNormalValue').val();
+        $('.childPrependValue').val();
+        $('.childAppendValue').val();
+        $('.items').each(function () {
+            var childName = $(this).find('.childName').val();
+            if (childName == "") {
+                enable = false;
+                return false;
+            }
+        });
+        if (!enable) {
+            $('.btnAdd').attr('disabled', true);
+            $('#child').attr('disabled', false);
+        } else if (enable) {
+            $('#child').attr('disabled', true);
+            $('.btnAdd').attr('disabled', false);
+        }
+    },
+    //remove Btb
+    'click .btnRemove': function () {
+        debugger;
+        var enable = true;
+        $('.childItem').each(function () {
+            var childItem = $(this).val() == "" ? 0 : parseFloat($(this).val());
+            if (childItem == 0) {
+                enable = false;
+                return false;
+            }
+            enable = true;
+        });
+        setTimeout(function () {
+            if (enable) {
+                $('.btnAdd').attr('disabled', false);
+            } else {
+                $('.btnAdd').attr('disabled', true);
             }
             var enables = true;
             $('.items').each(function () {
@@ -240,9 +255,28 @@ updateTpl.events({
     }
 })
 ;
+//check isNo
+updateTpl.helpers({
+    isNo: function (no) {
+        if (Session.get("updateItemYesNo") != null) {
+            no = Session.get("updateItemYesNo");
+        }
+        return no == "no";
+    }
+});
+//check isNo
+insertTpl.helpers({
+    isNo: function (no) {
+        if (Session.get("updateItemYesNo") != null) {
+            no = Session.get("updateItemYesNo");
+        }
+        return no == "no";
+    }
+});
 /**
  * Show
  */
+//show  table on item
 showTpl.helpers({
     childItems: function () {
         var str = "<table class='table table-bordered'><thead>" +
@@ -258,8 +292,6 @@ showTpl.helpers({
         });
         str += "</tbody></table>";
         return new Spacebars.SafeString(str);
-
-
     },
     categoryName: function () {
         this.category.findOne(this.name);
@@ -270,11 +302,11 @@ showTpl.helpers({
  * Hook
  */
 AutoForm.hooks({
+    //Befor insert
     laboratory_itemsInsert: {
         before: {
             insert: function (doc) {
                 debugger;
-
                 var child = $('#child').val();
                 $('[name="child"]').attr('disabled', false);
                 doc.child = child;
@@ -304,6 +336,7 @@ AutoForm.hooks({
             alertify.error(error.message);
         }
     },
+    //before update
     laboratory_itemsUpdate: {
         before: {
             update: function (doc) {
@@ -330,10 +363,8 @@ AutoForm.hooks({
                     doc.$set.prependValue = null;
                     doc.$set.appendValue = null;
                 }
-
                 return doc;
             }
-
         },
         onSuccess: function (formType, result) {
             alertify.item().close();
@@ -345,7 +376,9 @@ AutoForm.hooks({
         }
     }
 });
-function onChaneChild(e) {
+
+//function On change to use on event
+function onChangeChild(e) {
     var child = $(e.currentTarget).val();
     if (child == 'yes') {
         $('.hideValue').hide();
@@ -361,17 +394,8 @@ function onChaneChild(e) {
         $('.hideChildItem').hide();
     }
 }
-function onchangeFeeType(e) {
-    var FeeType = $(e.currentTarget).val();
-    if (FeeType != "") {
-        $('.fee').removeAttr('disabled');
-    } else {
-        $('.fee').attr('disabled', true);
-    }
-}
+//function status fore child Yes / No
 function show(childStatus) {
-    console.log(childStatus);
-    debugger;
     if (childStatus != 'yes') {
         $('.childItemsShow').hide();
         $('.normalValueShow').show();
@@ -383,17 +407,6 @@ function show(childStatus) {
         $('.prependValueShow').hide();
         $('.appendValueShow').hide();
         $('.childItemsShow').show();
-
     }
 
 }
-
-updateTpl.helpers({
-    isNo: function (no) {
-        if (Session.get("updateItemYesNo") != null) {
-            no = Session.get("updateItemYesNo");
-        }
-        return no == "no";
-    }
-});
-

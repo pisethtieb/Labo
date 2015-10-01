@@ -26,7 +26,13 @@ Laboratory.Schema.Payment = new SimpleSchema({
     paidAmount: {
         type: Number,
         label: "Paid Amount",
-        decimal: true
+        min: 1,
+        custom: function () {
+            if (this.value > this.field('overdueAmount').value) {
+                return "greaterThan";
+            }
+        }
+
     },
     outstandingAmount: {
         type: Number,
@@ -57,7 +63,8 @@ Laboratory.Schema.Payment = new SimpleSchema({
     },
     cpanel_branchId: {
         type: String,
-        label: "Branch"
+        label: "Branch",
+        optional: true
     }
 });
 
@@ -66,3 +73,7 @@ Laboratory.Collection.Payment.attachSchema(Laboratory.Schema.Payment);
 
 // Attach soft remove
 //Laboratory.Collection.Payment.attachBehaviour('softRemovable');
+
+SimpleSchema.messages({
+    "greaterThan": "PaidAmount mustn't be greater than OverdueAmount!"
+});

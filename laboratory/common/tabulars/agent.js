@@ -29,7 +29,11 @@ Laboratory.TabularTable.Agent = new Tabular.Table({
             }
         },
         {
-            data: "_laboCount", title: "LaboCo",
+            data: "_laboCount", title: "Labo+",
+            tmpl: Meteor.isClient && Template.laboratory_agentLinkAction
+        },
+        {
+            data: "_feeCount", title: "Fee+",
             tmpl: Meteor.isClient && Template.laboratory_agentLinkAction
         }
     ]

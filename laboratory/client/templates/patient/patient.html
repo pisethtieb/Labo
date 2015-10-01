@@ -5,7 +5,7 @@
     </p>
 
     {{#if isSubReady "laboratory_patientByBranch"}}
-        {{> tabular table=Laboratory.TabularTable.Patient selector=selector class="table table-striped table-bordered table-condensed table-hover patient"}}
+        {{> tabular table=Laboratory.TabularTable.Patient class="table table-striped table-bordered table-condensed table-hover double_click"}}
     {{else}}
         {{> loading}}
     {{/if}}
@@ -16,9 +16,6 @@
         <li><a href="#" class="update">{{fa "pencil"}} Update</a></li>
         <li><a href="#" class="remove">{{fa "remove"}} Remove</a></li>
         <li><a href="#" class="show">{{fa "eye"}} Show</a></li>
-
-        <!--<li role="separator" class="divider"></li>-->
-        <!--<li><a href="#" class="order">{{fa "shopping-cart"}} Order</a></li>-->
     {{/tabularAction}}
 </template>
 
@@ -97,9 +94,7 @@
         <dd>{{email}}</dd>
         <dt>Photo :</dt>
         <dd>{{lightbox url=photoUrl title=name}}</dd>
-
     </dl>
-
 </template>
 <!--template patientInfo-->
 <template name="laboratory_patientInfo">
@@ -118,7 +113,7 @@
         {{/with}}
     </ul>
 </template>
-<!--laboLinkc Action-->
+<!--template click link to labo-->
 <template name="laboratory_laboLinkAction">
     <button type="button" class="btn btn-primary btn-sm laboAction">
         {{#if _laboCount}}
