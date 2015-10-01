@@ -9,7 +9,7 @@ LaboratoryRoutes.route('/Result', {
         this.register('laboratory_result', subs.subscribe('laboratory_result'));
     },
     action: function (params, queryParams) {
-        Layout.main('laboratory_Result');
+        Layout.main('laboratory_result');
     },
     breadcrumb: {
         //params: ['id'],

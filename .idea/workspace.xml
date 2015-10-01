@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d932e7d-5676-426d-b13f-40e24175d742" name="Default" comment="First commit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/client/templates/result/result.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/client/routers/result.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/client/templates/result/result.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/common/collections/result.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/result.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/result.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/server/publications/result.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/server/security/result.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/templates/payment/payment.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/payment/payment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/templates/result/result.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/result/result.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/routers/result.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/result.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/templates/result/result.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/result/result.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Laboratory.iws" />
@@ -32,11 +26,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="result.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="result.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/laboratory/client/routers/result.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2375297">
-              <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="38" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="result.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.21658416">
+              <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="result.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -107,13 +121,13 @@
         <option value="$PROJECT_DIR$/laboratory/client/templates/payment/payment.html" />
         <option value="$PROJECT_DIR$/laboratory/common/collections/item.js" />
         <option value="$PROJECT_DIR$/laboratory/common/collections/result.js" />
-        <option value="$PROJECT_DIR$/laboratory/client/templates/result/result.js" />
-        <option value="$PROJECT_DIR$/laboratory/client/templates/result/result.html" />
         <option value="$PROJECT_DIR$/laboratory/server/security/result.js" />
         <option value="$PROJECT_DIR$/laboratory/server/publications/result.js" />
         <option value="$PROJECT_DIR$/laboratory/server/collections_hook/result.js" />
         <option value="$PROJECT_DIR$/laboratory/common/tabulars/result.js" />
         <option value="$PROJECT_DIR$/laboratory/client/routers/result.js" />
+        <option value="$PROJECT_DIR$/laboratory/client/templates/result/result.js" />
+        <option value="$PROJECT_DIR$/laboratory/client/templates/result/result.html" />
       </list>
     </option>
   </component>
@@ -782,7 +796,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.21224165" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -792,7 +806,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24944155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="true" weight="0.3689655" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.3689655" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1151,14 +1165,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laboratory/common/collections/result.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1215,18 +1221,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.html">
+    <entry file="file://$PROJECT_DIR$/laboratory/client/routers/result.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.030940594">
-          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/client/routers/result.js">
+    <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2375297">
-          <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21658416">
+          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
           <folding />
         </state>
       </provider>

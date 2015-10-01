@@ -7,10 +7,8 @@ var indexTpl = Template.laboratory_result,
     patientInfo = Template.laboratory_patientInfo;
 // Index
 indexTpl.onRendered(function () {
-    ///wrong link to other route
-    if (FlowRouter.getParam("patientId") == null || FlowRouter.getParam("patientId") == "") {
-        FlowRouter.go('result.home');
-    }
+    alert('hi');
+    ///wrong link to other rout
     createNewAlertify('result');
     createNewAlertify('payment');
 });
