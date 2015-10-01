@@ -1,17 +1,17 @@
-Laboratory.laboState = new ReactiveObj();
+Laboratory.resultState = new ReactiveObj();
 
-var indexTpl = Template.laboratory_labo,
-    insertTpl = Template.laboratory_laboInsert,
-    updateTpl = Template.laboratory_laboUpdate,
-    showTpl = Template.laboratory_laboShow,
+var indexTpl = Template.laboratory_result,
+    insertTpl = Template.laboratory_resultInsert,
+    updateTpl = Template.laboratory_resultUpdate,
+    showTpl = Template.laboratory_resultShow,
     patientInfo = Template.laboratory_patientInfo;
 // Index
 indexTpl.onRendered(function () {
     ///wrong link to other route
     if (FlowRouter.getParam("patientId") == null || FlowRouter.getParam("patientId") == "") {
-        FlowRouter.go('labo.home');
+        FlowRouter.go('result.home');
     }
-    createNewAlertify('labo');
+    createNewAlertify('result');
     createNewAlertify('payment');
 });
 // Patient Info Helpers
@@ -30,7 +30,7 @@ patientInfo.helpers({
 });
 // tabularSelector & getCurrentPatient
 indexTpl.helpers({
-    laboData: function () {
+    resultData: function () {
         var patientId = FlowRouter.getParam('patientId');
 
         return {
@@ -45,26 +45,26 @@ indexTpl.events({
     'click .insert': function () {
         var patientId = FlowRouter.getParam("patientId");
         if (patientId == null) {
-            alertify.labo(renderTemplate(insertTpl))
+            alertify.result(renderTemplate(insertTpl))
                 .set({
-                    title: fa("plus", "labo")
+                    title: fa("plus", "result")
                 })
                 .maximize();
         } else {
-            alertify.labo(renderTemplate(insertTpl, patientId))
+            alertify.result(renderTemplate(insertTpl, patientId))
                 .set({
-                    title: fa("plus", "labo")
+                    title: fa("plus", "result")
                 })
                 .maximize();
         }
 
     },
     'click .update': function () {
-        var data = Laboratory.Collection.Labo.findOne({_id: this._id});
+        var data = Laboratory.Collection.Result.findOne({_id: this._id});
         //var data = this;
-        alertify.labo(renderTemplate(updateTpl, data))
+        alertify.result(renderTemplate(updateTpl, data))
             .set({
-                title: fa("pencil", "labo")
+                title: fa("pencil", "result")
             })
             .maximize();
     },
@@ -73,7 +73,7 @@ indexTpl.events({
         alertify.confirm("Are you sure to delete [" + id + "] ?")
             .set({
                 onok: function (result) {
-                    Laboratory.Collection.Labo.remove(id, function (error) {
+                    Laboratory.Collection.Result.remove(id, function (error) {
                         if (error) {
                             alertify.error(error.message);
                         } else {
@@ -85,18 +85,18 @@ indexTpl.events({
             })
     },
     'click .show': function () {
-        var data = Laboratory.Collection.Labo.findOne({_id: this._id});
+        var data = Laboratory.Collection.Result.findOne({_id: this._id});
         alertify.alert(renderTemplate(showTpl, data))
             .set({
-                title: fa("eye", "labo")
+                title: fa("eye", "result")
             })
     },
-    'click .laboPrintAction': function () {
+    'click .resultPrintAction': function () {
 
-        var date = moment(this.laboDate).format("YYYY-MM-DD");
-        var time = moment(this.laboDate).format("HH:mm:ss");
+        var date = moment(this.resultDate).format("YYYY-MM-DD");
+        var time = moment(this.resultDate).format("HH:mm:ss");
 
-        var url = 'laboReportGen?patient=' + this.patientId + '&laboDate=' + date + '&laboTime=' + time + '&labo=' + this._id;
+        var url = 'resultReportGen?patient=' + this.patientId + '&resultDate=' + date + '&resultTime=' + time + '&result=' + this._id;
         window.open(url, '_blank');
     },
     'dblclick tbody > tr': function (event) {
@@ -104,11 +104,11 @@ indexTpl.events({
         var rowData = dataTable.row(event.currentTarget).data();
         var patientId = FlowRouter.getParam('patientId');
         //check excite on payment
-        Meteor.call('checkLaboForLabo', rowData._id, function (err, result) {
+        Meteor.call('checkResultForResult', rowData._id, function (err, result) {
 
             if (_.isUndefined(result.payment)) {
                 var doc = {};
-                doc.laboId = rowData._id;
+                doc.resultId = rowData._id;
                 doc.patientId = rowData.patientId;
                 doc.overdueAmount = rowData.total;
                 doc.paidAmount = rowData.total;
@@ -118,7 +118,7 @@ indexTpl.events({
             } else {
                 //result.lastPayment.paymentDate=moment().format("YYYY-MM-DD HH:mm:ss");
                 FlowRouter.go('Laboratory.payment', {
-                    laboId: result.id, patientId: patientId
+                    resultId: result.id, patientId: patientId
                 });
             }
         });
@@ -126,7 +126,7 @@ indexTpl.events({
     //click to payment
     'click .paymentAction': function () {
         var self = this;
-        var lastPayment = Laboratory.Collection.Payment.findOne({laboId: self._id}, {sort: {_id: -1}});
+        var lastPayment = Laboratory.Collection.Payment.findOne({resultId: self._id}, {sort: {_id: -1}});
         var doc = {};
         if (!_.isUndefined(lastPayment)) {
             if (lastPayment.outstandingAmoun = "0") {
@@ -137,7 +137,7 @@ indexTpl.events({
                 lastPayment.paidAmount = lastPayment.overdueAmount;
             }
             if (lastPayment.status == 'Full') {
-                alertify.error('Labo[' + self._id + ']  is fully paid! ');
+                alertify.error('Result[' + self._id + ']  is fully paid! ');
                 return false;
             } else {
                 lastPayment.paymentDate = moment().format("YYYY-MM-DD HH:mm:ss");
@@ -145,7 +145,7 @@ indexTpl.events({
                     renderTemplate(Template.laboratory_paymentInsert, lastPayment));
             }
         } else {
-            doc.laboId = self._id;
+            doc.resultId = self._id;
             doc.patientId = self.patientId;
             doc.overdueAmount = self.total;
             doc.paidAmount = self.total;
@@ -351,7 +351,7 @@ updateTpl.events({
  */
 
 showTpl.helpers({
-    laboItems: function () {
+    resultItems: function () {
         var str = "<table class='table table-bordered'><thead>" +
             "<tr>" +
             "<th>Item ID</th>" +
@@ -361,7 +361,7 @@ showTpl.helpers({
             "<th>Amount</th>" +
             "</tr>" +
             "</thead><tbody>";
-        this.laboItem.forEach(function (o) {
+        this.resultItem.forEach(function (o) {
             str += '<tr>' +
                 '<td>' + o.itemId + '</td>' +
                 '<td>' + o.qty + '</td>' +
@@ -379,11 +379,11 @@ showTpl.helpers({
  * Hook
  */
 AutoForm.hooks({
-    laboratory_laboInsert: {
+    laboratory_resultInsert: {
         before: {
             insert: function (doc) {
                 var prefix = Session.get('currentBranch') + '-';
-                Meteor.call('labo', prefix);
+                Meteor.call('result', prefix);
                 return doc;
             }
         },
@@ -394,10 +394,10 @@ AutoForm.hooks({
             alertify.error(error.message);
         }
     },
-    laboratory_laboUpdate: {
+    laboratory_resultUpdate: {
         onSuccess: function (formType, result) {
 
-            alertify.labo().close();
+            alertify.result().close();
             alertify.success('Success');
         },
         onError: function (formType, error) {
@@ -415,8 +415,8 @@ insertTpl.onRendered(function () {
 // * Config date picker
 // */
 var datepicker = function () {
-    var laboDate = $('[name="laboDate"]');
-    DateTimePicker.dateTime(laboDate);
+    var resultDate = $('[name="resultDate"]');
+    DateTimePicker.dateTime(resultDate);
 };
 function onchangeItem(e) {
     debugger;

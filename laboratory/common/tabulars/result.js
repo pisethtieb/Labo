@@ -1,7 +1,7 @@
 // Address
-Laboratory.TabularTable.Labo = new Tabular.Table({
-    name: "Laboratory_laboList",
-    collection: Laboratory.Collection.Labo,
+Laboratory.TabularTable.Result = new Tabular.Table({
+    name: "Laboratory_resultList",
+    collection: Laboratory.Collection.Result,
     pagingType: "full_numbers",
     autoWidth: false,
     columnDefs: [
@@ -10,7 +10,7 @@ Laboratory.TabularTable.Labo = new Tabular.Table({
     extraFields: ['patientId'],
     order: [['1', 'desc']],
     columns: [
-        {title: '<i class="fa fa-bars"></i>', tmpl: Meteor.isClient && Template.laboratory_laboAction},
+        {title: '<i class="fa fa-bars"></i>', tmpl: Meteor.isClient && Template.laboratory_resultAction},
         {data: "_id", title: "ID"},
         {data: "laboDate", title: "labo Date"},
         {
@@ -26,13 +26,8 @@ Laboratory.TabularTable.Labo = new Tabular.Table({
             }
         },
         {data: "_staff.name", title: "Staff"},
-        {data: "_agent.name", title: "Agent"},
-        //{data: "_patient.name", title: "Patient"},
-        {
-            data: "_paymentCount",
-            title: "Pay+",
-            tmpl: Meteor.isClient && Template.laboratory_paymentLinkAction
-        }
+               //{data: "_patient.name", title: "Patient"},
+
         //{
         //    data: "block",
         //    title: "Blocked",

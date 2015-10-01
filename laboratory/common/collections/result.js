@@ -1,34 +1,21 @@
 // Collection
-Laboratory.Collection.Fee = new Mongo.Collection("Laboratory_fee");
-
+Laboratory.Collection.Result = new Mongo.Collection("Laboratory_Result");
 // Schema
-Laboratory.Schema.Fee = new SimpleSchema({
-    feeDate: {
+Laboratory.Schema.Result = new SimpleSchema({
+
+    laboDate: {
         type: String,
-        label: "Date",
+        label: "Sale Date",
+        max: 20,
         defaultValue: function () {
             var currentDate = moment(ReactiveMethod.call("currentDate"), 'YYYY-MM-DD H:mm:ss').format('YYYY-MM-DD H:mm:ss');
             return currentDate;
         }
     },
-    agentId: {
-        type: String,
-        label: "Agent ID",
-        max: 250
-    },
-    laboId: {
-        type: String,
-        label: "Labo ID",
-        autoform: {
-            type: "select2",
-            options: function () {
-                return Laboratory.List.laboIdFee();
-            }
-        }
-    },
     staffId: {
         type: String,
-        label: "Staff ID",
+        label: "Staff",
+        max: 250,
         autoform: {
             type: "select2",
             options: function () {
@@ -36,42 +23,99 @@ Laboratory.Schema.Fee = new SimpleSchema({
             }
         }
     },
-    overdueAmount: {
-        type: Number,
-        label: "Due Amount",
-        decimal: true
-    },
-    paidAmount: {
-        type: Number,
-        label: "Paid Amount",
-        min: 1,
-        custom: function () {
-            if (this.value > this.field('overdueAmount').value) {
-                return "greaterThan";
+    agentId: {
+        type: String,
+        label: "Agent",
+        max: 250,
+        autoform: {
+            type: "select2",
+            options: function () {
+                return Laboratory.List.agentId();
             }
         }
     },
-    outstandingAmount: {
+    patientId: {
+        type: String,
+        label: "Patient",
+        max: 250
+        //autoform: {
+        //    type: "select2",
+        //    options: function () {
+        //        return Laboratory.List.patientId();
+        //    }
+        //}
+    },
+    total: {
         type: Number,
-        label: "Outstanding Amount ",
+        label: "Total",
+        optional: true,
+        autoform: {
+            afFieldInput: {
+                type: 'hidden'
+            }
+        }
+    },
+    totalFee: {
+        type: Number,
+        label: "Total Fee",
+        optional: true,
+        autoform: {
+            afFieldInput: {
+                type: 'hidden'
+            }
+        }
+    },
+    laboItem: {
+        type: Array,
+        minCount: 1
+    },
+    'laboItem.$': {
+        type: Object
+
+    },
+    'laboItem.$.itemId': {
+        type: String,
+        label: "Item ID",
+        autoform: {
+            type: "select2",
+            options: function () {
+                return Laboratory.List.itemId();
+            }
+        },
+        max: 250
+    },
+    'laboItem.$.qty': {
+        type: Number,
+        label: "Qty",
+        min: 1
+    },
+    'laboItem.$.price': {
+        type: Number,
+        label: "Price",
         decimal: true
     },
-    status: {
-        type: String,
-        label: " Status"
+    'laboItem.$.fee': {
+        type: Number,
+        label: "Fee",
+        decimal: true
+    }, 'laboItem.$.calFee': {
+        type: Number,
+        label: "CalFee",
+        decimal: true
     },
-    cpanel_branchId: {
-        type: String,
-        label: "Branch",
+    'laboItem.$.amount': {
+        type: Number,
+        label: "Amount",
+        decimal: true
+    },
+    branchId: {
+        type: "String",
         optional: true
+
+
     }
 });
-
 // Attach schema
-Laboratory.Collection.Fee.attachSchema(Laboratory.Schema.Fee);
-
+Laboratory.Collection.Result.attachSchema(Laboratory.Schema.Result);
 // Attach soft remove
-Laboratory.Collection.Fee.attachBehaviour('softRemovable');
-SimpleSchema.messages({
-    "greaterThan": "PaidAmount mustn't be greater than OverdueAmount!"
-});
+Laboratory.Collection.Result.attachBehaviour('softRemovable');

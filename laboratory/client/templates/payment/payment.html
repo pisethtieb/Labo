@@ -73,7 +73,7 @@
                 {{> afQuickField name='staffId'}}
                 {{> afQuickField name='overdueAmount' value=total class="overdueAmount" readOnly='true'}}
                 {{> afQuickField name='paidAmount' value=total class="paidAmount"}}
-                {{> afQuickField name='outstandingAmount' value=0 readOnly='true' class="balance" hidden='hidden'}}
+                {{> afQuickField name='outstandingAmount' readOnly='true' class="balance" hidden='hidden'}}
             </div>
         </div>
         <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
