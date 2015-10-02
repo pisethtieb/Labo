@@ -7,7 +7,6 @@ var indexTpl = Template.laboratory_result,
     patientInfo = Template.laboratory_patientInfo;
 // Index
 indexTpl.onRendered(function () {
-    alert('hi');
     ///wrong link to other rout
     createNewAlertify('result');
     createNewAlertify('payment');
@@ -30,13 +29,11 @@ patientInfo.helpers({
 indexTpl.helpers({
     resultData: function () {
         var patientId = FlowRouter.getParam('patientId');
-
         return {
             selector: {patientId: patientId},
             patientId: patientId
         };
     }
-
 });
 
 indexTpl.events({
@@ -55,7 +52,6 @@ indexTpl.events({
                 })
                 .maximize();
         }
-
     },
     'click .update': function () {
         var data = Laboratory.Collection.Result.findOne({_id: this._id});
@@ -152,7 +148,8 @@ indexTpl.events({
 
                 renderTemplate(Template.laboratory_paymentInsert, doc));
         }
-    }
+    },
+
 });
 /**
  * Insert
@@ -167,6 +164,7 @@ insertTpl.onRendered(function () {
 
 });
 updateTpl.onRendered(function () {
+    debugger;
     datepicker();
     createNewAlertify('staffAddon');
     createNewAlertify('agentAddon');

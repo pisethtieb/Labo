@@ -154,6 +154,15 @@ indexTpl.events({
 
                 renderTemplate(Template.laboratory_paymentInsert, doc));
         }
+    },
+    'click .result': function () {
+        var data = Laboratory.Collection.Labo.findOne(this._id);
+        data.laboItem.forEach(function (item) {
+            debugger;
+            item.childItem = Laboratory.Collection.Items.findOne(item.itemId).childItem
+        });
+        alertify.labo(fa('plus', 'New Result'), renderTemplate(Template.laboratory_resultUpdate, data))
+            .maximize();
     }
 });
 /**

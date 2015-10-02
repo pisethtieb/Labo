@@ -38,12 +38,6 @@ Laboratory.Schema.Result = new SimpleSchema({
         type: String,
         label: "Patient",
         max: 250
-        //autoform: {
-        //    type: "select2",
-        //    options: function () {
-        //        return Laboratory.List.patientId();
-        //    }
-        //}
     },
     total: {
         type: Number,
@@ -75,46 +69,60 @@ Laboratory.Schema.Result = new SimpleSchema({
     },
     'laboItem.$.itemId': {
         type: String,
-        label: "Item ID",
-        autoform: {
-            type: "select2",
-            options: function () {
-                return Laboratory.List.itemId();
-            }
-        },
+        label: "Item ID"
+    },
+    'laboItem.$.normalValue': {
+        type: String,
+        optional: true
+    }, 'laboItem.$.prependValue': {
+        type: String,
+        optional: true
+    }, 'laboItem.$.appendValue': {
+        type: String,
+        optional: true
+    },
+    'laboItem.$.childItem': {
+        type: Array,
+        optional: true
+    },
+    'laboItem.$.childItem.$': {
+        type: Object
+    },
+    'laboItem.$.childItem.$.name': {
+        type: String,
+        label: "Name",
+        max: 250,
+        optional: true
+    },
+    'laboItem.$.childItem.$.normalValue': {
+        type: String,
+        label: "Normal Value",
+        optional: true,
         max: 250
     },
-    'laboItem.$.qty': {
-        type: Number,
-        label: "Qty",
-        min: 1
-    },
-    'laboItem.$.price': {
-        type: Number,
-        label: "Price",
-        decimal: true
-    },
-    'laboItem.$.fee': {
-        type: Number,
-        label: "Fee",
-        decimal: true
-    }, 'laboItem.$.calFee': {
-        type: Number,
-        label: "CalFee",
-        decimal: true
-    },
-    'laboItem.$.amount': {
-        type: Number,
-        label: "Amount",
-        decimal: true
+    'laboItem.$.childItem.$.prependValue': {
+        type: String,
+        label: "Prepend Value",
+        optional: true,
+        max: 250
+
+    }
+    ,
+    'laboItem.$.childItem.$.appendValue': {
+        type: String,
+        label: "Append Value",
+        optional: true,
+        max: 250
+
     },
     branchId: {
         type: "String",
         optional: true
-
-
     }
-});
+
+
+})
+;
 // Attach schema
 Laboratory.Collection.Result.attachSchema(Laboratory.Schema.Result);
 // Attach soft remove
