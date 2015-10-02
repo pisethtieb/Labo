@@ -156,10 +156,20 @@ indexTpl.events({
         }
     },
     'click .result': function () {
+
         var data = Laboratory.Collection.Labo.findOne(this._id);
         data.laboItem.forEach(function (item) {
+            var getChildItem = Laboratory.Collection.Items.findOne(item.itemId);
+            if (!_.isUndefined(item.childItem)) {
+                debugger;
+                item.childItem = Laboratory.Collection.Items.findOne(item.itemId).childItem;
+            } else {
+                item.normalValue = getChildItem.normalValue;
+                item.appenValue = getChildItem.appenValue;
+                item.prependValue = getChildItem.prependValue;
+
+            }
             debugger;
-            item.childItem = Laboratory.Collection.Items.findOne(item.itemId).childItem
         });
         alertify.labo(fa('plus', 'New Result'), renderTemplate(Template.laboratory_resultUpdate, data))
             .maximize();

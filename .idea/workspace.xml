@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8d932e7d-5676-426d-b13f-40e24175d742" name="Default" comment="First commit">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/templates/labo/labo.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/labo/labo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/templates/result/result.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/result/result.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/templates/result/result.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/result/result.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/common/collections/result.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/result.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -40,7 +38,7 @@
       <file leaf-file-name="result.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1904764">
+            <state vertical-scroll-proportion="0.0">
               <caret line="116" column="46" selection-start-line="116" selection-start-column="46" selection-end-line="116" selection-end-column="46" />
               <folding />
             </state>
@@ -50,7 +48,7 @@
       <file leaf-file-name="labo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/laboratory/client/templates/labo/labo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.882353">
+            <state vertical-scroll-proportion="0.0">
               <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
               <folding />
             </state>
@@ -77,21 +75,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/laboratory/common/collections/result.js">
+      <file leaf-file-name="labo.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/laboratory/client/templates/labo/labo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="69" column="22" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.5707491">
+              <caret line="164" column="30" selection-start-line="164" selection-start-column="21" selection-end-line="164" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="labo.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/laboratory/client/templates/labo/labo.js">
+      <file leaf-file-name="result.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/laboratory/common/collections/result.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.44536817">
-              <caret line="160" column="21" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="93" column="25" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -207,8 +205,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -719,6 +715,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -734,13 +732,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Piseth\Laboratory1\Laboratory1\laboratory\common" />
       <recent name="D:\Piseth\Laboratory1\Laboratory1\laboratory\client\routers" />
       <recent name="D:\Piseth\Laboratory1\Laboratory1\laboratory\common\tabulars" />
       <recent name="D:\Piseth\Laboratory1\Laboratory1\laboratory\server\collections_hook" />
       <recent name="D:\Piseth\Laboratory1\Laboratory1\laboratory\server\publications" />
-      <recent name="D:\Piseth\Laboratory1\Laboratory1\laboratory\server\security" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Piseth\Laboratory1\Laboratory1\laboratory\common\collections" />
       <recent name="$PROJECT_DIR$/laboratory/server/collections_hook" />
       <recent name="$PROJECT_DIR$/laboratory/client/templates" />
       <recent name="$PROJECT_DIR$/laboratory/common/collections" />
@@ -823,7 +822,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24944155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.1632184" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.16340621" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -888,13 +887,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/laboratory/client/routers/payment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1779661">
-          <caret line="5" column="78" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laboratory/client/routers/fee.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6440678">
@@ -1139,7 +1131,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="3" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1209,17 +1200,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="19" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laboratory/client/templates/labo/labo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.882353">
+        <state vertical-scroll-proportion="0.0">
           <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding />
         </state>
@@ -1227,8 +1210,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1904764">
+        <state vertical-scroll-proportion="0.0">
           <caret line="116" column="46" selection-start-line="116" selection-start-column="46" selection-end-line="116" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1244,15 +1235,15 @@
     <entry file="file://$PROJECT_DIR$/laboratory/common/collections/result.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="22" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="22" />
+          <caret line="93" column="25" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laboratory/client/templates/labo/labo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.44536817">
-          <caret line="160" column="21" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.5707491">
+          <caret line="164" column="30" selection-start-line="164" selection-start-column="21" selection-end-line="164" selection-end-column="30" />
           <folding />
         </state>
       </provider>
