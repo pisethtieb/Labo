@@ -164,9 +164,11 @@ indexTpl.events({
                 debugger;
                 item.childItem = Laboratory.Collection.Items.findOne(item.itemId).childItem;
             } else {
-                item.normalValue = getChildItem.normalValue;
-                item.appenValue = getChildItem.appenValue;
-                item.prependValue = getChildItem.prependValue;
+                debugger;
+                var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
+                var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
+                item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
+
 
             }
             debugger;

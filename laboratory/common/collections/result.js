@@ -75,14 +75,6 @@ Laboratory.Schema.Result = new SimpleSchema({
         type: String,
         optional: true
     },
-    'laboItem.$.prependValue': {
-        type: String,
-        optional: true
-    },
-    'laboItem.$.appendValue': {
-        type: String,
-        optional: true
-    },
 
     'laboItem.$.childItem': {
         type: Array,
