@@ -13,66 +13,13 @@
 </template>
 <!--Insert-->
 <template name="laboratory_resultInsert">
-    {{#autoForm collection=Laboratory.Collection.Result id="laboratory_resultInsert" type="insert" afFieldInput-placeholder="schemaLabel"}}
-        <div class="row col-md-3">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Laboratory Info</div>
-                <div class="panel-body">
-                    {{> afQuickField name='resultDate'}}
-                    {{> afQuickField name='patientId' value = this readonly = true}}
-                    <div class="form-group{{#if afFieldIsInvalid name='staffId'}} has-error{{/if}}"
-                         data-required="true">
-                        <label class="control-label" for="staffId">Staff ID</label>
-
-                        <div class="input-group select2-bootstrap-append">
-                            {{> afFieldInput name='staffId'}}
-                            <span class="input-group-addon">
-                            <a href="#" class="staffAddon">
-                                {{fa "plus"}}
-                            </a>
-                        </span>
-                        </div>
-                        {{#if afFieldIsInvalid name='staffId'}}
-                            <span class="help-block">{{afFieldMessage name='staffId'}}</span>
-                        {{/if}}
-                    </div>
-                    <div class="form-group{{#if afFieldIsInvalid name='agentId'}} has-error{{/if}}"
-                         data-required="true">
-                        <label class="control-label" for="agentId">Agent ID</label>
-
-                        <div class="input-group select2-bootstrap-append">
-                            {{> afFieldInput name='agentId'}}
-                            <span class="input-group-addon">
-                            <a href="#" class="agentAddon">
-                                {{fa "plus"}}
-                            </a>
-                        </span>
-                        </div>
-                        {{#if afFieldIsInvalid name='agentId'}}
-                            <span class="help-block">{{afFieldMessage name='agentId'}}</span>
-                        {{/if}}
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9">
-            {{> afArrayField name="resultItem" id="resultItem" template="resultlArrayField" subtemplate="resultObjectField"}}
-            <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
-            <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
-        </div>
-    {{/autoForm}}
-</template>
-<!--Update-->
-<template name="laboratory_resultUpdate">
-
-    {{#autoForm collection=Laboratory.Collection.Result id="laboratory_resultUpdate" type="update" doc=this afFieldInput-placeholder="schemaLabel"}}
+    {{#autoForm collection=Laboratory.Collection.Result id="laboratory_resultInsert" type="insert" doc=this  afFieldInput-placeholder="schemaLabel"}}
         <div class="row col-md-3">
             <div class="panel panel-primary">
                 <div class="panel-heading">Laboratory Info</div>
                 <div class="panel-body">
 
-                    {{> afQuickField name='resultDate'}}
+                    {{> afQuickField name='laboDate' readonly = true}}
 
                     {{> afQuickField name='patientId' readonly = true}}
 
@@ -92,21 +39,9 @@
                             <span class="help-block">{{afFieldMessage name='staffId'}}</span>
                         {{/if}}
                     </div>
-                    <div class="form-group{{#if afFieldIsInvalid name='agentId'}} has-error{{/if}}"
-                         data-required="true">
-                        <label class="control-label" for="agentId">Agent ID</label>
+                    <div>
+                        {{> afQuickField name='agentId' readOnly=true}}
 
-                        <div class="input-group select2-bootstrap-append">
-                            {{> afFieldInput name='agentId'}}
-                            <span class="input-group-addon">
-                            <a href="#" class="agentAddon">
-                                {{fa "plus"}}
-                            </a>
-                        </span>
-                        </div>
-                        {{#if afFieldIsInvalid name='agentId'}}
-                            <span class="help-block">{{afFieldMessage name='agentId'}}</span>
-                        {{/if}}
                     </div>
 
                 </div>
@@ -114,8 +49,52 @@
         </div>
 
         <div class="col-md-9">
-            {{> afArrayField name="laboItem"}}
-            <!--{{> afArrayField name="laboItem" id="laboItem" template="resultlArrayField" subtemplate="laboObjectField"}}-->
+            {{> afArrayField name="laboItem" id="laboItem" template="resultlArrayField" subtemplate="laboResultObjectField"}}
+            <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
+            <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
+        </div>
+    {{/autoForm}}
+</template>
+<!--Update-->
+<template name="laboratory_resultUpdate">
+
+    {{#autoForm collection=Laboratory.Collection.Result id="laboratory_resultUpdate" type="update" doc=this afFieldInput-placeholder="schemaLabel"}}
+        <div class="row col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Laboratory Info</div>
+                <div class="panel-body">
+
+                    {{> afQuickField name='laboDate' readonly = true}}
+
+                    {{> afQuickField name='patientId' readonly = true}}
+
+                    <div class="form-group{{#if afFieldIsInvalid name='staffId'}} has-error{{/if}}"
+                         data-required="true">
+                        <label class="control-label" for="staffId">Staff ID</label>
+
+                        <div class="input-group select2-bootstrap-append">
+                            {{> afFieldInput name='staffId'}}
+                            <span class="input-group-addon">
+                            <a href="#" class="staffAddon">
+                                {{fa "plus"}}
+                            </a>
+                        </span>
+                        </div>
+                        {{#if afFieldIsInvalid name='staffId'}}
+                            <span class="help-block">{{afFieldMessage name='staffId'}}</span>
+                        {{/if}}
+                    </div>
+                    <div>
+                        {{> afQuickField name='agentId' readOnly=true}}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            {{> afArrayField name="laboItem" id="laboItem" template="resultlArrayField" subtemplate="laboResultObjectField"}}
             <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
             <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
         </div>
@@ -153,24 +132,17 @@
         <div class="panel-body">
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <p><b>ItemID</b></p>
+                </div>
+                <div class="col-md-3">
                     <p><b>ItemName</b></p>
                 </div>
-                <div class="col-md-1">
-                    <p><b>Qty</b></p>
+                <div class="col-md-2">
+                    <p><b>NormalValue</b></p>
                 </div>
                 <div class="col-md-2">
-                    <p><b>Price</b></p>
-                </div>
-                <div class="col-md-2">
-                    <p><b>Fee</b></p>
-                </div>
-                <div class="col-md-2">
-                    <p><b>Amount</b></p>
-
-                </div>
-                <div class="col-md-1">
-                    <p><b>Action</b></p>
+                    <p><b>Result</b></p>
                 </div>
             </div>
 
@@ -185,79 +157,47 @@
                 <div class="row">
                     {{> UI.dynamic template=../atts.subtemplate}}
 
-                    <div class="col-sm-1">
-                        {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
-                            <button type="button" class="btn btn-sm btn-danger autoform-remove-item btnRemove">
-                                <span class="glyphicon glyphicon-minus"></span>
-                            </button>
-                        {{/if}}
-                    </div>
                 </div>
             {{/afEachArrayItem}}
 
             {{#if afArrayFieldHasLessThanMaximum name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
-                <div class="row">
-                    <div class="col-sm-1 pull-right">
-                        <button type="button" class="btn btn-primary autoform-add-item btn-sm btnAdd"
-                                data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}"
-                                data-autoform-maxCount="{{this.atts.maxCount}}">
-                            <span class="glyphicon glyphicon-plus"></span>
-                        </button>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-9 text-right">
-                        <strong>Total Free:</strong>
-                    </div>
-                    <div class="col-sm-2">
-                        {{> afFieldInput name='totalFee'}}
-                        <p class="bg-primary"><strong class="totalFee">0</strong></p>
-                    </div>
-                    <br/><br/>
 
-                    <div class="col-sm-9 text-right">
-                        <strong>Total Amount:</strong>
-                    </div>
-                    <div class="col-sm-2">
-                        {{> afFieldInput name='total'}}
-                        <p class="bg-primary"><strong class="total">0</strong></p>
-                    </div>
-
-                </div>
             {{/if}}
-            <div class="row">
-                <div class="col-md-6">
-                    {{> afFieldInput name='total'}}
-                </div>
-            </div>
 
         </div>
     </div>
 </template>
 
 <!--Custom object field-->
-<template name="laboObjectField">
+<template name="laboResultObjectField">
     <div>
+        <hr>
         <div class="col-sm-3">
-            {{> afQuickField name=current.itemId template="bootstrap3" label=false class="input-sm itemId"}}
+            {{> afQuickField name=current.itemId template="bootstrap3" label=false class="input-sm itemId" readOnly=true}}
+        </div>
+        <div class="col-sm-3">
+            {{> afQuickField name=current.name template="bootstrap3" label=false class="input-sm name" readOnly=true}}
+        </div>
+        <div class="hideItemnormalValue">
+        <div class="col-sm-2">
+            {{> afQuickField name=current.normalValue template="bootstrap3" label=false class="input-sm normalValue" readOnly=true}}
         </div>
         <div class="col-sm-2">
-            {{> afQuickField name=current.qty template="bootstrap3" label=false class="input-sm qty"}}
+            {{> afQuickField name=current.result template="bootstrap3" label=false class="input-sm result"}}
         </div>
-        <div class="col-sm-2">
-            {{> afQuickField name=current.price template="bootstrap3" label=false class="input-sm price" readonly=true}}
         </div>
-        <div class="col-sm-2">
-            {{> afQuickField name=current.fee template="bootstrap3" label=false class="input-sm fee" readonly=true}}
+
+        <div class="col-sm-12">
+            <div class="col-sm-3 ">
+                <strong>+ChildItem</strong>
+            </div>
+            <div class="col-sm-9">
+                {{> afArrayField name=current.childItem id="laboItem" template="resultlArrayChildItemField" subtemplate="laboResultChildItemObjectField"}}
+            </div>
         </div>
-        <div class="col-sm-2" hidden="hidden">
-            {{> afQuickField name=current.calFee template="bootstrap3" label=false class="input-sm calFee" readonly=true}}
-        </div>
-        <div class="col-sm-2">
-            {{> afQuickField name=current.amount template="bootstrap3" label=false class="input-sm amount" readonly=true}}
-        </div>
+
     </div>
+
 
 </template>
 
@@ -313,3 +253,62 @@
 </template>
 
 
+<template name="afArrayField_resultlArrayChildItemField">
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <p><b>ItemName</b></p>
+        </div>
+        <div class="col-md-2">
+            <p><b>NValue</b></p>
+        </div>
+        <div class="col-md-2">
+            <p><b>PValue</b></p>
+        </div>
+        <div class="col-md-2">
+            <p><b>AValue</b></p>
+        </div>
+        <div class="col-md-2">
+            <p><b>Result</b></p>
+        </div>
+    </div>
+    {{#if afFieldIsInvalid name=this.atts.name}}
+        <div class="has-error">
+            <span class="help-block">{{{afFieldMessage name=this.atts.name}}}</span>
+        </div>
+    {{/if}}
+
+    {{#afEachArrayItem name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+        <div class="row">
+            {{> UI.dynamic template=../atts.subtemplate}}
+
+        </div>
+    {{/afEachArrayItem}}
+
+    {{#if afArrayFieldHasLessThanMaximum name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+
+    {{/if}}
+
+</template>
+
+<template name="laboResultChildItemObjectField">
+    <div>
+        <div class="col-sm-3">
+            {{> afQuickField name=current.name template="bootstrap3" label=false  class="input-sm itemId" readOnly=true}}
+        </div>
+        <div class="col-sm-2">
+            {{> afQuickField name=current.normalValue template="bootstrap3" label=false class="input-sm normalValue" readOnly=true}}
+        </div>
+        <div class="col-sm-2">
+            {{> afQuickField name=current.appendValue template="bootstrap3" label=false class="input-sm prependValue" readOnly=true}}
+        </div>
+        <div class="col-sm-2">
+            {{> afQuickField name=current.prependValue template="bootstrap3" label=false class="input-sm prependValue" readOnly=true}}
+        </div>
+        <div class="col-sm-2">
+            {{> afQuickField name=current.result template="bootstrap3" label=false class="input-sm result"}}
+        </div>
+    </div>
+
+</template>

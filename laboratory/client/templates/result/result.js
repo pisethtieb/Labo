@@ -38,20 +38,14 @@ indexTpl.helpers({
 
 indexTpl.events({
     'click .insert': function () {
-        var patientId = FlowRouter.getParam("patientId");
-        if (patientId == null) {
-            alertify.result(renderTemplate(insertTpl))
-                .set({
-                    title: fa("plus", "result")
-                })
-                .maximize();
-        } else {
-            alertify.result(renderTemplate(insertTpl, patientId))
-                .set({
-                    title: fa("plus", "result")
-                })
-                .maximize();
-        }
+        var data = Laboratory.Collection.Result.findOne({_id: this._id});
+        //var data = this;
+        alertify.result(renderTemplate(insertTpl, data))
+            .set({
+                title: fa("pencil", "result")
+            })
+            .maximize();
+
     },
     'click .update': function () {
         var data = Laboratory.Collection.Result.findOne({_id: this._id});
@@ -148,13 +142,14 @@ indexTpl.events({
 
                 renderTemplate(Template.laboratory_paymentInsert, doc));
         }
-    },
+    }
 
 });
 /**
  * Insert
  */
 insertTpl.onRendered(function () {
+    debugger;
     datepicker();
     createNewAlertify([
         'staffAddon',
@@ -378,6 +373,7 @@ AutoForm.hooks({
     laboratory_resultInsert: {
         before: {
             insert: function (doc) {
+                alert('hi');
                 var prefix = Session.get('currentBranch') + '-';
                 Meteor.call('result', prefix);
                 return doc;

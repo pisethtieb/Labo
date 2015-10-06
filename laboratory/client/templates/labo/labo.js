@@ -160,20 +160,29 @@ indexTpl.events({
         var data = Laboratory.Collection.Labo.findOne(this._id);
         data.laboItem.forEach(function (item) {
             var getChildItem = Laboratory.Collection.Items.findOne(item.itemId);
-            if (!_.isUndefined(item.childItem)) {
-                debugger;
-                item.childItem = Laboratory.Collection.Items.findOne(item.itemId).childItem;
-            } else {
-                debugger;
-                var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
-                var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
-                item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
+            //if (!_.isUndefined(item.childItem)) {
+            //    debugger;
 
+            //var childItemData = getChildItem.childItem;
 
+            if (getChildItem.childItem != null) {
+                item.childItem = getChildItem.childItem;
+
+                //getChildItem.childItem.forEach(function (objChildItem) {
+                //     childItem.objChildItem.name = objChildItem.name;
+                //});
             }
+            //} else {
             debugger;
+            var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
+            var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
+            item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
+            item.name = getChildItem.name;
+            //
+            ////}
+            //debugger;
         });
-        alertify.labo(fa('plus', 'New Result'), renderTemplate(Template.laboratory_resultUpdate, data))
+        alertify.labo(fa('plus', 'New Result'), renderTemplate(Template.laboratory_resultInsert, data))
             .maximize();
     }
 });

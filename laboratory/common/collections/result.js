@@ -5,12 +5,8 @@ Laboratory.Schema.Result = new SimpleSchema({
 
     laboDate: {
         type: String,
-        label: "Sale Date",
+        label: "Labo Date",
         max: 20,
-        defaultValue: function () {
-            var currentDate = moment(ReactiveMethod.call("currentDate"), 'YYYY-MM-DD H:mm:ss').format('YYYY-MM-DD H:mm:ss');
-            return currentDate;
-        }
     },
     staffId: {
         type: String,
@@ -26,39 +22,14 @@ Laboratory.Schema.Result = new SimpleSchema({
     agentId: {
         type: String,
         label: "Agent",
-        max: 250,
-        autoform: {
-            type: "select2",
-            options: function () {
-                return Laboratory.List.agentId();
-            }
-        }
+        max: 250
     },
     patientId: {
         type: String,
         label: "Patient",
         max: 250
     },
-    total: {
-        type: Number,
-        label: "Total",
-        optional: true,
-        autoform: {
-            afFieldInput: {
-                type: 'hidden'
-            }
-        }
-    },
-    totalFee: {
-        type: Number,
-        label: "Total Fee",
-        optional: true,
-        autoform: {
-            afFieldInput: {
-                type: 'hidden'
-            }
-        }
-    },
+
     laboItem: {
         type: Array,
         minCount: 1
@@ -71,7 +42,15 @@ Laboratory.Schema.Result = new SimpleSchema({
         type: String,
         label: "Item ID"
     },
+    'laboItem.$.name': {
+        type: String,
+        label: "name"
+    },
     'laboItem.$.normalValue': {
+        type: String,
+        optional: true
+    },
+    'laboItem.$.result': {
         type: String,
         optional: true
     },
@@ -106,6 +85,12 @@ Laboratory.Schema.Result = new SimpleSchema({
     'laboItem.$.childItem.$.appendValue': {
         type: String,
         label: "Append Value",
+        optional: true,
+        max: 250
+    },
+    'laboItem.$.childItem.$.result': {
+        type: String,
+        label: "Result",
         optional: true,
         max: 250
 
