@@ -160,27 +160,24 @@ indexTpl.events({
         var data = Laboratory.Collection.Labo.findOne(this._id);
         data.laboItem.forEach(function (item) {
             var getChildItem = Laboratory.Collection.Items.findOne(item.itemId);
-            //if (!_.isUndefined(item.childItem)) {
-            //    debugger;
-
-            //var childItemData = getChildItem.childItem;
-
-            if (getChildItem.childItem != null) {
+            if (!_.isUndefined(getChildItem.childItem)) {
                 item.childItem = getChildItem.childItem;
+                getChildItem.childItem.forEach(function (objChildItem) {
+                    var prependValue = objChildItem.prependValue = objChildItem.prependValue == null ? '' : objChildItem.prependValue;
+                    var appendValue = objChildItem.appendValue = objChildItem.appendValue == null ? '' : objChildItem.appendValue;
+                    objChildItem.normalValue = appendValue + '  ' + objChildItem.normalValue + '  ' + prependValue;
 
-                //getChildItem.childItem.forEach(function (objChildItem) {
-                //     childItem.objChildItem.name = objChildItem.name;
-                //});
+                    var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
+                    var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
+                    item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
+                    item.name = getChildItem.name;
+                });
             }
-            //} else {
-            debugger;
             var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
             var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
             item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
             item.name = getChildItem.name;
-            //
-            ////}
-            //debugger;
+            debugger;
         });
         alertify.labo(fa('plus', 'New Result'), renderTemplate(Template.laboratory_resultInsert, data))
             .maximize();

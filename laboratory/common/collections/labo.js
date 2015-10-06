@@ -38,12 +38,7 @@ Laboratory.Schema.Labo = new SimpleSchema({
         type: String,
         label: "Patient",
         max: 250
-        //autoform: {
-        //    type: "select2",
-        //    options: function () {
-        //        return Laboratory.List.patientId();
-        //    }
-        //}
+
     },
     total: {
         type: Number,
@@ -59,6 +54,7 @@ Laboratory.Schema.Labo = new SimpleSchema({
         type: Number,
         label: "Total Fee",
         optional: true,
+        decimal: true,
         autoform: {
             afFieldInput: {
                 type: 'hidden'

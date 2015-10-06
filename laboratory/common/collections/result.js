@@ -74,20 +74,6 @@ Laboratory.Schema.Result = new SimpleSchema({
         optional: true,
         max: 250
     },
-    'laboItem.$.childItem.$.prependValue': {
-        type: String,
-        label: "Prepend Value",
-        optional: true,
-        max: 250
-
-    }
-    ,
-    'laboItem.$.childItem.$.appendValue': {
-        type: String,
-        label: "Append Value",
-        optional: true,
-        max: 250
-    },
     'laboItem.$.childItem.$.result': {
         type: String,
         label: "Result",

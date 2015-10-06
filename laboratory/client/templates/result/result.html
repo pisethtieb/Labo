@@ -92,7 +92,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-md-9">
             {{> afArrayField name="laboItem" id="laboItem" template="resultlArrayField" subtemplate="laboResultObjectField"}}
             <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
@@ -100,7 +99,6 @@
         </div>
     {{/autoForm}}
 </template>
-
 <!--show-->
 <template name="laboratory_resultShow">
     <dl class="dl-horizontal">
@@ -121,10 +119,8 @@
         <hr>
         Laboratory Item:
         {{resultItems}}
-
     </dl>
 </template>
-
 <!--Custom array field-->
 <template name="afArrayField_resultlArrayField">
     <div class="panel panel-primary">
@@ -138,15 +134,13 @@
                 <div class="col-md-3">
                     <p><b>ItemName</b></p>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <p><b>NormalValue</b></p>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <p><b>Result</b></p>
                 </div>
             </div>
-
-
             {{#if afFieldIsInvalid name=this.atts.name}}
                 <div class="has-error">
                     <span class="help-block">{{{afFieldMessage name=this.atts.name}}}</span>
@@ -156,7 +150,6 @@
             {{#afEachArrayItem name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
                 <div class="row">
                     {{> UI.dynamic template=../atts.subtemplate}}
-
                 </div>
             {{/afEachArrayItem}}
 
@@ -178,16 +171,17 @@
         <div class="col-sm-3">
             {{> afQuickField name=current.name template="bootstrap3" label=false class="input-sm name" readOnly=true}}
         </div>
-        <div class="hideItemnormalValue">
-        <div class="col-sm-2">
-            {{> afQuickField name=current.normalValue template="bootstrap3" label=false class="input-sm normalValue" readOnly=true}}
-        </div>
-        <div class="col-sm-2">
-            {{> afQuickField name=current.result template="bootstrap3" label=false class="input-sm result"}}
-        </div>
+        <div class="hiddenItemNo">
+            <div class="col-sm-3">
+                {{> afQuickField name=current.normalValue template="bootstrap3" label=false class="input-sm normalValue" readOnly=true}}
+            </div>
+            <div class="col-sm-3">
+                {{> afQuickField name=current.result template="bootstrap3" label=false class="input-sm result"}}
+            </div>
         </div>
 
-        <div class="col-sm-12">
+        <!--childitem Objec Array File-->
+        <div class="col-sm-12 hiddenItemYes">
             <div class="col-sm-3 ">
                 <strong>+ChildItem</strong>
             </div>
@@ -195,83 +189,29 @@
                 {{> afArrayField name=current.childItem id="laboItem" template="resultlArrayChildItemField" subtemplate="laboResultChildItemObjectField"}}
             </div>
         </div>
-
     </div>
-
-
 </template>
-
-
 <!-- Template resultAction Link Action has icon interface-->
 <template name="laboratory_resultAction">
     {{#tabularAction }}
         <li><a href="#" class="update">{{fa "pencil"}} Update</a></li>
         <li><a href="#" class="remove">{{fa "trash"}} Remove</a></li>
         <li><a href="#" class="show">{{fa "eye"}} Show</a></li>
-        <li><a href="#" class="result">{{fa "hospital-o"}} Input Result</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="#" class="resultPrintAction">{{fa "print"}} Invoice</a></li>
     {{/tabularAction}}
 </template>
-
-<!--infor of result on payment-->
-<template name="laboratory_resultInfo">
-    {{#with result}}
-        <ul class="list-unstyled">
-
-            <li><strong>resultId:</strong> {{_id}}</li>
-            <li><strong>Result Date:</strong> {{resultDate}}</li>
-            <li><strong>Staff:</strong> {{_staff.name}}</li>
-            <li><strong>Agent:</strong> {{_agent.name}}</li>
-            <li><strong>Patient:</strong> {{_patient.name}}</li>
-        </ul>
-        <!--softstring-->
-        <!--{{{items}}}-->
-        <strong>Item:</strong>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Item ID</th>
-                <th>Amount</th>
-            </tr>
-
-            </thead>
-            <tbody>
-            {{#each resultItem}}
-                <tr>
-                    <td>{{itemId}}</td>
-                    <td>{{amount}}</td>
-                </tr>
-
-            {{/each}}
-            </tbody>
-        </table>
-        <ul class="list-unstyled">
-            <li><strong>Total:</strong> {{total}}</li>
-        </ul>
-    {{/with}}
-</template>
-
-
+<!--childitem Objec Array File-->
 <template name="afArrayField_resultlArrayChildItemField">
-
-
     <div class="row">
         <div class="col-md-3">
             <p><b>ItemName</b></p>
         </div>
-        <div class="col-md-2">
-            <p><b>NValue</b></p>
+        <div class="col-md-3">
+            <p><b>Normal Value</b></p>
         </div>
-        <div class="col-md-2">
-            <p><b>PValue</b></p>
-        </div>
-        <div class="col-md-2">
-            <p><b>AValue</b></p>
-        </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
             <p><b>Result</b></p>
         </div>
+
     </div>
     {{#if afFieldIsInvalid name=this.atts.name}}
         <div class="has-error">
@@ -291,22 +231,16 @@
     {{/if}}
 
 </template>
-
+<!--childitem Objec Array File-->
 <template name="laboResultChildItemObjectField">
     <div>
         <div class="col-sm-3">
             {{> afQuickField name=current.name template="bootstrap3" label=false  class="input-sm itemId" readOnly=true}}
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             {{> afQuickField name=current.normalValue template="bootstrap3" label=false class="input-sm normalValue" readOnly=true}}
         </div>
-        <div class="col-sm-2">
-            {{> afQuickField name=current.appendValue template="bootstrap3" label=false class="input-sm prependValue" readOnly=true}}
-        </div>
-        <div class="col-sm-2">
-            {{> afQuickField name=current.prependValue template="bootstrap3" label=false class="input-sm prependValue" readOnly=true}}
-        </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             {{> afQuickField name=current.result template="bootstrap3" label=false class="input-sm result"}}
         </div>
     </div>
