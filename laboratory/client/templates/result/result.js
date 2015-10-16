@@ -81,19 +81,32 @@ indexTpl.events({
     }
 
 
-
 });    //click to payment
 /**
  * Insert
  */
 insertTpl.onRendered(function () {
-    debugger;
+    Session.set('arrValue', this.data);
     datepicker();
     createNewAlertify([
         'staffAddon'
-    ])
+    ]);
+    //var cheackHidennShow = this.data.laboItem;
+    //cheackHidennShow.forEach(function (object) {
+    //    var yesNo = object.normalValue;
+    //    setTimeout(function (yesNo) {
+    //
+    //            debugger;
+    //
+    //            if (yesNo == null) {
+    //                $('.hiddenItemNo').hide();
+    //            }
+    //        },
+    //        200);
+    //});
 
 });
+
 updateTpl.onRendered(function () {
     debugger;
     datepicker();
@@ -109,6 +122,23 @@ updateTpl.onRendered(function () {
 /**
  * Show
  */
+
+Template.laboResultObjectField.helpers({
+    checkVal: function (currentObj) {
+        var index = currentObj.itemId.split('.');
+        var data = Session.get('arrValue');
+        if(data){
+            if(data.laboItem[index[1]].normalValue != ''){
+                return true;
+            }
+            return false;
+        }
+    }
+
+});
+indexTpl.onDestroyed(function () {
+    Session.set('arrValue', undefined);
+});
 
 showTpl.helpers({
     resultItems: function () {
@@ -255,11 +285,8 @@ function calculateTotal() {
         totalFee += fee;
     });
     $('[name="totalFee"]').val(totalFee);
-
     var decimal_placesF = 2;
     var decimal_factorF = decimal_placesF === 0 ? 1 : decimal_placesF * 10;
-
-
     $('.totalFee')
         .animateNumber(
         {
@@ -282,5 +309,4 @@ function calculateTotal() {
         },
         200
     );
-
 }

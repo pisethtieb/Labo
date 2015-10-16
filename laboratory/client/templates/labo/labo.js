@@ -175,9 +175,13 @@ indexTpl.events({
             }
             var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
             var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
-            item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
-            item.name = getChildItem.name;
-            debugger;
+            if (_.isUndefined(getChildItem.normalValue)) {
+                item.normalValue = '';
+            }else{
+                item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
+
+            }
+
         });
         alertify.labo(fa('plus', 'New Result'), renderTemplate(Template.laboratory_resultInsert, data))
             .maximize();
@@ -379,6 +383,7 @@ updateTpl.events({
 
 showTpl.helpers({
     laboItems: function () {
+        debugger;
         var str = "<table class='table table-bordered'><thead>" +
             "<tr>" +
             "<th>Item ID</th>" +
@@ -394,7 +399,7 @@ showTpl.helpers({
                 '<td>' + o.qty + '</td>' +
                 '<td>' + numeral(o.price).format('0,0.00') + 'R </td>' +
                 '<td>' + numeral(o.fee).format('0,0.00') + 'R</td>' +
-                '<td>' + numeral(o.amount).format('0,0.00') + 'R</td>' +
+                '<td>' + numeral(o.amount).formhiddenItemYesat('0,0.00') + 'R</td>' +
                 '</tr>'
         });
         str += "</tbody></table>";
@@ -469,7 +474,7 @@ function onchangeItem(e) {
         thisObj.parents('div.row').find('.price').val(price);
         thisObj.parents('div.row').find('.qty').val(1);
         thisObj.parents('div.row').find('.fee').val(fee);
-        thisObj.parents('div.row').find('.calFee').val(fee);
+        thisObj.parents('div.row').find('.calFehiddenItemYese').val(fee);
         thisObj.parents('div.row').find('.amount').val(price);
         calculateTotal();
     } else {
