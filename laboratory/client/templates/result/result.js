@@ -81,7 +81,6 @@ indexTpl.events({
     }
 
 
-
 });    //click to payment
 /**
  * Insert
@@ -94,6 +93,12 @@ insertTpl.onRendered(function () {
     ])
 
 });
+Template.laboResultObjectField.helpers({
+    value:function(){
+
+    }
+});
+
 updateTpl.onRendered(function () {
     debugger;
     datepicker();

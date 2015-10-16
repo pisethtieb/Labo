@@ -177,8 +177,8 @@ indexTpl.events({
             var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
             item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
             item.name = getChildItem.name;
-            debugger;
         });
+
         alertify.labo(fa('plus', 'New Result'), renderTemplate(Template.laboratory_resultInsert, data))
             .maximize();
     }
@@ -195,6 +195,7 @@ insertTpl.onRendered(function () {
     ]);
 
 });
+
 updateTpl.onRendered(function () {
     datepicker();
     createNewAlertify('staffAddon');
