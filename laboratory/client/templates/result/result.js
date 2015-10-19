@@ -149,7 +149,7 @@ AutoForm.hooks({
         before: {
             insert: function (doc) {
                 var prefix = Session.get('currentBranch') + '-';
-                Meteor.call('result', prefix);
+                Meteor.call('labo', prefix);
                 return doc;
             }
         },
