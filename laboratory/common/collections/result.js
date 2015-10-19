@@ -3,10 +3,19 @@ Laboratory.Collection.Result = new Mongo.Collection("Laboratory_Result");
 // Schema
 Laboratory.Schema.Result = new SimpleSchema({
 
-    laboDate: {
+    resultDate: {
         type: String,
         label: "Labo Date",
         max: 20,
+        defaultValue: function () {
+            var currentDate = moment(ReactiveMethod.call("currentDate"), 'YYYY-MM-DD H:mm:ss').format('YYYY-MM-DD H:mm:ss');
+            return currentDate;
+        }
+    },
+    laboId: {
+        type: String,
+        label: "LaboID",
+        max: 20
     },
     staffId: {
         type: String,

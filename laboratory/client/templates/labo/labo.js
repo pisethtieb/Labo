@@ -158,6 +158,8 @@ indexTpl.events({
     'click .result': function () {
 
         var data = Laboratory.Collection.Labo.findOne(this._id);
+        data.laboId = data._id;
+        //data.resultData = moment().format("YYYY-MM-DD HH:mm:ss");
         data.laboItem.forEach(function (item) {
             var getChildItem = Laboratory.Collection.Items.findOne(item.itemId);
             if (!_.isUndefined(getChildItem.childItem)) {
@@ -169,14 +171,25 @@ indexTpl.events({
 
                     var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
                     var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
-                    item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
+                    if (getChildItem.normalValue == null || undefined) {
+                        item.normalValue = '';
+                    }
+                    else {
+                        item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
+                    }
                     item.name = getChildItem.name;
                 });
             }
             var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
             var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
-            item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
+            if (getChildItem.normalValue == null || undefined) {
+                item.normalValue = '';
+            }
+            else {
+                item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
+            }
             item.name = getChildItem.name;
+            debugger;
         });
 
         alertify.labo(fa('plus', 'New Result'), renderTemplate(Template.laboratory_resultInsert, data))
@@ -193,7 +206,6 @@ insertTpl.onRendered(function () {
         'agentAddon',
         'paymentAction'
     ]);
-
 });
 
 updateTpl.onRendered(function () {

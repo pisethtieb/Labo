@@ -1,7 +1,7 @@
 var subs = new SubsManager();
 
-LaboratoryRoutes.route('/Result', {
-    name: 'laboratory.Result',
+LaboratoryRoutes.route('/result', {
+    name: 'laboratory.result',
     subscriptions: function (params, queryParams) {
         // Customer
         //this.register('laboratory_customer', subs.subscribe('laboratory_customer', Session.get('currentBranch')));
