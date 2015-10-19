@@ -65,7 +65,7 @@ indexTpl.events({
                         if (error) {
                             alertify.error(error.message);
                         } else {
-                            alertilaboratory/client/templates/result/result.jsfy.success("Success");
+                            alertify.success("Success");
                         }
                     });
                 }
@@ -127,12 +127,14 @@ Template.laboResultObjectField.helpers({
     checkVal: function (currentObj) {
         var index = currentObj.itemId.split('.');
         var data = Session.get('arrValue');
+
         if (data) {
             if (data.laboItem[index[1]].normalValue != '') {
                 return true;
             }
             return false;
         }
+
     }
 
 });
@@ -162,7 +164,6 @@ showTpl.helpers({
         });
         str += "</tbody></table>";
         return new Spacebars.SafeString(str);
->>>>>>> db373517662943797c09ef02ff3438a9a2a73c9e
     }
 
 });
@@ -216,8 +217,7 @@ var datepicker = function () {
     var resultDate = $('[name="resultDate"]');
     DateTimePicker.dateTime(resultDate);
 };
-<<<<<<< HEAD
-=======
+
 function onchangeItem(e) {
     debugger;
     var thisObj = $(e.currentTarget);
@@ -319,4 +319,3 @@ function calculateTotal() {
         200
     );
 }
->>>>>>> db373517662943797c09ef02ff3438a9a2a73c9e
