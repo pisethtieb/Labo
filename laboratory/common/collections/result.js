@@ -5,16 +5,21 @@ Laboratory.Schema.Result = new SimpleSchema({
 
     resultDate: {
         type: String,
-        label: "Labo Date",
+        label: "result Date",
         max: 20,
         defaultValue: function () {
             var currentDate = moment(ReactiveMethod.call("currentDate"), 'YYYY-MM-DD H:mm:ss').format('YYYY-MM-DD H:mm:ss');
             return currentDate;
         }
     },
+    laboDate: {
+        type: String,
+        label: "Labo Date",
+        max: 20
+    },
     laboId: {
         type: String,
-        label: "LaboID",
+        label: "Labo ID",
         max: 20
     },
     staffId: {

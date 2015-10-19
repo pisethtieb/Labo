@@ -12,28 +12,12 @@ Laboratory.TabularTable.Result = new Tabular.Table({
     columns: [
         {title: '<i class="fa fa-bars"></i>', tmpl: Meteor.isClient && Template.laboratory_resultAction},
         {data: "_id", title: "ID"},
-        {data: "laboDate", title: "labo Date"},
-        {
-            data: "total", title: "Total",
-            render: function (val, type, doc) {
-                return numeral(val).format('0,0.00') + ' R'
-            }
-        },
-        {
-            data: "totalFee", title: "Fee Amount",
-            render: function (val, type, doc) {
-                return numeral(val).format('0,0.00') + ' R'
-            }
-        },
-        {data: "_staff.name", title: "Staff"},
-               //{data: "_patient.name", title: "Patient"},
+        {data: "resultDate", title: "Result Date"},
+        {data: "laboDate", title: "Labo Date"},
+        {data: "laboId", title: "Labo ID"},
+        {data: "_patient.name", title: "Patient"},
+        {data: "_agent.name", title: "Agent"},
+        {data: "_staff.name", title: "Staff"}
 
-        //{
-        //    data: "block",
-        //    title: "Blocked",
-        //    render: function(val,type, doc){
-        //        return labelCon(val,"Yes" , "danger" , "primary");
-        //    }
-        //}
     ]
 });

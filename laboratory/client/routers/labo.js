@@ -11,6 +11,7 @@ LaboratoryRoutes.route('/labo/:patientId?', {
         this.register('laboratory_agent', subs.subscribe('laboratory_agent'));
         this.register('laboratory_items', subs.subscribe('laboratory_items'));
         this.register('laboratory_category', subs.subscribe('laboratory_category'));
+        this.register('laboratory_result', subs.subscribe('laboratory_result'));
     },
     action: function (params, queryParams) {
         Layout.main('laboratory_labo');

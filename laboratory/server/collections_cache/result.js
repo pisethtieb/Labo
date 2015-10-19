@@ -1,4 +1,4 @@
-//////// Collection
-//////Labo.Collection.Customer.cacheTimestamp();
-//Laboratory.Collection.Patient.cacheCount('laboCount', Laboratory.Collection.Labo, 'patientId');
-//Laboratory.Collection.Patient.cacheDoc('agent', Laboratory.Collection.Agent, ['name']);
+////// Collection
+
+Laboratory.Collection.Result.cacheDoc('agent', Laboratory.Collection.Agent, ['name']);
+Laboratory.Collection.Result.cacheDoc('patient', Laboratory.Collection.Patient, ['name']);

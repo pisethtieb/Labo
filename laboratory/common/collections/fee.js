@@ -45,6 +45,7 @@ Laboratory.Schema.Fee = new SimpleSchema({
         type: Number,
         label: "Paid Amount",
         min: 1,
+        decimal: true,
         custom: function () {
             if (this.value > this.field('overdueAmount').value) {
                 return "greaterThan";

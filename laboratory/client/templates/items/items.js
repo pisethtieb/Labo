@@ -104,9 +104,6 @@ insertTpl.events({
     // Keyup childName
     'keyup .childName': function (e) {
         var enable = true;
-        $('.childNormalValue').val();
-        $('.childPrependValue').val();
-        $('.childAppendValue').val();
         $('.items').each(function () {
             var childName = $(this).find('.childName').val();
             if (childName == "") {
@@ -116,7 +113,25 @@ insertTpl.events({
         });
         if (!enable) {
             $('.btnAdd').attr('disabled', true);
-            $('#child').attr('disabled', false);
+            $('#child').attr('disabled', true);
+        } else if (enable) {
+            $('#child').attr('disabled', true);
+            $('.btnAdd').attr('disabled', false);
+        }
+    },
+    // Keyup childName
+    'click .childName,.childNormalValue,.childPrependValue,childAppendValue': function (e) {
+        var enable = true;
+        $('.items').each(function () {
+            var childName = $(this).find('.childName').val();
+            if (childName == "") {
+                enable = false;
+                return false;
+            }
+        });
+        if (!enable) {
+            $('.btnAdd').attr('disabled', true);
+            $('#child').attr('disabled', true);
         } else if (enable) {
             $('#child').attr('disabled', true);
             $('.btnAdd').attr('disabled', false);
@@ -159,6 +174,21 @@ insertTpl.events({
     //set button Add Disabled = true
     'click .btnAdd': function () {
         $('.btnAdd').attr('disabled', true);
+        var enable = true;
+        $('.items').each(function () {
+            var childName = $(this).find('.childName').val();
+            if (childName == "") {
+                enable = false;
+                return false;
+            }
+        });
+        if (!enable) {
+            $('.btnAdd').attr('disabled', true);
+            $('#child').attr('disabled', true);
+        } else if (enable) {
+            $('#child').attr('disabled', true);
+            $('.btnAdd').attr('disabled', false);
+        }
     },
     //addOn Category
     'click .categoryAddon': function () {
@@ -192,9 +222,7 @@ updateTpl.events({
     //keup on childname of child
     'keyup .childName': function (e) {
         var enable = true;
-        $('.childNormalValue').val();
-        $('.childPrependValue').val();
-        $('.childAppendValue').val();
+
         $('.items').each(function () {
             var childName = $(this).find('.childName').val();
             if (childName == "") {
@@ -204,12 +232,31 @@ updateTpl.events({
         });
         if (!enable) {
             $('.btnAdd').attr('disabled', true);
-            $('#child').attr('disabled', false);
+            $('#child').attr('disabled', true);
         } else if (enable) {
             $('#child').attr('disabled', true);
             $('.btnAdd').attr('disabled', false);
         }
     },
+    //click
+    'click .childName,.childNormalValue,.childPrependValue,childAppendValue': function (e) {
+        var enable = true;
+        $('.items').each(function () {
+            var childName = $(this).find('.childName').val();
+            if (childName == "") {
+                enable = false;
+                return false;
+            }
+        });
+        if (!enable) {
+            $('.btnAdd').attr('disabled', true);
+            $('#child').attr('disabled', true);
+        } else if (enable) {
+            $('#child').attr('disabled', true);
+            $('.btnAdd').attr('disabled', false);
+        }
+    },
+
     //remove Btb
     'click .btnRemove': function () {
         debugger;

@@ -14,7 +14,6 @@ LaboratoryRoutes.route('/payment/:patientId?/:laboId?', {
     },
     breadcrumb: {
         params: ['patientId', 'laboId'],
-        //queryParams: ['show', 'color'],
         title: 'Payment',
         parent: 'Laboratory.labo'
     }

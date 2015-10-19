@@ -6,11 +6,13 @@ Laboratory.Schema.Measure = new SimpleSchema({
 
     appendValue: {
         type: String,
-        label: "AppendValue"
+        label: "AppendValue",
+        optional:true
     },
     prependValue: {
         type: String,
-        label: "PrependValue"
+        label: "PrependValue",
+        optional:true
     },
     cpanel_branchId: {
         type: String,

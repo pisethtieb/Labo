@@ -156,44 +156,57 @@ indexTpl.events({
         }
     },
     'click .result': function () {
-        debugger;
-        var data = Laboratory.Collection.Labo.findOne(this._id);
-        data.laboId = data._id;
-        //data.resultData = moment().format("YYYY-MM-DD HH:mm:ss");
-        data.laboItem.forEach(function (item) {
-            var getChildItem = Laboratory.Collection.Items.findOne(item.itemId);
-            if (!_.isUndefined(getChildItem.childItem)) {
-                item.childItem = getChildItem.childItem;
-                getChildItem.childItem.forEach(function (objChildItem) {
-                    var prependValue = objChildItem.prependValue = objChildItem.prependValue == null ? '' : objChildItem.prependValue;
-                    var appendValue = objChildItem.appendValue = objChildItem.appendValue == null ? '' : objChildItem.appendValue;
-                    objChildItem.normalValue = appendValue + '  ' + objChildItem.normalValue + '  ' + prependValue;
-                    var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
-                    var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
-                    if (getChildItem.normalValue == null || undefined) {
-                        item.normalValue = '';
-                    }
-                    else {
-                        item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
-                    }
-                    item.name = getChildItem.name;
-                });
-            }
-            var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
-            var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
-            if (getChildItem.normalValue == null || undefined) {
-                item.normalValue = '';
-            }
-            else {
-                item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
-            }
-            item.name = getChildItem.name;
-            debugger;
 
-        });
+        var self = this;
+        var hasResult = Laboratory.Collection.Result.findOne({laboId: self._id});
+        if (hasResult) {
+            var laboId = self._id;
+            var patientId = self.patientId;
+            debugger
+            FlowRouter.go('laboratory.result', {
+                laboId: laboId, patientId: patientId
+            });
+        } else {
 
-        alertify.labo(fa('plus', 'New Result'), renderTemplate(Template.laboratory_resultInsert, data))
-            .maximize();
+
+            var data = Laboratory.Collection.Labo.findOne(this._id);
+            data.laboId = data._id;
+            //data.resultData = moment().format("YYYY-MM-DD HH:mm:ss");
+            data.laboItem.forEach(function (item) {
+                var getChildItem = Laboratory.Collection.Items.findOne(item.itemId);
+                if (!_.isUndefined(getChildItem.childItem)) {
+                    item.childItem = getChildItem.childItem;
+                    getChildItem.childItem.forEach(function (objChildItem) {
+                        var prependValue = objChildItem.prependValue = objChildItem.prependValue == null ? '' : objChildItem.prependValue;
+                        var appendValue = objChildItem.appendValue = objChildItem.appendValue == null ? '' : objChildItem.appendValue;
+                        objChildItem.normalValue = appendValue + '  ' + objChildItem.normalValue + '  ' + prependValue;
+                        var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
+                        var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
+                        if (getChildItem.normalValue == null || undefined) {
+                            item.normalValue = '';
+                        }
+                        else {
+                            item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
+                        }
+                        item.name = getChildItem.name;
+                    });
+                }
+                var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
+                var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
+                if (getChildItem.normalValue == null || undefined) {
+                    item.normalValue = '';
+                }
+                else {
+                    item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
+                }
+                item.name = getChildItem.name;
+
+
+            });
+
+            alertify.labo(fa('plus', 'New Result'), renderTemplate(Template.laboratory_resultInsert, data))
+                .maximize();
+        }
     }
 });
 /**

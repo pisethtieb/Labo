@@ -7,31 +7,17 @@ var indexTpl = Template.laboratory_result,
     patientInfo = Template.laboratory_patientInfo;
 // Index
 indexTpl.onRendered(function () {
-    ///wrong link to other rout
     createNewAlertify('result');
     createNewAlertify('payment');
 });
 // Patient Info Helpers
-patientInfo.helpers({
-    patient: function () {
-        var patientId = FlowRouter.getParam("patientId");
-        Meteor.subscribe('laboratory_patient');
-        var patient = Laboratory.Collection.Patient.findOne({_id: patientId});
-        if (!_.isUndefined(patient.photo)) {
-            patient.photoUrl = Files.findOne(patient.photo).url();
-        } else {
-            patient.photoUrl = null;
-        }
-        return patient;
-    }
-});
- //tabularSelector & getCurrentPatient
+//tabularSelector & getCurrentPatient
 indexTpl.helpers({
     resultData: function () {
-        var patientId = FlowRouter.getParam('patientId');
+        var laboId = FlowRouter.getParam('laboId');
         return {
-            selector: {patientId: patientId},
-            patientId: patientId
+            selector: {laboId: laboId},
+            laboId: laboId
         };
     }
 });
@@ -91,20 +77,6 @@ insertTpl.onRendered(function () {
     createNewAlertify([
         'staffAddon'
     ]);
-    //var cheackHidennShow = this.data.laboItem;
-    //cheackHidennShow.forEach(function (object) {
-    //    var yesNo = object.normalValue;
-    //    setTimeout(function (yesNo) {
-    //
-    //            debugger;
-    //
-    //            if (yesNo == null) {
-    //                $('.hiddenItemNo').hide();
-    //            }
-    //        },
-    //        200);
-    //});
-
 });
 
 updateTpl.onRendered(function () {
@@ -184,10 +156,21 @@ AutoForm.hooks({
                 return doc;
             }
         },
-        onSuccess: function (formType, result) {
+        onSuccess: function (formType, id) {
             alertify.labo().close();
             alertify.success("Success");
-            FlowRouter.go('laboratory.result');
+            Meteor.call('getResultId', id, function (err, result) {
+                var res = Laboratory.Collection.Result.findOne(result);
+                var laboId = res.laboId;
+
+                var patientId = res.patientId;
+                FlowRouter.go('laboratory.result',
+                    {
+                        laboId: laboId, patientId: patientId
+                    }
+                );
+
+            });
         },
         onError: function (fromType, error) {
             alertify.error(error.message);
