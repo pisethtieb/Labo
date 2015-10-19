@@ -156,7 +156,7 @@ indexTpl.events({
         }
     },
     'click .result': function () {
-
+        debugger;
         var data = Laboratory.Collection.Labo.findOne(this._id);
         data.laboId = data._id;
         //data.resultData = moment().format("YYYY-MM-DD HH:mm:ss");
@@ -168,7 +168,6 @@ indexTpl.events({
                     var prependValue = objChildItem.prependValue = objChildItem.prependValue == null ? '' : objChildItem.prependValue;
                     var appendValue = objChildItem.appendValue = objChildItem.appendValue == null ? '' : objChildItem.appendValue;
                     objChildItem.normalValue = appendValue + '  ' + objChildItem.normalValue + '  ' + prependValue;
-
                     var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
                     var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
                     if (getChildItem.normalValue == null || undefined) {
@@ -190,6 +189,7 @@ indexTpl.events({
             }
             item.name = getChildItem.name;
             debugger;
+
         });
 
         alertify.labo(fa('plus', 'New Result'), renderTemplate(Template.laboratory_resultInsert, data))
@@ -476,6 +476,7 @@ function onchangeItem(e) {
     }
 
     var price = itemData.price;
+    debugger;
     var feeType = itemData.feeType;
     if (feeType == 'percent') {
         var fee = (itemData.price * itemData.fee) / 100;

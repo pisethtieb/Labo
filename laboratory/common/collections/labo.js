@@ -94,10 +94,12 @@ Laboratory.Schema.Labo = new SimpleSchema({
         type: Number,
         label: "Fee",
         decimal: true
-    }, 'laboItem.$.calFee': {
+    },
+    'laboItem.$.calFee': {
         type: Number,
         label: "CalFee",
-        decimal: true
+        decimal: true,
+        optional: true
     },
     'laboItem.$.amount': {
         type: Number,
