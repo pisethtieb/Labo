@@ -10,8 +10,3 @@ Meteor.publish('laboratory_category', function (branchId) {
     }
 });
 
-Meteor.publish('laboratory_staffById', function (id) {
-    if (this.userId) {
-        return Laboratory.Collection.Category.find(id, {removed: true});
-    }
-});

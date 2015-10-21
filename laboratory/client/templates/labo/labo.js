@@ -174,7 +174,7 @@ indexTpl.events({
             //data.resultData = moment().format("YYYY-MM-DD HH:mm:ss");
             data.laboItem.forEach(function (item) {
                 var getChildItem = Laboratory.Collection.Items.findOne(item.itemId);
-                if (!_.isUndefined(getChildItem.childItem)) {
+                if (getChildItem.childItem != null || getChildItem.childItem != undefined) {
                     item.childItem = getChildItem.childItem;
                     getChildItem.childItem.forEach(function (objChildItem) {
                         var prependValue = objChildItem.prependValue = objChildItem.prependValue == null ? '' : objChildItem.prependValue;

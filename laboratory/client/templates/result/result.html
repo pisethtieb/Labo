@@ -48,8 +48,10 @@
 
         <div class="col-md-9">
             {{> afArrayField name="laboItem" id="laboItem" template="resultlArrayField" subtemplate="laboResultObjectField" }}
-            <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
+            <button type="submit" id="save" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
             <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
+            <button type="submit" id="save-print" class="btn btn-success">{{fa "print"}} Save&Print</button>
+
         </div>
     {{/autoForm}}
 </template>
@@ -196,6 +198,7 @@
         <li><a href="#" class="update">{{fa "pencil"}} Update</a></li>
         <li><a href="#" class="remove">{{fa "trash"}} Remove</a></li>
         <li><a href="#" class="show">{{fa "eye"}} Show</a></li>
+        <li><a href="/laboratory/result/print/{{this._id}}" target="_blank" class="printResult">{{fa "print"}} Print Result</a></li>
     {{/tabularAction}}
 </template>
 <!--childitem Objec Array File-->

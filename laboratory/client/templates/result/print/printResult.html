@@ -1,0 +1,122 @@
+<template name='laboratory_printResult'>
+    <!--Is ready-->
+    {{#if data}}
+        {{#reportTpl options}}
+
+            {{#with data}}
+
+
+                {{#with title}}
+                    <div class="title">
+                        <div class="title-1x-kh-muol">{{khName}}</div>
+                        <div class="title-1x">{{enName}}</div>
+                        <div><u>Customer Report</u></div>
+                        <div class="title-2x">{{enAddress}}</div>
+                    </div>
+                {{/with}}
+
+                {{#with header}}
+
+                {{/with}}
+                <br>
+
+                <div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li><strong>Patient ID:</strong> {{result.patientId}}</li>
+                            <li><strong>patient Name:</strong> {{result._patient.name}}</li>
+                            <li><strong>Gender :</strong> {{result._patient.gender}}</li>
+                            <li><strong>Date of birth :</strong> {{result._patient.dob}}</li>
+                            <li><strong>Age :</strong> {{result._patient.age}}</li>
+                            <li><strong>TelePhone :</strong> {{result._patient.telephone}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <ht><strong>Result ID :</strong></ht>
+                            <hd>{{result._id}}</hd>
+                            <li><strong>Result Date :</strong> {{result.resultDate}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li><strong>Labo ID:</strong> {{result.laboId}}</li>
+                            <li><strong>Labo Date:</strong> {{result.laboDate}}</li>
+                            <li><strong>Staff :</strong> {{result._staff.name}}</li>
+                            <li><strong>Agent :</strong> {{result._agent.name}}</li>
+
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                <!--Content-->
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>N
+                            <super style="text-decoration: underline;">0</super>
+                        </th>
+                        <th>Item ID</th>
+                        <th>Name</th>
+                        <th style="width:auto">Normal Value</th>
+                        <th>Result</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each result.laboItem}}
+                        <tr>
+                            <td>{{index}}</td>
+                            <td>{{itemId}}</td>
+                            <td>{{name}}</td>
+                            <td>
+                                {{#if isUndefinded normalValue}}
+                                    <table style="width: 100%; text-align:center">
+                                        <thead>
+                                        <tr>
+                                            <th width="33%" style="text-align: center"> Name</th>
+                                            <th width="33%" style="text-align: center"> Normal Value</th>
+                                            <th width="33%" style="text-align: center"> Result</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {{#each childItem}}
+                                            <tr>
+                                                <td width="33%">{{name}}</td>
+                                                <td width="33%">{{normalValue}}</td>
+                                                <td width="33%">
+                                                    <b><i>{{result}}</i></b>
+                                                </td>
+
+                                            </tr>
+                                        {{/each}}
+                                        </tbody>
+                                    </table>
+                                {{else}}
+                                    {{normalValue}}
+
+                                {{/if}}
+
+                            </td>
+                            <td><b><i>{{result}}</i></b></td>
+                        </tr>
+
+                    {{/each}}
+                    </tbody>
+                </table>
+
+
+            {{/with}}
+
+            <!--Sign-->
+            {{> signFooter}}
+
+        {{/reportTpl}}
+
+        <!--Auto print-->
+        {{autoprint close="true"}}
+
+    {{else}}
+        {{> loading}}
+    {{/if}}
+
+</template>

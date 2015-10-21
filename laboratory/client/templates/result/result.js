@@ -21,7 +21,6 @@ indexTpl.helpers({
         };
     }
 });
-
 indexTpl.events({
     'click .insert': function () {
         var data = Laboratory.Collection.Result.findOne({_id: this._id});
@@ -31,7 +30,6 @@ indexTpl.events({
                 title: fa("pencil", "result")
             })
             .maximize();
-
     },
     'click .update': function () {
         var data = Laboratory.Collection.Result.findOne({_id: this._id});
@@ -55,7 +53,6 @@ indexTpl.events({
                         }
                     });
                 }
-
             })
     },
     'click .show': function () {
@@ -65,8 +62,6 @@ indexTpl.events({
                 title: fa("eye", "result")
             })
     }
-
-
 });    //click to payment
 /**
  * Insert
@@ -77,6 +72,23 @@ insertTpl.onRendered(function () {
     createNewAlertify([
         'staffAddon'
     ]);
+});
+insertTpl.events({
+    'click .staffAddon': function () {
+        alertify.staffAddon(renderTemplate(Template.laboratory_agentInsert))
+            .set({
+                title: fa("plus", "Agent")
+            })
+    },
+    'click #save':function(){
+        Session.set('savePrint',false);
+    },
+    'click #save-print':function(){
+        Session.set('savePrint',true);
+    },
+    'click .printResult':function(){
+        Session.set('savePrint',true);
+    }
 });
 
 updateTpl.onRendered(function () {
@@ -164,11 +176,16 @@ AutoForm.hooks({
                 var laboId = res.laboId;
 
                 var patientId = res.patientId;
-                FlowRouter.go('laboratory.result',
-                    {
-                        laboId: laboId, patientId: patientId
-                    }
-                );
+                if(Session.get('savePrint')){
+                    var url='/laboratory/result/print/'+result;
+                    window.open(url,'_blank');
+                }else {
+                    FlowRouter.go('laboratory.result',
+                        {
+                            laboId: laboId, patientId: patientId
+                        }
+                    );
+                }
 
             });
         },
