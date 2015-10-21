@@ -24,7 +24,12 @@ agentInForTpl.helpers({
         debugger;
         var agentId = FlowRouter.getParam("agentId");
         var agent = Laboratory.Collection.Agent.findOne({_id: agentId});
-        agent.photoUrl = Files.findOne(agent.photo).url();
+
+        if (!_.isUndefined(agent.photo)) {
+            agent.photoUrl = Files.findOne(agent.photo).url();
+        } else {
+            agent.photoUrl = null;
+        }
         return agent;
     }
 });
@@ -76,7 +81,7 @@ indexTpl.events({
 
     },
     'click .show': function (e, t) {
-        var data = Laboratory.Collection.Payment.findOne({_id: this._id});
+        var data = Laboratory.Collection.Fee.findOne({_id: this._id});
         alertify.alert(fa("eye", "Payment"), renderTemplate(showTpl, data));
     },
     'click .btn-link': function () {

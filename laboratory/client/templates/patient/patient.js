@@ -17,7 +17,7 @@ indexTpl.onCreated(function () {
         description: 'Description for this page'
     });
     // Create new  alertify
-    createNewAlertify(["Patient","Labo"]);
+    createNewAlertify(["Patient", "Labo"]);
 });
 indexTpl.helpers({});
 indexTpl.onRendered(function () {
@@ -79,19 +79,23 @@ indexTpl.events({
     'dblclick tbody > tr': function (event) {
         var dataTable = $(event.target).closest('table').DataTable();
         var rowData = dataTable.row(event.currentTarget).data();
+        debugger
         //check already excite patient on labo
-        Meteor.call('checkLaboForPatient', rowData._id, function (err, result) {
-            if (_.isUndefined(result.labo)) {
-                alertify.Labo(fa('plus', 'Add Labo'),
-                    renderTemplate(Template.laboratory_laboInsert, result.id)
-                )
-                    .maximize();
-            } else {
-                FlowRouter.go('Laboratory.labo', {
-                    patientId: result.id
-                });
-            }
-        });
+        if (rowData != undefined) {
+
+            Meteor.call('checkLaboForPatient', rowData._id, function (err, result) {
+                if (_.isUndefined(result.labo)) {
+                    alertify.Labo(fa('plus', 'Add Labo'),
+                        renderTemplate(Template.laboratory_laboInsert, result.id)
+                    )
+                        .maximize();
+                } else {
+                    FlowRouter.go('Laboratory.labo', {
+                        patientId: result.id
+                    });
+                }
+            });
+        }
     },
     //click to add new labo
     'click .laboAction': function () {

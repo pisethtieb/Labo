@@ -65,7 +65,10 @@ indexTpl.events({
         debugger;
         var dataTable = $(event.target).closest('table').DataTable();
         var rowData = dataTable.row(event.currentTarget).data();
-        FlowRouter.go('laboratory.fee', {agentId: rowData._id});
+        if (rowData != undefined) {
+
+            FlowRouter.go('laboratory.fee', {agentId: rowData._id});
+        }
     }
 });
 

@@ -80,14 +80,14 @@ insertTpl.events({
                 title: fa("plus", "Agent")
             })
     },
-    'click #save':function(){
-        Session.set('savePrint',false);
+    'click #save': function () {
+        Session.set('savePrint', false);
     },
-    'click #save-print':function(){
-        Session.set('savePrint',true);
+    'click #save-print': function () {
+        Session.set('savePrint', true);
     },
-    'click .printResult':function(){
-        Session.set('savePrint',true);
+    'click .printResult': function () {
+        Session.set('savePrint', true);
     }
 });
 
@@ -176,17 +176,17 @@ AutoForm.hooks({
                 var laboId = res.laboId;
 
                 var patientId = res.patientId;
-                if(Session.get('savePrint')){
-                    var url='/laboratory/result/print/'+result;
-                    window.open(url,'_blank');
-                }else {
+                if (Session.get('savePrint')) {
+                    var url = '/laboratory/result/print/' + result;
+                    window.open(url, '_blank');
+                } else {
                     FlowRouter.go('laboratory.result',
                         {
                             laboId: laboId, patientId: patientId
                         }
                     );
                 }
-
+                debugger;
             });
         },
         onError: function (fromType, error) {

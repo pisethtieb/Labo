@@ -379,7 +379,7 @@ AutoForm.hooks({
             $('[name="child"]').attr('disabled', false);
         },
         onError: function (fromType, error) {
-            $('[name="child"]').attr('disabled', true);
+            $('[name="child"]').attr('disabled', false);
             alertify.error(error.message);
         }
     },

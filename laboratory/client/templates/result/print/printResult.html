@@ -10,7 +10,7 @@
                     <div class="title">
                         <div class="title-1x-kh-muol">{{khName}}</div>
                         <div class="title-1x">{{enName}}</div>
-                        <div><u>Customer Report</u></div>
+                        <div><u>Patient Result</u></div>
                         <div class="title-2x">{{enAddress}}</div>
                     </div>
                 {{/with}}
@@ -51,9 +51,11 @@
                 <br>
                 <!--Content-->
                 <table class="table table-bordered">
-                    <thead>
+                    <thead style="background: darkgray">
                     <tr>
-                        <th>N
+                        <th>
+
+                            N
                             <super style="text-decoration: underline;">0</super>
                         </th>
                         <th>Item ID</th>
@@ -71,7 +73,7 @@
                             <td>
                                 {{#if isUndefinded normalValue}}
                                     <table style="width: 100%; text-align:center">
-                                        <thead>
+                                        <thead style="color: #0088cc">
                                         <tr>
                                             <th width="33%" style="text-align: center"> Name</th>
                                             <th width="33%" style="text-align: center"> Normal Value</th>
@@ -84,7 +86,7 @@
                                                 <td width="33%">{{name}}</td>
                                                 <td width="33%">{{normalValue}}</td>
                                                 <td width="33%">
-                                                    <b><i>{{result}}</i></b>
+                                                    <b><i style="color:red">{{result}}</i></b>
                                                 </td>
 
                                             </tr>
@@ -113,7 +115,7 @@
         {{/reportTpl}}
 
         <!--Auto print-->
-        {{autoprint close="true"}}
+        <!--{{autoprint close="true"}}-->
 
     {{else}}
         {{> loading}}

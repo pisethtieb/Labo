@@ -102,26 +102,29 @@ indexTpl.events({
     'dblclick tbody > tr': function (event) {
         var dataTable = $(event.target).closest('table').DataTable();
         var rowData = dataTable.row(event.currentTarget).data();
-        var patientId = FlowRouter.getParam('patientId');
-        //check excite on payment
-        Meteor.call('checkLaboForLabo', rowData._id, function (err, result) {
+        if (rowData != undefined) {
 
-            if (_.isUndefined(result.payment)) {
-                var doc = {};
-                doc.laboId = rowData._id;
-                doc.patientId = rowData.patientId;
-                doc.overdueAmount = rowData.total;
-                doc.paidAmount = rowData.total;
-                doc.paymentDate = moment().format("YYYY-MM-DD HH:mm:ss");
-                alertify.payment(fa("plus", "Payment"),
-                    renderTemplate(Template.laboratory_paymentInsert, doc));
-            } else {
-                //result.lastPayment.paymentDate=moment().format("YYYY-MM-DD HH:mm:ss");
-                FlowRouter.go('Laboratory.payment', {
-                    laboId: result.id, patientId: patientId
-                });
-            }
-        });
+            var patientId = FlowRouter.getParam('patientId');
+            //check excite on payment
+            Meteor.call('checkLaboForLabo', rowData._id, function (err, result) {
+
+                if (_.isUndefined(result.payment)) {
+                    var doc = {};
+                    doc.laboId = rowData._id;
+                    doc.patientId = rowData.patientId;
+                    doc.overdueAmount = rowData.total;
+                    doc.paidAmount = rowData.total;
+                    doc.paymentDate = moment().format("YYYY-MM-DD HH:mm:ss");
+                    alertify.payment(fa("plus", "Payment"),
+                        renderTemplate(Template.laboratory_paymentInsert, doc));
+                } else {
+                    //result.lastPayment.paymentDate=moment().format("YYYY-MM-DD HH:mm:ss");
+                    FlowRouter.go('Laboratory.payment', {
+                        laboId: result.id, patientId: patientId
+                    });
+                }
+            });
+        }
     },
     //click to payment
     'click .paymentAction': function () {
@@ -441,6 +444,7 @@ AutoForm.hooks({
             }
         },
         onSuccess: function (formType, result) {
+            alertify.labo().close();
             alertify.success("Success");
         },
         onError: function (fromType, error) {
