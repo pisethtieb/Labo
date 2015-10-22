@@ -1,5 +1,5 @@
 // Collection
-Laboratory.Collection.Items = new Mongo.Collection("laboratory_item");
+Laboratory.Collection.Items = new Mongo.Collection("laboratory_items");
 
 // Schema
 Laboratory.Schema.Items = new SimpleSchema({

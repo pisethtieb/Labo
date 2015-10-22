@@ -70,19 +70,21 @@ indexTpl.events({
     },
     'click .remove': function () {
         var id = this._id;
-        alertify.confirm("Are you sure to delete [" + id + "] ?")
-            .set({
-                onok: function (result) {
-                    Laboratory.Collection.Labo.remove(id, function (error) {
-                        if (error) {
-                            alertify.error(error.message);
-                        } else {
-                            alertify.success("Success");
-                        }
-                    });
-                }
 
-            })
+        alertify.confirm(
+            fa("remove", "Item"),
+            "Are you sure to delete [" + id + "]?",
+            function () {
+                Laboratory.Collection.Labo.remove(id, function (error) {
+                    if (error) {
+                        alertify.error(error.message);
+                    } else {
+                        alertify.success("Success");
+                    }
+                });
+            },
+            null
+        );
     },
     'click .show': function () {
         var data = Laboratory.Collection.Labo.findOne({_id: this._id});
@@ -444,6 +446,7 @@ AutoForm.hooks({
             }
         },
         onSuccess: function (formType, result) {
+            debugger;
             alertify.labo().close();
             alertify.success("Success");
         },
@@ -453,7 +456,7 @@ AutoForm.hooks({
     },
     laboratory_laboUpdate: {
         onSuccess: function (formType, result) {
-
+            debugger;
             alertify.labo().close();
             alertify.success('Success');
         },

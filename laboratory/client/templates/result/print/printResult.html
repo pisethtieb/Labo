@@ -15,39 +15,72 @@
                     </div>
                 {{/with}}
 
-                {{#with header}}
+                {{#with result}}
+
+
+                    <div style="width: 100%">
+                        <div style="width: 100%; float: right">
+                            <ul class="list-unstyled">
+                                <li><strong>Patient ID:</strong> {{patientId}}</li>
+                                <li><strong>patient Name:</strong> {{_patient.name}}</li>
+                                <li><strong>Gender :</strong> {{_patient.gender}}</li>
+                                <li><strong>Date of birth :</strong> {{_patient.dob}}</li>
+                                <li><strong>Age :</strong> {{_patient.age}}</li>
+                                <li><strong>TelePhone :</strong> {{_patient.telephone}}</li>
+                            </ul>
+                        </div>
+
+                        <!--<div style="width: 10%;nav-left:auto ">-->
+                            <!--<ul class="list-unstyled">-->
+                                <!--<li><strong>Labo ID:</strong> {{laboId}}</li>-->
+                                <!--<li><strong>Labo Date:</strong> {{laboDate}}</li>-->
+                                <!--<li><strong>Staff :</strong> {{_staff.name}}</li>-->
+                                <!--<li><strong>Agent :</strong> {{_agent.name}}</li>-->
+
+                            <!--</ul>-->
+                        <!--</div>-->
+                        <!--<div style="width: 40%; float: right">-->
+                            <!--<ul class="list-unstyled">-->
+                                <!--<li><strong>Labo ID:</strong> {{result.laboId}}</li>-->
+                                <!--<li><strong>Labo Date:</strong> {{result.laboDate}}</li>-->
+                                <!--<li><strong>Staff :</strong> {{result._staff.name}}</li>-->
+                                <!--<li><strong>Agent :</strong> {{result._agent.name}}</li>-->
+
+                            <!--</ul>-->
+                        <!--</div>-->
+                    </div>
 
                 {{/with}}
                 <br>
 
-                <div>
-                    <div class="col-md-4">
-                        <ul class="list-unstyled">
-                            <li><strong>Patient ID:</strong> {{result.patientId}}</li>
-                            <li><strong>patient Name:</strong> {{result._patient.name}}</li>
-                            <li><strong>Gender :</strong> {{result._patient.gender}}</li>
-                            <li><strong>Date of birth :</strong> {{result._patient.dob}}</li>
-                            <li><strong>Age :</strong> {{result._patient.age}}</li>
-                            <li><strong>TelePhone :</strong> {{result._patient.telephone}}</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="list-unstyled">
-                            <ht><strong>Result ID :</strong></ht>
-                            <hd>{{result._id}}</hd>
-                            <li><strong>Result Date :</strong> {{result.resultDate}}</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="list-unstyled">
-                            <li><strong>Labo ID:</strong> {{result.laboId}}</li>
-                            <li><strong>Labo Date:</strong> {{result.laboDate}}</li>
-                            <li><strong>Staff :</strong> {{result._staff.name}}</li>
-                            <li><strong>Agent :</strong> {{result._agent.name}}</li>
+                <!--<div>-->
+                <!--<div class="col-md-4">-->
+                <!--<ul class="list-unstyled">-->
+                <!--<li><strong>Patient ID:</strong> {{result.patientId}}</li>-->
+                <!--<li><strong>patient Name:</strong> {{result._patient.name}}</li>-->
+                <!--<li><strong>Gender :</strong> {{result._patient.gender}}</li>-->
+                <!--<li><strong>Date of birth :</strong> {{result._patient.dob}}</li>-->
+                <!--<li><strong>Age :</strong> {{result._patient.age}}</li>-->
+                <!--<li><strong>TelePhone :</strong> {{result._patient.telephone}}</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="col-md-4">-->
+                <!--<ul class="list-unstyled">-->
+                <!--<ht><strong>Result ID :</strong></ht>-->
+                <!--<hd>{{result._id}}</hd>-->
+                <!--<li><strong>Result Date :</strong> {{result.resultDate}}</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="col-md-4">-->
+                <!--<ul class="list-unstyled">-->
+                <!--<li><strong>Labo ID:</strong> {{result.laboId}}</li>-->
+                <!--<li><strong>Labo Date:</strong> {{result.laboDate}}</li>-->
+                <!--<li><strong>Staff :</strong> {{result._staff.name}}</li>-->
+                <!--<li><strong>Agent :</strong> {{result._agent.name}}</li>-->
 
-                        </ul>
-                    </div>
-                </div>
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</div>-->
                 <br>
                 <!--Content-->
                 <table class="table table-bordered">
