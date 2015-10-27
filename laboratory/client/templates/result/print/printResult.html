@@ -21,27 +21,27 @@
                     {{#with result}}
                         <tr>
                             <td style="text-align: left" width="40%">PatientID : {{patientId}}</td>
-                            <td style="text-align: left" width="40%">Result : {{_id}}</td>
+                            <td style="text-align: left" width="38%">Result : {{_id}}</td>
                             <td style="text-align: left" width="auto">laboID : {{laboId}}</td>
                         </tr>
                         <tr>
                             <td style="text-align: left" width="40%">Patient Name : {{_patient.name}}</td>
-                            <td style="text-align: left" width="40%">Result :  {{resultDate}}</td>
+                            <td style="text-align: left" width="38%">Result Date:  {{resultDate}}</td>
                             <td style="text-align: left" width="auto">laboDate : {{laboDate}}</td>
                         </tr>
                         <tr>
-                            <td style="text-align: left" width="40%">Dob  : {{_patient.dob}}</td>
-                            <td style="text-align: left" width="40%"></td>
+                            <td style="text-align: left" width="40%">Dob : {{_patient.dob}}</td>
+                            <td style="text-align: left" width="38%"></td>
                             <td style="text-align: left" width="auto">staff: {{_staff.name}}</td>
                         </tr>
                         <tr>
                             <td style="text-align: left" width="40%">Age: {{_patient.age}}</td>
-                            <td style="text-align: left" width="40%"></td>
+                            <td style="text-align: left" width="38%"></td>
                             <td style="text-align: left" width="auto">Agent: {{_agent.name}}</td>
                         </tr>
                         <tr>
                             <td style="text-align: left" width="40%">telephone: {{_patient.telephone}}</td>
-                            <td style="text-align: left" width="40%"></td>
+                            <td style="text-align: left" width="38%"></td>
                             <td style="text-align: left" width="auto"></td>
                         </tr>
                     {{/with}}
@@ -51,15 +51,16 @@
 
                 <!--Content-->
                 <table class="table table-bordered">
-                    <thead style="background: darkgray">
-                    <tr>
+                    <thead>
+                    <tr bgcolor="gray">
                         <th>
 
-                            N<super style="text-decoration: underline;">0</super>
+                            N
+                            <super style="text-decoration: underline;">0</super>
                         </th>
                         <th>Item ID</th>
                         <th>Name</th>
-                        <th style="width:auto">Normal Value</th>
+                        <th style="width:auto; text-align: center">Normal Value</th>
                         <th>Result</th>
                     </tr>
                     </thead>
@@ -71,9 +72,9 @@
                             <td>{{name}}</td>
                             <td>
                                 {{#if isUndefinded normalValue}}
-                                    <table style="width: 100%; text-align:center">
-                                        <thead style="color: #0088cc">
-                                        <tr>
+                                    <table style="width: 100%; text-align:center;border-style: hidden">
+                                        <thead style="color: #0088cc;border-style: hidden">
+                                        <tr style="border-style: hidden">
                                             <th width="33%" style="text-align: center"> Name</th>
                                             <th width="33%" style="text-align: center"> Normal Value</th>
                                             <th width="33%" style="text-align: center"> Result</th>
@@ -108,16 +109,16 @@
 
             {{/with}}
 
-            <!--Sign-->
-            {{> signFooter}}
+                <!--Sign-->
+                {{> signFooter}}
 
-        {{/reportTpl}}
+            {{/reportTpl}}
 
-        <!--Auto print-->
-        <!--{{autoprint close="true"}}-->
+            <!--Auto print-->
+            <!--{{autoprint close="true"}}-->
 
-    {{else}}
-        {{> loading}}
-    {{/if}}
+        {{else}}
+            {{> loading}}
+        {{/if}}
 
-</template>
+    </template>

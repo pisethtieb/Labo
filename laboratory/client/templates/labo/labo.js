@@ -176,7 +176,7 @@ indexTpl.events({
 
             var data = Laboratory.Collection.Labo.findOne(this._id);
             data.laboId = data._id;
-            //data.resultData = moment().format("YYYY-MM-DD HH:mm:ss");
+            data.resultData = moment().format("YYYY-MM-DD HH:mm:ss");
             data.laboItem.forEach(function (item) {
                 var getChildItem = Laboratory.Collection.Items.findOne(item.itemId);
                 if (getChildItem.childItem != null || getChildItem.childItem != undefined) {
@@ -208,7 +208,7 @@ indexTpl.events({
 
 
             });
-
+debugger
             alertify.labo(fa('plus', 'New Result'), renderTemplate(Template.laboratory_resultInsert, data))
                 .maximize();
         }

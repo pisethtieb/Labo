@@ -10,6 +10,7 @@ indexTpl.onRendered(function () {
     createNewAlertify('result');
     createNewAlertify('payment');
 });
+
 // Patient Info Helpers
 //tabularSelector & getCurrentPatient
 indexTpl.helpers({
@@ -17,7 +18,8 @@ indexTpl.helpers({
         var laboId = FlowRouter.getParam('laboId');
         return {
             selector: {laboId: laboId},
-            laboId: laboId
+            laboId: laboI
+
         };
     }
 });
@@ -106,7 +108,13 @@ updateTpl.onRendered(function () {
 /**
  * Show
  */
-
+insertTpl.helpers({
+    resultDate: function () {
+        var data = Session.get('arrValue');
+        return data.resultData;
+        debugger;
+    }
+});
 Template.laboResultObjectField.helpers({
     checkVal: function (currentObj) {
         var index = currentObj.itemId.split('.');
@@ -120,6 +128,7 @@ Template.laboResultObjectField.helpers({
         }
 
     }
+
 
 });
 indexTpl.onDestroyed(function () {
