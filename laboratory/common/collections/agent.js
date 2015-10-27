@@ -28,7 +28,11 @@ Laboratory.Schema.Agent = new SimpleSchema({
     address: {
         type: String,
         label: "Address",
-        max: 500
+        max: 500,
+        autoform: {
+            afFieldInput: {
+                type: "textarea"
+            }}
     },
     email: {
         type: String,

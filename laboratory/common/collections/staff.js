@@ -44,7 +44,11 @@ Laboratory.Schema.Staff = new SimpleSchema({
     address: {
         type: String,
         label: "Address",
-        max: 500
+        max: 500,
+        autoform: {
+            afFieldInput: {
+                type: "textarea"
+            }}
         //autoform: {
         //    type: "select2",
         //    options: function () {

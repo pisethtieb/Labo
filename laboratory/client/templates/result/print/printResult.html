@@ -15,81 +15,47 @@
                     </div>
                 {{/with}}
 
-                {{#with result}}
 
+                <!--Header-->
+                <table width="100%" border="0">
+                    {{#with result}}
+                        <tr>
+                            <td style="text-align: left" width="40%">PatientID : {{patientId}}</td>
+                            <td style="text-align: left" width="40%">Result : {{_id}}</td>
+                            <td style="text-align: left" width="auto">laboID : {{laboId}}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left" width="40%">Patient Name : {{_patient.name}}</td>
+                            <td style="text-align: left" width="40%">Result :  {{resultDate}}</td>
+                            <td style="text-align: left" width="auto">laboDate : {{laboDate}}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left" width="40%">Dob  : {{_patient.dob}}</td>
+                            <td style="text-align: left" width="40%"></td>
+                            <td style="text-align: left" width="auto">staff: {{_staff.name}}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left" width="40%">Age: {{_patient.age}}</td>
+                            <td style="text-align: left" width="40%"></td>
+                            <td style="text-align: left" width="auto">Agent: {{_agent.name}}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left" width="40%">telephone: {{_patient.telephone}}</td>
+                            <td style="text-align: left" width="40%"></td>
+                            <td style="text-align: left" width="auto"></td>
+                        </tr>
+                    {{/with}}
+                </table>
 
-                    <div style="width: 100%">
-                        <div style="width: 100%; float: right">
-                            <ul class="list-unstyled">
-                                <li><strong>Patient ID:</strong> {{patientId}}</li>
-                                <li><strong>patient Name:</strong> {{_patient.name}}</li>
-                                <li><strong>Gender :</strong> {{_patient.gender}}</li>
-                                <li><strong>Date of birth :</strong> {{_patient.dob}}</li>
-                                <li><strong>Age :</strong> {{_patient.age}}</li>
-                                <li><strong>TelePhone :</strong> {{_patient.telephone}}</li>
-                            </ul>
-                        </div>
+                    <!--{{#with result}}-->
 
-                        <!--<div style="width: 10%;nav-left:auto ">-->
-                            <!--<ul class="list-unstyled">-->
-                                <!--<li><strong>Labo ID:</strong> {{laboId}}</li>-->
-                                <!--<li><strong>Labo Date:</strong> {{laboDate}}</li>-->
-                                <!--<li><strong>Staff :</strong> {{_staff.name}}</li>-->
-                                <!--<li><strong>Agent :</strong> {{_agent.name}}</li>-->
-
-                            <!--</ul>-->
-                        <!--</div>-->
-                        <!--<div style="width: 40%; float: right">-->
-                            <!--<ul class="list-unstyled">-->
-                                <!--<li><strong>Labo ID:</strong> {{result.laboId}}</li>-->
-                                <!--<li><strong>Labo Date:</strong> {{result.laboDate}}</li>-->
-                                <!--<li><strong>Staff :</strong> {{result._staff.name}}</li>-->
-                                <!--<li><strong>Agent :</strong> {{result._agent.name}}</li>-->
-
-                            <!--</ul>-->
-                        <!--</div>-->
-                    </div>
-
-                {{/with}}
-                <br>
-
-                <!--<div>-->
-                <!--<div class="col-md-4">-->
-                <!--<ul class="list-unstyled">-->
-                <!--<li><strong>Patient ID:</strong> {{result.patientId}}</li>-->
-                <!--<li><strong>patient Name:</strong> {{result._patient.name}}</li>-->
-                <!--<li><strong>Gender :</strong> {{result._patient.gender}}</li>-->
-                <!--<li><strong>Date of birth :</strong> {{result._patient.dob}}</li>-->
-                <!--<li><strong>Age :</strong> {{result._patient.age}}</li>-->
-                <!--<li><strong>TelePhone :</strong> {{result._patient.telephone}}</li>-->
-                <!--</ul>-->
-                <!--</div>-->
-                <!--<div class="col-md-4">-->
-                <!--<ul class="list-unstyled">-->
-                <!--<ht><strong>Result ID :</strong></ht>-->
-                <!--<hd>{{result._id}}</hd>-->
-                <!--<li><strong>Result Date :</strong> {{result.resultDate}}</li>-->
-                <!--</ul>-->
-                <!--</div>-->
-                <!--<div class="col-md-4">-->
-                <!--<ul class="list-unstyled">-->
-                <!--<li><strong>Labo ID:</strong> {{result.laboId}}</li>-->
-                <!--<li><strong>Labo Date:</strong> {{result.laboDate}}</li>-->
-                <!--<li><strong>Staff :</strong> {{result._staff.name}}</li>-->
-                <!--<li><strong>Agent :</strong> {{result._agent.name}}</li>-->
-
-                <!--</ul>-->
-                <!--</div>-->
-                <!--</div>-->
-                <br>
                 <!--Content-->
                 <table class="table table-bordered">
                     <thead style="background: darkgray">
                     <tr>
                         <th>
 
-                            N
-                            <super style="text-decoration: underline;">0</super>
+                            N<super style="text-decoration: underline;">0</super>
                         </th>
                         <th>Item ID</th>
                         <th>Name</th>

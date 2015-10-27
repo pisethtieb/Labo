@@ -40,7 +40,12 @@ Laboratory.Schema.Patient = new SimpleSchema({
     address: {
         type: String,
         label: "Address",
-        max: 500
+        max: 500,
+        autoform: {
+            afFieldInput: {
+                type: "textarea"
+            }
+        }
         //,
         //autoform: {
         //    type: "select2",
@@ -74,7 +79,7 @@ Laboratory.Schema.Patient = new SimpleSchema({
     cpanel_branchId: {
         type: String,
         label: "Branch",
-        optional:true
+        optional: true
     }
 });
 
@@ -82,4 +87,4 @@ Laboratory.Schema.Patient = new SimpleSchema({
 Laboratory.Collection.Patient.attachSchema(Laboratory.Schema.Patient);
 
 // Attach soft remove
-Laboratory.Collection.Patient.attachBehaviour('softRemovable');
+//Laboratory.Collection.Patient.attachBehaviour('softRemovable');

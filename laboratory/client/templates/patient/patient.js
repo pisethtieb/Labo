@@ -17,7 +17,7 @@ indexTpl.onCreated(function () {
         description: 'Description for this page'
     });
     // Create new  alertify
-    createNewAlertify(["Patient", "Labo"]);
+    createNewAlertify(["Patient"]);
 });
 indexTpl.helpers({});
 indexTpl.onRendered(function () {
@@ -85,7 +85,7 @@ indexTpl.events({
 
             Meteor.call('checkLaboForPatient', rowData._id, function (err, result) {
                 if (_.isUndefined(result.labo)) {
-                    alertify.Labo(fa('plus', 'Add Labo'),
+                    alertify.labo(fa('plus', 'Add Labo'),
                         renderTemplate(Template.laboratory_laboInsert, result.id)
                     )
                         .maximize();
@@ -100,7 +100,7 @@ indexTpl.events({
     //click to add new labo
     'click .laboAction': function () {
 
-        alertify.Labo(fa('plus', 'Add Labo'),
+        alertify.labo(fa('plus', 'Add Labo'),
             renderTemplate(Template.laboratory_laboInsert, this._id)
         )
             .maximize();
