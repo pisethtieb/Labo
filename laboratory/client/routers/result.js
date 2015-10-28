@@ -16,6 +16,6 @@ LaboratoryRoutes.route('/result/:patientId?/:laboId?', {
     breadcrumb: {
         params: ['patientId', 'laboId'],
         title: 'Result',
-        parent: 'laboratory.home'
+        parent: 'Laboratory.labo'
     }
 });

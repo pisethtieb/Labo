@@ -60,12 +60,12 @@ indexTpl.events({
     },
     'click .update': function (e, t) {
         var data = Laboratory.Collection.Fee.findOne(this._id);
-        alertify.fee(fa("pencil", "Payment"), renderTemplate(updateTpl, data));
+        alertify.fee(fa("pencil", 'Fee'), renderTemplate(updateTpl, data));
     },
     'click .remove': function (e, t) {
         var id = this._id;
         alertify.confirm(
-            fa("remove", "Payment"),
+            fa("remove", "Fee"),
             "Are you sure to delete [" + id + "]?",
             function () {
                 Laboratory.Collection.Fee.remove(id, function (error) {
@@ -82,7 +82,7 @@ indexTpl.events({
     },
     'click .show': function (e, t) {
         var data = Laboratory.Collection.Fee.findOne({_id: this._id});
-        alertify.alert(fa("eye", "Payment"), renderTemplate(showTpl, data));
+        alertify.alert(fa("eye", "Fee"), renderTemplate(showTpl, data));
     },
     'click .btn-link': function () {
         var self = this;
