@@ -112,7 +112,6 @@ insertTpl.helpers({
     resultDate: function () {
         var data = Session.get('arrValue');
         return data.resultData;
-        debugger;
     }
 });
 Template.laboResultObjectField.helpers({
@@ -140,20 +139,45 @@ showTpl.helpers({
         var str = "<table class='table table-bordered'><thead>" +
             "<tr>" +
             "<th>Item ID</th>" +
-            "<th>Qty</th>" +
-            "<th>Price</th>" +
-            "<th>Fee</th>" +
-            "<th>Amount</th>" +
+            "<th>Name</th>" +
+            "<th>normalValue</th>" +
+            "<th>Result</th>" +
             "</tr>" +
             "</thead><tbody>";
-        this.resultItem.forEach(function (o) {
-            str += '<tr>' +
-                '<td>' + o.itemId + '</td>' +
-                '<td>' + o.qty + '</td>' +
-                '<td>' + numeral(o.price).format('0,0.00') + 'R </td>' +
-                '<td>' + numeral(o.fee).format('0,0.00') + 'R</td>' +
-                '<td>' + numeral(o.amount).format('0,0.00') + 'R</td>' +
-                '</tr>'
+        this.laboItem.forEach(function (o) {
+
+            if (o.normalValue == null) {
+                var childItemStr = '<table class="table"><thead>' +
+                    '<th>Name</th>' +
+                    '<th>NValue</th>' +
+                    '<th>Result</th>' +
+                    '</thead><tbody>';
+                debugger;
+                o.childItem.forEach(function (child) {
+                    childItemStr +=
+                        '<tr>' +
+                        '<td>'+child.name+'</td>' +
+                        '<td>'+child.normalValue+'</td>' +
+                        '<td>'+child.result+'</td>' +
+                        '</tr>'
+                });
+                childItemStr+='</tbody></table>'
+                str += '<tr>' +
+                    '<td>' + o.itemId + '</td>' +
+                    '<td>' + o.name + '</td>' +
+                    '<td colspan="2">' + childItemStr + '</td>' +
+
+                    '</tr>'
+
+            } else {
+                str += '<tr>' +
+                    '<td>' + o.itemId + '</td>' +
+                    '<td>' + o.name + '</td>' +
+                    '<td>' + o.normalValue + '</td>' +
+                    '<td>' + o.result + '</td>' +
+                    '</tr>'
+            }
+
         });
         str += "</tbody></table>";
         return new Spacebars.SafeString(str);
