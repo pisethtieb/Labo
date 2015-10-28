@@ -18,7 +18,7 @@ indexTpl.helpers({
         var laboId = FlowRouter.getParam('laboId');
         return {
             selector: {laboId: laboId},
-            laboId: laboI
+            laboId: laboId
 
         };
     }

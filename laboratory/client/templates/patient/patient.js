@@ -17,7 +17,7 @@ indexTpl.onCreated(function () {
         description: 'Description for this page'
     });
     // Create new  alertify
-    createNewAlertify(["Patient"]);
+    createNewAlertify(["Patient",'labo']);
 });
 indexTpl.helpers({});
 indexTpl.onRendered(function () {
