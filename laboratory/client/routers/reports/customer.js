@@ -7,8 +7,6 @@ LaboratoryRoutes.route('/customerReport', {
         Layout.main('laboratory_customerReport');
     },
     breadcrumb: {
-        //params: ['id'],
-        //queryParams: ['show', 'color'],
         title: 'Customer Report',
         parent: 'Laboratory.home'
     }

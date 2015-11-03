@@ -1,0 +1,98 @@
+<!--Form-->
+<template name="laboratory_laboReport">
+    {{#autoForm schema=Laboratory.Schema.LaboReport id="laboratory_laboReport" action="laboReportGen" target="_blank"}}
+        <div class="row">
+            <div class="col-md-6">
+                {{> afQuickField name="branch"}}
+                {{> afQuickField name="name"}}
+            </div>
+            <div class="col-md-6">
+                {{> afQuickField name="date"}}
+
+                <button type="submit" class="btn btn-primary">{{fa "file-text"}}Generate</button>
+                <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
+            </div>
+        </div>
+    {{/autoForm}}
+</template>
+
+<!--Generate-->
+<template name="laboratory_laboReportGen">
+    <!--Is ready-->
+    {{#if data}}
+        {{#reportTpl options}}
+
+            {{#with data}}
+
+                <!--Title-->
+                {{#with title}}
+                    <div class="title">
+                        <div class="title-1x-kh-muol">{{khName}}</div>
+                        <div class="title-1x">{{enName}}</div>
+                        <div><u>Labo Report</u></div>
+                        <div class="title-2x">{{enAddress}}</div>
+                    </div>
+                {{/with}}
+
+                <!--Header-->
+                {{#with header}}
+                    <div style="width: 100%">
+                        <div style="width: 50%; float: left">
+                            <ul class="list-unstyled">
+                                <li><strong>Branch:</strong> {{branch}}</li>
+                                <li><strong>Name:</strong> {{name}}</li>
+                            </ul>
+                        </div>
+
+                        <div style="width: 50%; float: right">
+                            <ul class="list-unstyled">
+                                <li><strong>Date:</strong> {{date}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {{/with}}
+
+                <!--Content-->
+                <table class="report-content">
+                    <thead class="header">
+                    <tr>
+                        <th>No</th>
+                        <th>ID</th>
+                        <th>LaboDate</th>
+                        <th>staff</th>
+                        <th>Patient</th>
+                        <th>Total</th>
+                        <th>Total Fee</th>
+
+                    </tr>
+                    </thead>
+
+                    <tbody class="body">
+                    {{#each content}}
+                        <tr>
+                            <td>{{index}}</td>
+                            <td>{{_id}}</td>
+                            <td>{{laboDate}}</td>
+                            <td>{{_staff.name}}</td>
+                            <td>{{_patient.name}}</td>
+                            <td>{{total}} : {{_address.name}}</td>
+                            <td>{{totalFee}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+
+            {{/with}}
+
+            <!--Sign-->
+            {{> signFooter}}
+
+        {{/reportTpl}}
+
+        <!--Auto print-->
+        <!--{{autoprint close="true"}}-->
+
+    {{else}}
+        {{> loading}}
+    {{/if}}
+</template>
