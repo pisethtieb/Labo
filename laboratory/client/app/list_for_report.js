@@ -9,5 +9,13 @@ Laboratory.ListForReport = {
             });
 
         return list;
+    },
+    exchange: function(){
+        var list = [];
+        list.push({label: 'Select One', value: ""});
+        Cpanel.Collection.Exchange.find().fetch().forEach(function(exchange){
+            list.push({label: JSON.stringify(exchange.rates), value: exchange._id});
+        });
+        return list;
     }
 };

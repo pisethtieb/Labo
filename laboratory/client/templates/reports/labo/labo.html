@@ -8,22 +8,19 @@
             </div>
             <div class="col-md-6">
                 {{> afQuickField name="date"}}
-
+                {{> afQuickField name="exchange"}}
                 <button type="submit" class="btn btn-primary">{{fa "file-text"}}Generate</button>
                 <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
             </div>
         </div>
     {{/autoForm}}
 </template>
-
 <!--Generate-->
 <template name="laboratory_laboReportGen">
     <!--Is ready-->
     {{#if data}}
         {{#reportTpl options}}
-
             {{#with data}}
-
                 <!--Title-->
                 {{#with title}}
                     <div class="title">
@@ -33,7 +30,6 @@
                         <div class="title-2x">{{enAddress}}</div>
                     </div>
                 {{/with}}
-
                 <!--Header-->
                 {{#with header}}
                     <div style="width: 100%">
@@ -43,7 +39,6 @@
                                 <li><strong>Name:</strong> {{name}}</li>
                             </ul>
                         </div>
-
                         <div style="width: 50%; float: right">
                             <ul class="list-unstyled">
                                 <li><strong>Date:</strong> {{date}}</li>
@@ -51,7 +46,6 @@
                         </div>
                     </div>
                 {{/with}}
-
                 <!--Content-->
                 <table class="report-content">
                     <thead class="header">
@@ -59,14 +53,12 @@
                         <th>No</th>
                         <th>ID</th>
                         <th>LaboDate</th>
-                        <th>staff</th>
+                        <th>Staff</th>
                         <th>Patient</th>
                         <th>Total</th>
                         <th>Total Fee</th>
-
                     </tr>
                     </thead>
-
                     <tbody class="body">
                     {{#each content}}
                         <tr>
@@ -75,10 +67,24 @@
                             <td>{{laboDate}}</td>
                             <td>{{_staff.name}}</td>
                             <td>{{_patient.name}}</td>
-                            <td>{{total}} : {{_address.name}}</td>
-                            <td>{{totalFee}}</td>
+                            <td>{{ total }}</td>
+                            <td>{{ totalFee }}</td>
                         </tr>
                     {{/each}}
+                    <tr>
+                        <td colspan="5" align="right">
+                            Total :
+                        </td>
+                        <td>{{footer.total}}</td>
+                        <td>{{footer.totalFee}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" align="right">
+                            Total USD:
+                        </td>
+                        <td>{{footer.totalInDollar}}</td>
+                        <td>{{footer.totalFeeInDollar}}</td>
+                    </tr>
                     </tbody>
                 </table>
 

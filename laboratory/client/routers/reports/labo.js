@@ -1,8 +1,13 @@
 /**
  * Browser view
  */
+var subs = new SubsManager();
 LaboratoryRoutes.route('/laboReport', {
     name: 'Laboratory.laboReport',
+    subscriptions: function (params, queryParams) {
+
+        this.register('cpanel_exchange', subs.subscribe('cpanel_exchange'));
+    },
     action: function (params, queryParams) {
         Layout.main('laboratory_laboReport');
     },

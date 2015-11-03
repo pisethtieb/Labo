@@ -17,5 +17,14 @@ Laboratory.Schema.LaboReport = new SimpleSchema({
     },
     date: {
         type: String
+    },
+    exchange: {
+        type: 'string',
+        autoform: {
+            type: 'select2',
+            options: function(){
+                return Laboratory.ListForReport.exchange;
+            }
+        }
     }
 });
