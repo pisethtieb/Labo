@@ -1,20 +1,15 @@
 // Schema
 Laboratory.Schema.LaboReport = new SimpleSchema({
-    branch: {
-        type: String,
-        autoform: {
-            type: "select2",
-            options: function () {
-                return Laboratory.ListForReport.branch();
-            }
-        },
-        optional: true
-    },
-    name: {
-        type: String,
-        max: 100,
-        optional: true
-    },
+    //branch: {
+    //    type: String,
+    //    autoform: {
+    //        type: "select2",
+    //        options: function () {
+    //            return Laboratory.ListForReport.branch();
+    //        }
+    //    },
+    //    optional: true
+    //},
     date: {
         type: String
     },
@@ -34,31 +29,31 @@ Laboratory.Schema.LaboReport = new SimpleSchema({
         autoform: {
             type: 'select2',
             options: function () {
-                return Laboratory.ListForReport.exchange;
+                return Laboratory.List.staffId;
             }
         }
     },
-    agentId:{
-        type:'string',
-        label:'Agent',
-        optional:true,
+    agentId: {
+        type: 'string',
+        label: 'Agent',
+        optional: true,
         autoform: {
             type: 'select2',
             options: function () {
-                return Laboratory.ListForReport.exchange;
+                return Laboratory.List.agentId;
             }
         }
     },
-    patientId:{
-        type:'string',
-        label:'Patient',
-        optional:true,
+    patientId: {
+        type: 'string',
+        label: 'Patient',
+        optional: true,
         autoform: {
             type: 'select2',
             options: function () {
-                return Laboratory.ListForReport.exchange;
+                return Laboratory.List.patientId;
             }
-        } 
+        }
 
     }
 });

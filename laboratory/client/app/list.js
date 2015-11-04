@@ -89,34 +89,34 @@ Laboratory.List = {
     staffId: function (selectOne) {
         var list = [];
         if (!_.isEqual(selectOne, false)) {
-            list.push({label: "(Select One)", value: ""});
+            list.push({label: "(Select All)", value: ""});
         }
-        Laboratory.Collection.Staff.find()
+        Laboratory.Collection.Labo.find()
             .forEach(function (obj) {
-                list.push({label: obj._id + ' : ' + obj.name, value: obj._id});
+                list.push({label: obj.staffId + ' : ' + obj._staff.name, value: obj.staffId});
             });
         return list;
     },
     agentId: function (selectOne) {
         var list = [];
         if (!_.isEqual(selectOne, false)) {
-            list.push({label: "(Select One)", value: ""});
+            list.push({label: "(Select All)", value: ""});
         }
 
-        Laboratory.Collection.Agent.find()
+        Laboratory.Collection.Labo.find()
             .forEach(function (obj) {
-                list.push({label: obj._id + ' : ' + obj.name, value: obj._id});
+                list.push({label: obj.agentId + ' : ' + obj._agent.name, value: obj.agentId});
             });
         return list;
     },
     patientId: function (selectOne) {
         var list = [];
         if (!_.isEqual(selectOne, false)) {
-            list.push({label: "(Select One)", value: ""});
+            list.push({label: "(Select All)", value: ""});
         }
-        Laboratory.Collection.Patient.find()
+        Laboratory.Collection.Labo.find()
             .forEach(function (obj) {
-                list.push({label: obj._id + ' : ' + obj.name, value: obj._id});
+                list.push({label: obj.patientId + ' : ' + obj._patient.name, value: obj.patientId});
             });
         return list;
     },
@@ -147,7 +147,6 @@ Laboratory.List = {
         //    .forEach(function (obj) {
         //        list.push({label: obj.appendValue, value: obj.appendValue});
         //    });
-        list.push({label: 'Select-One', value: 'Select-One'});
         list.push({label: '/mm3', value: '/mm3'});
         list.push({label: '/ ul', value: '/ ul'});
         list.push({label: '%', value: '%'});

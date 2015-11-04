@@ -7,6 +7,10 @@ LaboratoryRoutes.route('/laboReport', {
     subscriptions: function (params, queryParams) {
 
         this.register('cpanel_exchange', subs.subscribe('cpanel_exchange'));
+        this.register('laboratory_patient', subs.subscribe('laboratory_patient'));
+        this.register('laboratory_staff', subs.subscribe('laboratory_staff'));
+        this.register('laboratory_agent', subs.subscribe('laboratory_agent'));
+        this.register('laboratory_labo', subs.subscribe('laboratory_labo'));
     },
     action: function (params, queryParams) {
         Layout.main('laboratory_laboReport');
