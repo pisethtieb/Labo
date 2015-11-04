@@ -143,32 +143,32 @@ Laboratory.List = {
         if (!_.isEqual(selectOne, false)) {
             list.push({label: "(Select One)", value: ""});
         }
-        Laboratory.Collection.Measure.find()
-            .forEach(function (obj) {
-                list.push({label: obj.appendValue, value: obj.appendValue});
-            });
-        //list.push({label: 'Select-One', value: 'Select-One'});
-        //list.push({label: '/mm3', value: '/mm3'});
-        //list.push({label: '/ ul', value: '/ ul'});
-        //list.push({label: '%', value: '%'});
-        //list.push({label: ', Rh ( + )', value: ', Rh ( + )'});
-        //list.push({label: 'g / dl', value: 'g / dl'});
-        //list.push({label: 'fl', value: 'fl'});
-        //list.push({label: 'g / l', value: 'g / l'});
-        //list.push({label: 'M / mm3', value: 'M / mm3'});
-        //list.push({label: 'mg / dl', value: 'mg / dl'});
-        //list.push({label: 'mg / L', value: 'mg / L'});
-        //list.push({label: 'Million / mm3', value: 'Million / mm3'});
-        //list.push({label: 'mIU / l', value: 'mIU / l'});
-        //list.push({label: 'ml', value: 'ml'});
-        //list.push({label: 'mm', value: 'mm'});
-        //list.push({label: 'mn , sec', value: 'mn , sec'});
-        //list.push({label: 'ng / dl', value: 'ng / dl'});
-        //list.push({label: 'pg', value: 'pg'});
-        //list.push({label: 'pg / ml', value: 'pg / ml'});
-        //list.push({label: 'U / ml', value: 'U / ml'});
-        //list.push({label: 'UI /', value: 'UI /'});
-        //list.push({label: 'umol / l', value: 'umol / l'});
+        //Laboratory.Collection.Measure.find()
+        //    .forEach(function (obj) {
+        //        list.push({label: obj.appendValue, value: obj.appendValue});
+        //    });
+        list.push({label: 'Select-One', value: 'Select-One'});
+        list.push({label: '/mm3', value: '/mm3'});
+        list.push({label: '/ ul', value: '/ ul'});
+        list.push({label: '%', value: '%'});
+        list.push({label: ', Rh ( + )', value: ', Rh ( + )'});
+        list.push({label: 'g / dl', value: 'g / dl'});
+        list.push({label: 'fl', value: 'fl'});
+        list.push({label: 'g / l', value: 'g / l'});
+        list.push({label: 'M / mm3', value: 'M / mm3'});
+        list.push({label: 'mg / dl', value: 'mg / dl'});
+        list.push({label: 'mg / L', value: 'mg / L'});
+        list.push({label: 'Million / mm3', value: 'Million / mm3'});
+        list.push({label: 'mIU / l', value: 'mIU / l'});
+        list.push({label: 'ml', value: 'ml'});
+        list.push({label: 'mm', value: 'mm'});
+        list.push({label: 'mn , sec', value: 'mn , sec'});
+        list.push({label: 'ng / dl', value: 'ng / dl'});
+        list.push({label: 'pg', value: 'pg'});
+        list.push({label: 'pg / ml', value: 'pg / ml'});
+        list.push({label: 'U / ml', value: 'U / ml'});
+        list.push({label: 'UI /', value: 'UI /'});
+        list.push({label: 'umol / l', value: 'umol / l'});
         return list;
     },
     prepend: function (selectOne) {
@@ -177,16 +177,13 @@ Laboratory.List = {
             list.push({label: "(Select One)", value: ''});
         }
 
-        Laboratory.Collection.Measure.find()
+        //Laboratory.Collection.Measure.find()
+        //
+        //    .forEach(function (obj) {
+        //        list.push({label: obj.prependValue, value: obj.prependValue});
+        //    });
 
-            .forEach(function (obj) {
-                list.push({label: obj.prependValue, value: obj.prependValue});
-            });
-
-        //list.push({label: '/A', value: '/a'});
-        //list.push({label: '/B', value: '/b'});
-        //list.push({label: '/C', value: '/c'});
-        //list.push({label: '/D', value: '/d'});
+        list.push({label: 're`action', value: 're`action'});
         return list;
     },
     //on change for fee

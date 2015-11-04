@@ -1,3 +1,4 @@
+/*
 // Customer
 Laboratory.TabularTable.Measure = new Tabular.Table({
     name: "laboratory_measureList",
@@ -16,4 +17,4 @@ Laboratory.TabularTable.Measure = new Tabular.Table({
         {data: "prependValue", title: "prependValue"}
 
     ]
-});
+});*/

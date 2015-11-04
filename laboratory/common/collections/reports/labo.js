@@ -22,9 +22,43 @@ Laboratory.Schema.LaboReport = new SimpleSchema({
         type: 'string',
         autoform: {
             type: 'select2',
-            options: function(){
+            options: function () {
                 return Laboratory.ListForReport.exchange;
             }
         }
+    },
+    staffId: {
+        type: 'string',
+        label: 'Staff',
+        optional: true,
+        autoform: {
+            type: 'select2',
+            options: function () {
+                return Laboratory.ListForReport.exchange;
+            }
+        }
+    },
+    agentId:{
+        type:'string',
+        label:'Agent',
+        optional:true,
+        autoform: {
+            type: 'select2',
+            options: function () {
+                return Laboratory.ListForReport.exchange;
+            }
+        }
+    },
+    patientId:{
+        type:'string',
+        label:'Patient',
+        optional:true,
+        autoform: {
+            type: 'select2',
+            options: function () {
+                return Laboratory.ListForReport.exchange;
+            }
+        } 
+
     }
 });
