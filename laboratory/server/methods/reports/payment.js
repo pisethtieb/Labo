@@ -1,5 +1,5 @@
 Meteor.methods({
-    laboratory_laboReport: function (params) {
+    laboratory_paymentReport: function (params) {
         var data = {
             title: {},
             header: {},
@@ -58,7 +58,7 @@ Meteor.methods({
             selector.patientId = patientId;
         }
         if (!_.isEmpty(staffId)) {
-            selector.staffId =staffId;
+            selector.staffId = staffId;
         }
         if (!_.isEmpty(agentId)) {
             selector.agentId = agentId;
@@ -69,25 +69,25 @@ Meteor.methods({
 
 
         var index = 1;
-        Laboratory.Collection.Labo.find(selector)
+        console.log('1');
+        Laboratory.Collection.Payment.find(selector)
             .forEach(function (obj) {
                 // Do something
-                total += obj.total;
-                totalFee += obj.totalFee;
-                obj.total=numeral(obj.total).format('0,0');
-                obj.totalFee=numeral(obj.totalFee).format('0,0');
+                //total += obj.total;
+                //totalFee += obj.totalFee;
+                //obj.total=numeral(obj.total).format('0,0');
+                //obj.totalFee=numeral(obj.totalFee).format('0,0');
                 obj.index = index;
                 content.push(obj);
                 index++;
             });
-
         if (content.length > 0) {
             data.content = content;
             data.footer = {
-                totalInDollar: numeral(fx.convert(total, {from: 'KHR', to: 'USD'})).format('0,0.00'),
-                totalFeeInDollar: numeral(fx.convert(totalFee, {from: 'KHR', to: 'USD'})).format('0,0.00'),
-                total:numeral(total).format('0,0'),
-                totalFee:numeral(totalFee).format('0,0')
+                //totalInDollar: numeral(fx.convert(total, {from: 'KHR', to: 'USD'})).format('0,0.00'),
+                //totalFeeInDollar: numeral(fx.convert(totalFee, {from: 'KHR', to: 'USD'})).format('0,0.00'),
+                //total:numeral(total).format('0,0'),
+                //totalFee:numeral(totalFee).format('0,0')
 
             }
         }

@@ -1,6 +1,6 @@
 <!--Form-->
-<template name="laboratory_laboReport">
-    {{#autoForm schema=Laboratory.Schema.LaboReport id="laboratory_laboReport" action="laboReportGen" target="_blank"}}
+<template name="laboratory_paymentReport">
+    {{#autoForm schema=Laboratory.Schema.PaymentReport id="laboratory_paymentReport" action="paymentReportGen" target="_blank"}}
         <div class="row">
             <div class="col-md-6">
                 <!--{{> afQuickField name="branch"}}-->
@@ -19,7 +19,7 @@
     {{/autoForm}}
 </template>
 <!--Generate-->
-<template name="laboratory_laboReportGen">
+<template name="laboratory_paymentReportGen">
     <!--Is ready-->
     {{#if data}}
         {{#reportTpl options}}
@@ -58,12 +58,15 @@
                     <tr>
                         <th>No</th>
                         <th>ID</th>
+                        <th>PaymentDate</th>
+                        <th>Labo</th>
                         <th>LaboDate</th>
-                        <th>Staff</th>
                         <th>Patient</th>
                         <th>Agent</th>
-                        <th>Total</th>
-                        <th>Total Fee</th>
+                        <th>Staff</th>
+                        <th>OverDue Amount</th>
+                        <th>Paid Amount</th>
+                        <th>Outstanding Amount</th>
                     </tr>
                     </thead>
                     <tbody class="body">
@@ -71,27 +74,32 @@
                         <tr>
                             <td>{{index}}</td>
                             <td>{{_id}}</td>
-                            <td>{{laboDate}}</td>
-                            <td>{{_staff.name}}</td>
+                            <td>{{paymenDate}}</td>
+                            <td>{{_labo._id}}</td>
+                            <td>{{_labo.laboDate}}</td>
                             <td>{{_patient.name}}</td>
                             <td>{{_agent.name}}</td>
-                            <td>{{ total }}</td>
-                            <td>{{ totalFee }}</td>
+                            <td>{{_staff.ame}}</td>
+                            <td>{{ overdueAmount }}</td>
+                            <td>{{ paidAmount }}</td>
+                            <td>{{outstandingAmount}}</td>
                         </tr>
                     {{/each}}
                     <tr>
-                        <td colspan="6" align="right">
+                        <td colspan="8" align="right">
                             Total KHR:
                         </td>
-                        <td>{{footer.total}}</td>
-                        <td>{{footer.totalFee}}</td>
+                        <td>{{footer.overDueAmount}}</td>
+                        <td>{{footer.paidAmount}}</td>
+                        <td>{{footer.outstandingAmount}}</td>
                     </tr>
                     <tr>
-                        <td colspan="6" align="right">
+                        <td colspan="8" align="right">
                             Total USD:
                         </td>
-                        <td>{{footer.totalInDollar}}</td>
-                        <td>{{footer.totalFeeInDollar}}</td>
+                        <td>{{footer.overDueAmountInDollar}}</td>
+                        <td>{{footer.paidAmountInDollar}}</td>
+                        <td>{{footer.outstandingAmountInDollar}}</td>
                     </tr>
                     </tbody>
                 </table>
