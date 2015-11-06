@@ -1,5 +1,6 @@
 Meteor.methods({
     laboratory_laboReport: function (params) {
+        console.log(params);
         var data = {
             title: {},
             header: {},
@@ -13,7 +14,7 @@ Meteor.methods({
             staffId = params.staffId,
             agentId = params.agentId,
             exchange = Cpanel.Collection.Exchange.findOne(exchangeId);
-            date = s.words(params.date, ' To '),
+        date = s.words(params.date, ' To '),
             fDate = date[0],
             newDate = new Date(date[1]);
         var tDate = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
@@ -28,7 +29,7 @@ Meteor.methods({
             params.patient = 'All'
 
         } else {
-            var patient=Laboratory.Collection.Patient.findOne(params.patientId);
+            var patient = Laboratory.Collection.Patient.findOne(params.patientId);
             params.patient = patient.name;
         }
 
@@ -36,7 +37,7 @@ Meteor.methods({
             params.staff = 'All'
 
         } else {
-            var staff=Laboratory.Collection.Staff.findOne(params.staffId);
+            var staff = Laboratory.Collection.Staff.findOne(params.staffId);
             params.staff = staff.name;
         }
         if (params.agentId == '') {
@@ -45,8 +46,8 @@ Meteor.methods({
         } else {
             params.agent = Laboratory.Collection.Agent.findOne(params.agentId).name;
         }
-        var exchangeRate=JSON.stringify(Cpanel.Collection.Exchange.findOne(exchangeId).rates);
-        params.exchangeRate=exchangeRate.substr(1,exchangeRate.length-2);
+        var exchangeRate = JSON.stringify(Cpanel.Collection.Exchange.findOne(exchangeId).rates);
+        params.exchangeRate = exchangeRate.substr(1, exchangeRate.length - 2);
         /****** Header *****/
         data.header = params;
 
@@ -58,7 +59,7 @@ Meteor.methods({
             selector.patientId = patientId;
         }
         if (!_.isEmpty(staffId)) {
-            selector.staffId = 0;
+            selector.staffId =staffId;
         }
         if (!_.isEmpty(agentId)) {
             selector.agentId = agentId;
@@ -69,13 +70,14 @@ Meteor.methods({
 
 
         var index = 1;
-        console.log(selector);
         Laboratory.Collection.Labo.find(selector)
             .forEach(function (obj) {
                 // Do something
-                obj.index = index;
                 total += obj.total;
                 totalFee += obj.totalFee;
+                obj.total=numeral(obj.total).format('0,0');
+                obj.totalFee=numeral(obj.totalFee).format('0,0');
+                obj.index = index;
                 content.push(obj);
                 index++;
             });
@@ -83,10 +85,11 @@ Meteor.methods({
         if (content.length > 0) {
             data.content = content;
             data.footer = {
-                total: total,
-                totalFee: totalFee,
-                totalInDollar: fx.convert(total, {from: 'KHR', to: 'USD'}),
-                totalFeeInDollar: fx.convert(totalFee, {from: 'KHR', to: 'USD'})
+                totalInDollar: numeral(fx.convert(total, {from: 'KHR', to: 'USD'})).format('0,0.00'),
+                totalFeeInDollar: numeral(fx.convert(totalFee, {from: 'KHR', to: 'USD'})).format('0,0.00'),
+                total:numeral(total).format('0,0'),
+                totalFee:numeral(totalFee).format('0,0')
+
             }
         }
         return data

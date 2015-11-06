@@ -91,9 +91,9 @@ Laboratory.List = {
         if (!_.isEqual(selectOne, false)) {
             list.push({label: "(Select All)", value: ""});
         }
-        Laboratory.Collection.Labo.find()
+        Laboratory.Collection.Staff.find()
             .forEach(function (obj) {
-                list.push({label: obj.staffId + ' : ' + obj._staff.name, value: obj.staffId});
+                list.push({label: obj._id + ' : ' + obj.name, value: obj._id});
             });
         return list;
     },
@@ -103,9 +103,9 @@ Laboratory.List = {
             list.push({label: "(Select All)", value: ""});
         }
 
-        Laboratory.Collection.Labo.find()
+        Laboratory.Collection.Agent.find()
             .forEach(function (obj) {
-                list.push({label: obj.agentId + ' : ' + obj._agent.name, value: obj.agentId});
+                list.push({label: obj._id + ' : ' + obj.name, value: obj._id});
             });
         return list;
     },
@@ -114,9 +114,9 @@ Laboratory.List = {
         if (!_.isEqual(selectOne, false)) {
             list.push({label: "(Select All)", value: ""});
         }
-        Laboratory.Collection.Labo.find()
+        Laboratory.Collection.Staff.find()
             .forEach(function (obj) {
-                list.push({label: obj.patientId + ' : ' + obj._patient.name, value: obj.patientId});
+                list.push({label: obj._id + ' : ' + obj.name, value: obj._id});
             });
         return list;
     },

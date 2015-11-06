@@ -1,5 +1,5 @@
 // Schema
-Laboratory.Schema.LaboReport = new SimpleSchema({
+Laboratory.Schema.LaboBalanceReport = new SimpleSchema({
     //branch: {
     //    type: String,
     //    autoform: {
