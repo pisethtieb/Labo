@@ -88,9 +88,9 @@ Meteor.methods({
                     laboObj.staffId = obj._staff.name;
                     laboObj.agentId = obj._agent.name;
                     laboObj.total = numeral(obj.total).format('0,0');
-                    laboObj.outstandingAmount = laboObj.total = numeral(obj.total).format('0,0');
+                    laboObj.outstandingAmount =  numeral(obj.total).format('0,0');
 
-                    outstandingAmount += laboObj.outstandingAmount;
+                    outstandingAmount += obj.total;
                     content.push(laboObj);
                 } else if (payment.outstandingAmount > 0) {
                     var laboObj = {};

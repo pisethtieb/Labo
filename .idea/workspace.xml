@@ -6,19 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d932e7d-5676-426d-b13f-40e24175d742" name="Default" comment="First commit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/labobalance/laboBalance.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/client/routers/reports/laboBalance.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/labobalance/laboBalance.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/common/collections/reports/laboBalance.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/server/methods/reports/laboBalance.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/templates/reports/labo/labo.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/labo/labo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/common/collections/reports/labo.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/reports/labo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/server/methods/reports/labo.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/reports/labo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/app/list.js" afterPath="$PROJECT_DIR$/laboratory/client/app/list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/app/list_for_report.js" afterPath="$PROJECT_DIR$/laboratory/client/app/list_for_report.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/templates/_layout/navbar.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/_layout/navbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/routers/patient.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/patient.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/server/methods/reports/laboBalance.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/reports/laboBalance.js" />
     </list>
     <ignored path="Laboratory.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,8 +30,8 @@
       <file leaf-file-name="laboBalance.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/laboratory/server/methods/reports/laboBalance.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38517618">
-              <caret line="89" column="69" selection-start-line="89" selection-start-column="69" selection-end-line="89" selection-end-column="69" />
+            <state vertical-scroll-proportion="0.2454435">
+              <caret line="90" column="82" selection-start-line="90" selection-start-column="82" selection-end-line="90" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -720,7 +708,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="31" width="1280" height="993" extended-state="1" />
+    <frame x="0" y="31" width="1280" height="993" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.16352941" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1150,8 +1138,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laboratory/server/methods/reports/laboBalance.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38517618">
-          <caret line="89" column="69" selection-start-line="89" selection-start-column="69" selection-end-line="89" selection-end-column="69" />
+        <state vertical-scroll-proportion="0.2454435">
+          <caret line="90" column="82" selection-start-line="90" selection-start-column="82" selection-end-line="90" selection-end-column="82" />
           <folding />
         </state>
       </provider>
