@@ -14,11 +14,11 @@ Meteor.methods({
             staffId = params.staffId,
             agentId = params.agentId,
             exchange = Cpanel.Collection.Exchange.findOne(exchangeId);
-        date = s.words(params.date, ' To '),
-            fDate = date[0],
-            newDate = new Date(date[1]);
-        var tDate = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
-        tDate = moment(tDate).format('YYYY-MM-DD');
+        //date = s.words(params.date, ' To '),
+        //    fDate = date[0],
+        //    newDate = new Date(date[1]);
+        //var tDate = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
+        //tDate = moment(tDate).format('YYYY-MM-DD');
         fx.base = exchange.base;
         fx.rates = exchange.rates;
 
@@ -54,7 +54,8 @@ Meteor.methods({
         /****** Content *****/
         var content = [];
         var selector = {};
-        selector.feeDate = {$gte: fDate, $lte: tDate};
+        selector.feeDate = {$lte: moment(params.date + ' 23:59:59').format('YYYY-MM-DD HH:mm:ss')};
+
         if (!_.isEmpty(patientId)) {
             selector.patientId = patientId;
         }

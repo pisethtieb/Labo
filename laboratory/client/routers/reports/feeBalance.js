@@ -2,7 +2,7 @@
  * Browser view
  */
 var subs = new SubsManager();
-LaboratoryRoutes.route('/feeReport', {
+LaboratoryRoutes.route('/feeBalanceReport', {
     name: 'Laboratory.feeBalanceReport',
     subscriptions: function (params, queryParams) {
 

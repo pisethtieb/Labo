@@ -1,120 +1,120 @@
-<!--&lt;!&ndash;Form&ndash;&gt;-->
-<!--<template name="laboratory_feeBalanceReport">-->
-    <!--{{#autoForm schema=Laboratory.Schema.FeeBalanceReport id="laboratory_feeBalanceReport" action="feeBalanceReportGen" target="_blank"}}-->
-        <!--<div class="row">-->
-            <!--<div class="col-md-6">-->
-                <!--&lt;!&ndash;{{> afQuickField name="branch"}}&ndash;&gt;-->
-                <!--{{> afQuickField name="staffId"}}-->
-                <!--{{> afQuickField name="agentId"}}-->
-                <!--{{> afQuickField name="patientId"}}-->
-            <!--</div>-->
-            <!--<div class="col-md-6">-->
+<!--Form-->
+<template name="laboratory_feeBalanceReport">
+    {{#autoForm schema=Laboratory.Schema.FeeBalanceReport id="laboratory_feeBalanceReport" action="feeBalanceReportGen" target="_blank"}}
+        <div class="row">
+            <div class="col-md-6">
+                <!--{{> afQuickField name="branch"}}-->
+                {{> afQuickField name="staffId"}}
+                {{> afQuickField name="agentId"}}
+                {{> afQuickField name="patientId"}}
+            </div>
+            <div class="col-md-6">
 
-                <!--{{> afQuickField name="date"}}-->
-                <!--{{> afQuickField name="exchange"}}-->
-                <!--<button type="submit" class="btn btn-primary">{{fa "file-text"}}Generate</button>-->
-                <!--<button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--{{/autoForm}}-->
-<!--</template>-->
-<!--&lt;!&ndash;Generate&ndash;&gt;-->
-<!--<template name="laboratory_feeBalanceReportGen">-->
-    <!--&lt;!&ndash;Is ready&ndash;&gt;-->
-    <!--{{#if data}}-->
-        <!--{{#reportTpl options}}-->
-            <!--{{#with data}}-->
-                <!--&lt;!&ndash;Title&ndash;&gt;-->
-                <!--{{#with title}}-->
-                    <!--<div class="title">-->
-                        <!--<div class="title-1x-kh-muol">{{khName}}</div>-->
-                        <!--<div class="title-1x">{{enName}}</div>-->
-                        <!--<div><u>Labo Report</u></div>-->
-                        <!--<div class="title-2x">{{enAddress}}</div>-->
-                    <!--</div>-->
-                <!--{{/with}}-->
-                <!--&lt;!&ndash;Header&ndash;&gt;-->
-                <!--{{#with header}}-->
-                    <!--<div style="width: 100%">-->
-                        <!--<div style="width: 50%; float: left">-->
-                            <!--<ul class="list-unstyled">-->
-                                <!--<li><strong>Staff:</strong> {{staff}}</li>-->
-                                <!--<li><strong>Patient:</strong> {{patient}}</li>-->
-                                <!--<li><strong>exchange:</strong> {{exchangeRate}}</li>-->
-                            <!--</ul>-->
-                        <!--</div>-->
+                {{> afQuickField name="date"}}
+                {{> afQuickField name="exchange"}}
+                <button type="submit" class="btn btn-primary">{{fa "file-text"}}Generate</button>
+                <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
+            </div>
+        </div>
+    {{/autoForm}}
+</template>
+<!--Generate-->
+<template name="laboratory_feeBalanceReportGen">
+    <!--Is ready-->
+    {{#if data}}
+        {{#reportTpl options}}
+            {{#with data}}
+                <!--Title-->
+                {{#with title}}
+                    <div class="title">
+                        <div class="title-1x-kh-muol">{{khName}}</div>
+                        <div class="title-1x">{{enName}}</div>
+                        <div><u>FeeBalance Report</u></div>
+                        <div class="title-2x">{{enAddress}}</div>
+                    </div>
+                {{/with}}
+                <!--Header-->
+                {{#with header}}
+                    <div style="width: 100%">
+                        <div style="width: 50%; float: left">
+                            <ul class="list-unstyled">
+                                <li><strong>Staff:</strong> {{staff}}</li>
+                                <li><strong>Patient:</strong> {{patient}}</li>
+                                <li><strong>exchange:</strong> {{exchangeRate}}</li>
+                            </ul>
+                        </div>
 
-                        <!--<div style="width: 50%; float: right">-->
-                            <!--<ul class="list-unstyled">-->
-                                <!--<li><strong>Agent:</strong> {{agent}}</li>-->
-                                <!--<li><strong>Date:</strong> {{date}}</li>-->
-                            <!--</ul>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--{{/with}}-->
-                <!--&lt;!&ndash;Content&ndash;&gt;-->
-                <!--<table class="report-content">-->
-                    <!--<thead class="header">-->
-                    <!--<tr>-->
-                        <!--<th>No</th>-->
-                        <!--<th>ID</th>-->
-                        <!--<th>FeeBalanceDate</th>-->
-                        <!--<th>Labo</th>-->
-                        <!--<th>LaboDate</th>-->
-                        <!--<th>Patient</th>-->
-                        <!--<th>Agent</th>-->
-                        <!--<th>Staff</th>-->
-                        <!--<th>OverDue Amount</th>-->
-                        <!--<th>Paid Amount</th>-->
-                        <!--<th>Outstanding Amount</th>-->
-                    <!--</tr>-->
-                    <!--</thead>-->
-                    <!--<tbody class="body">-->
-                    <!--{{#each content}}-->
-                        <!--<tr>-->
-                            <!--<td>{{index}}</td>-->
-                            <!--<td>{{_id}}</td>-->
-                            <!--<td>{{feeBalanceDate}}</td>-->
-                            <!--<td>{{_labo._id}}</td>-->
-                            <!--<td>{{_labo.laboDate}}</td>-->
-                            <!--<td>{{_patient.name}}</td>-->
-                            <!--<td>{{_agent.name}}</td>-->
-                            <!--<td>{{_staff.name}}</td>-->
-                            <!--<td>{{ overdueAmount }}</td>-->
-                            <!--<td>{{ paidAmount }}</td>-->
-                            <!--<td>{{outstandingAmount}}</td>-->
-                        <!--</tr>-->
-                    <!--{{/each}}-->
-                    <!--<tr>-->
-                        <!--<td colspan="8" align="right">-->
-                            <!--Total KHR:-->
-                        <!--</td>-->
-                        <!--<td>{{footer.overdueAmount}}</td>-->
-                        <!--<td>{{footer.paidAmount}}</td>-->
-                        <!--<td>{{footer.outstandingAmount}}</td>-->
-                    <!--</tr>-->
-                    <!--<tr>-->
-                        <!--<td colspan="8" align="right">-->
-                            <!--Total USD:-->
-                        <!--</td>-->
-                        <!--<td>{{footer.overdueAmountInDollar}}</td>-->
-                        <!--<td>{{footer.paidAmountInDollar}}</td>-->
-                        <!--<td>{{footer.outstandingAmountInDollar}}</td>-->
-                    <!--</tr>-->
-                    <!--</tbody>-->
-                <!--</table>-->
+                        <div style="width: 50%; float: right">
+                            <ul class="list-unstyled">
+                                <li><strong>Agent:</strong> {{agent}}</li>
+                                <li><strong>Date:</strong> {{date}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {{/with}}
+                <!--Content-->
+                <table class="report-content">
+                    <thead class="header">
+                    <tr>
+                        <th>No</th>
+                        <th>ID</th>
+                        <th>FeeBalanceDate</th>
+                        <th>Labo</th>
+                        <th>LaboDate</th>
+                        <th>Patient</th>
+                        <th>Agent</th>
+                        <th>Staff</th>
+                        <th>OverDue Amount</th>
+                        <th>Paid Amount</th>
+                        <th>Outstanding Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody class="body">
+                    {{#each content}}
+                        <tr>
+                            <td>{{index}}</td>
+                            <td>{{_id}}</td>
+                            <td>{{feeBalanceDate}}</td>
+                            <td>{{_labo._id}}</td>
+                            <td>{{_labo.laboDate}}</td>
+                            <td>{{_patient.name}}</td>
+                            <td>{{_agent.name}}</td>
+                            <td>{{_staff.name}}</td>
+                            <td>{{ overdueAmount }}</td>
+                            <td>{{ paidAmount }}</td>
+                            <td>{{outstandingAmount}}</td>
+                        </tr>
+                    {{/each}}
+                    <tr>
+                        <td colspan="8" align="right">
+                            Total KHR:
+                        </td>
+                        <td>{{footer.overdueAmount}}</td>
+                        <td>{{footer.paidAmount}}</td>
+                        <td>{{footer.outstandingAmount}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="8" align="right">
+                            Total USD:
+                        </td>
+                        <td>{{footer.overdueAmountInDollar}}</td>
+                        <td>{{footer.paidAmountInDollar}}</td>
+                        <td>{{footer.outstandingAmountInDollar}}</td>
+                    </tr>
+                    </tbody>
+                </table>
 
-            <!--{{/with}}-->
+            {{/with}}
 
-            <!--&lt;!&ndash;Sign&ndash;&gt;-->
-            <!--{{> signFooter}}-->
+            <!--Sign-->
+            {{> signFooter}}
 
-        <!--{{/reportTpl}}-->
+        {{/reportTpl}}
 
-        <!--&lt;!&ndash;Auto print&ndash;&gt;-->
-        <!--&lt;!&ndash;{{autoprint close="true"}}&ndash;&gt;-->
+        <!--Auto print-->
+        <!--{{autoprint close="true"}}-->
 
-    <!--{{else}}-->
-        <!--{{> loading}}-->
-    <!--{{/if}}-->
-<!--</template>-->
+    {{else}}
+        {{> loading}}
+    {{/if}}
+</template>
