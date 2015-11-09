@@ -105,7 +105,7 @@ indexTpl.events({
         var dataTable = $(event.target).closest('table').DataTable();
         var rowData = dataTable.row(event.currentTarget).data();
         if (rowData != undefined) {
-
+            rowData = Laboratory.Collection.Labo.findOne({_id: rowData._id});
             var patientId = FlowRouter.getParam('patientId');
             //check excite on payment
             Meteor.call('checkLaboForLabo', rowData._id, function (err, result) {
@@ -114,6 +114,7 @@ indexTpl.events({
                     var doc = {};
                     doc.laboId = rowData._id;
                     doc.patientId = rowData.patientId;
+                    doc.agentId = rowData.agentId;
                     doc.overdueAmount = rowData.total;
                     doc.paidAmount = rowData.total;
                     doc.paymentDate = moment().format("YYYY-MM-DD HH:mm:ss");
@@ -125,6 +126,7 @@ indexTpl.events({
                         laboId: result.id, patientId: patientId
                     });
                 }
+                debugger;
             });
         }
     },
@@ -150,8 +152,10 @@ indexTpl.events({
                     renderTemplate(Template.laboratory_paymentInsert, lastPayment));
             }
         } else {
+            self=Laboratory.Collection.Labo.findOne({_id:self._id});
             doc.laboId = self._id;
             doc.patientId = self.patientId;
+            doc.agentId = self.agentId;
             doc.overdueAmount = self.total;
             doc.paidAmount = self.total;
             doc.paymentDate = moment().format("YYYY-MM-DD HH:mm:ss");
@@ -160,6 +164,7 @@ indexTpl.events({
                 renderTemplate(Template.laboratory_paymentInsert, doc));
         }
     },
+    //insert Result
     'click .result': function () {
 
         var self = this;
@@ -529,22 +534,22 @@ function calculateTotal() {
     var decimal_factor = decimal_places === 0 ? 1 : decimal_places * 10;
     $('.total')
         .animateNumber(
-        {
-            number: total * decimal_factor,
-            numberStep: function (now, tween) {
-                var floored_number = Math.floor(now) / decimal_factor,
-                    target = $(tween.elem);
-                if (decimal_places > 0) {
-                    // force decimal places even if they are 0
-                    floored_number = floored_number.toFixed(decimal_places);
-                    // replace '.' separator with ','
-                    floored_number = floored_number.toString().replace('.', ',');
+            {
+                number: total * decimal_factor,
+                numberStep: function (now, tween) {
+                    var floored_number = Math.floor(now) / decimal_factor,
+                        target = $(tween.elem);
+                    if (decimal_places > 0) {
+                        // force decimal places even if they are 0
+                        floored_number = floored_number.toFixed(decimal_places);
+                        // replace '.' separator with ','
+                        floored_number = floored_number.toString().replace('.', ',');
+                    }
+                    target.text('R' + floored_number);
                 }
-                target.text('R' + floored_number);
-            }
-        },
-        200
-    );
+            },
+            200
+        );
     //totalAmount
     var totalFee = 0;
     $('.fee').each(function () {
@@ -559,25 +564,25 @@ function calculateTotal() {
 
     $('.totalFee')
         .animateNumber(
-        {
-            number: totalFee * decimal_factor,
+            {
+                number: totalFee * decimal_factor,
 
-            numberStep: function (now, tween) {
-                var floored_number = Math.floor(now) / decimal_factor,
-                    target = $(tween.elem);
+                numberStep: function (now, tween) {
+                    var floored_number = Math.floor(now) / decimal_factor,
+                        target = $(tween.elem);
 
-                if (decimal_factorF > 0) {
-                    // force decimal places even if they are 0
-                    floored_number = floored_number.toFixed(decimal_places);
+                    if (decimal_factorF > 0) {
+                        // force decimal places even if they are 0
+                        floored_number = floored_number.toFixed(decimal_places);
 
-                    // replace '.' separator with ','
-                    floored_number = floored_number.toString().replace('.', ',');
+                        // replace '.' separator with ','
+                        floored_number = floored_number.toString().replace('.', ',');
+                    }
+
+                    target.text('R' + floored_number);
                 }
-
-                target.text('R' + floored_number);
-            }
-        },
-        200
-    );
+            },
+            200
+        );
 
 }

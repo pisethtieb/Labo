@@ -107,7 +107,7 @@ insertTpl.events({
         debugger;
         var laboId = $(e.currentTarget).val();
         //onChangeLaboId(e);
-        var totalFee = Laboratory.Collection.Labo.findOne({_id: laboId}).totalFee;
+        var labo = Laboratory.Collection.Labo.findOne({_id: laboId});
         Laboratory.Collection.Labo.find({_id: laboId}).forEach(function (obj) {
             var fee = Laboratory.Collection.Fee.findOne({
                     testId: obj._id
@@ -118,11 +118,13 @@ insertTpl.events({
                     }
                 });
             if (fee != null && fee.outstandingAmount > 0 && fee.status == "Partial") {
+                $('.patientId').val(labo.patientId);
                 $('.overdueAmount').val(fee.outstandingAmount);
                 $('.paidAmount').val(fee.outstandingAmount);
             } else if (fee == null) {
-                $('.overdueAmount').val(totalFee);
-                $('.paidAmount').val(totalFee);
+                $('.patientId').val(labo.patientId);
+                $('.overdueAmount').val(labo.totalFee);
+                $('.paidAmount').val(labo.totalFee);
             }
         });
     }

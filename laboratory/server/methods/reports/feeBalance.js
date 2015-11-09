@@ -1,5 +1,5 @@
 Meteor.methods({
-    laboratory_paymentReport: function (params) {
+    laboratory_feeBalanceReport: function (params) {
         var data = {
             title: {},
             header: {},
@@ -54,7 +54,7 @@ Meteor.methods({
         /****** Content *****/
         var content = [];
         var selector = {};
-        selector.paymentDate = {$gte: fDate, $lte: tDate};
+        selector.feeDate = {$gte: fDate, $lte: tDate};
         if (!_.isEmpty(patientId)) {
             selector.patientId = patientId;
         }
@@ -71,16 +71,15 @@ Meteor.methods({
 
         var index = 1;
 
-        Laboratory.Collection.Payment.find(selector)
+        Laboratory.Collection.Fee.find(selector)
             .forEach(function (obj) {
-
                 // Do something
                 outstandingAmount += obj.outstandingAmount;
                 paidAmount += obj.paidAmount;
                 overdueAmount += obj.overdueAmount;
-                obj.outstandingAmount=numeral(obj.outstandingAmount).format('0,0');
-                obj.paidAmount=numeral(obj.paidAmount).format('0,0');
-                obj.overdueAmount=numeral(obj.overdueAmount).format('0,0');
+                obj.outstandingAmount = numeral(obj.outstandingAmount).format('0,0');
+                obj.paidAmount = numeral(obj.paidAmount).format('0,0');
+                obj.overdueAmount = numeral(obj.overdueAmount).format('0,0');
                 obj.index = index;
                 content.push(obj);
                 index++;
@@ -89,7 +88,10 @@ Meteor.methods({
             data.content = content;
             data.footer = {
                 overdueAmountInDollar: numeral(fx.convert(overdueAmount, {from: 'KHR', to: 'USD'})).format('0,0.00'),
-                outstandingAmountInDollar: numeral(fx.convert(outstandingAmount, {from: 'KHR', to: 'USD'})).format('0,0.00'),
+                outstandingAmountInDollar: numeral(fx.convert(outstandingAmount, {
+                    from: 'KHR',
+                    to: 'USD'
+                })).format('0,0.00'),
                 paidAmountInDollar: numeral(fx.convert(paidAmount, {from: 'KHR', to: 'USD'})).format('0,0.00'),
 
                 outstandingAmount: numeral(outstandingAmount).format('0,0'),

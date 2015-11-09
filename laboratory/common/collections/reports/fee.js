@@ -1,5 +1,5 @@
 // Schema
-Laboratory.Schema.PaymentReport = new SimpleSchema({
+Laboratory.Schema.FeeReport = new SimpleSchema({
     //branch: {
     //    type: String,
     //    autoform: {
@@ -29,7 +29,7 @@ Laboratory.Schema.PaymentReport = new SimpleSchema({
         autoform: {
             type: 'select2',
             options: function () {
-                return Laboratory.ListForReport.staffPId;
+                return Laboratory.ListForReport.feeStaffId();
             }
         }
     },
@@ -40,7 +40,7 @@ Laboratory.Schema.PaymentReport = new SimpleSchema({
         autoform: {
             type: 'select2',
             options: function () {
-                return Laboratory.ListForReport.agentPId;
+                return Laboratory.ListForReport.feeAgentId;
             }
         }
     },
@@ -51,7 +51,7 @@ Laboratory.Schema.PaymentReport = new SimpleSchema({
         autoform: {
             type: 'select2',
             options: function () {
-                return Laboratory.ListForReport.patientPId;
+                return Laboratory.ListForReport.feePatientId();
             }
         }
 

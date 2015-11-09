@@ -26,6 +26,11 @@ Laboratory.Schema.Fee = new SimpleSchema({
             }
         }
     },
+    patientId: {
+        type: String,
+        label: "Patient Id"
+
+    },
     staffId: {
         type: String,
         label: "Staff ID",

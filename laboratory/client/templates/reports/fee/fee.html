@@ -1,6 +1,6 @@
 <!--Form-->
-<template name="laboratory_paymentReport">
-    {{#autoForm schema=Laboratory.Schema.PaymentReport id="laboratory_paymentReport" action="paymentReportGen" target="_blank"}}
+<template name="laboratory_feeReport">
+    {{#autoForm schema=Laboratory.Schema.FeeReport id="laboratory_feeReport" action="feeReportGen" target="_blank"}}
         <div class="row">
             <div class="col-md-6">
                 <!--{{> afQuickField name="branch"}}-->
@@ -19,7 +19,7 @@
     {{/autoForm}}
 </template>
 <!--Generate-->
-<template name="laboratory_paymentReportGen">
+<template name="laboratory_feeReportGen">
     <!--Is ready-->
     {{#if data}}
         {{#reportTpl options}}
@@ -58,7 +58,7 @@
                     <tr>
                         <th>No</th>
                         <th>ID</th>
-                        <th>PaymentDate</th>
+                        <th>FeeDate</th>
                         <th>Labo</th>
                         <th>LaboDate</th>
                         <th>Patient</th>
@@ -74,7 +74,7 @@
                         <tr>
                             <td>{{index}}</td>
                             <td>{{_id}}</td>
-                            <td>{{paymentDate}}</td>
+                            <td>{{feeDate}}</td>
                             <td>{{_labo._id}}</td>
                             <td>{{_labo.laboDate}}</td>
                             <td>{{_patient.name}}</td>

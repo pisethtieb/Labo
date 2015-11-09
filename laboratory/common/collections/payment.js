@@ -50,6 +50,11 @@ Laboratory.Schema.Payment = new SimpleSchema({
         label: "Labo ID",
         max: 255
     },
+    agentId: {
+        type: String,
+        label: "AgentId",
+        max: 255
+    },
     staffId: {
         type: String,
         label: "Staff ID",
