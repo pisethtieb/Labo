@@ -6,7 +6,6 @@ Meteor.methods({
             content: [{index: 'No Result'}],
             footer: {}
         };
-
         /****** Title *****/
         data.title = Cpanel.Collection.Company.findOne();
 

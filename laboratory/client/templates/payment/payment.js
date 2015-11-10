@@ -181,6 +181,15 @@ insertTpl.onRendered(function () {
 insertTpl.events({
     'keyup .paidAmount': function () {
         calculateBalance();
+    },
+    'click #save': function () {
+        Session.set('savePrint', false);
+    },
+    'click #save-print': function () {
+        Session.set('savePrint', true);
+    },
+    'click .printResult': function () {
+        Session.set('savePrint', true);
     }
 });
 
@@ -224,6 +233,15 @@ AutoForm.hooks({
         onSuccess: function (formType, result) {
             alertify.payment().close();
             alertify.success('Success');
+            debugger;
+            //Meteor.call('getLaboInoviceId',result, function (err, laboId) {
+            if (Session.get('savePrint')) {
+                var laboId = $('[name="laboId"]').val();
+                var url = '/laboratory/labo/invoice/' + laboId;
+                window.open(url, '_blank');
+            }
+
+            //});
         },
         onError: function (formType, error) {
             alertify.error(error.message);

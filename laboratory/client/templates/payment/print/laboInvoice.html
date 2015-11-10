@@ -1,0 +1,48 @@
+<template name='laboratory_laboInvoice'>
+    <!--Is ready-->
+    {{#if data}}
+        {{#reportTpl options}}
+
+            {{#with data}}
+
+                {{#with title}}
+                    <div class="title">
+                        <div class="title-1x-kh-muol">{{khName}}</div>
+                        <div class="title-1x">{{enName}}</div>
+                        <div style="text-decoration: underline;">Patient Result</div>
+                        <div class="title-2x">{{enAddress}}</div>
+                    </div>
+                {{/with}}
+                <!--Header-->
+                <table width="100%" border="0">
+                    {{#with content}}
+
+                        {{_id}}<br>
+                        {{#each laboItem}}
+                            {{itemId}} | {{qty}}<br>
+
+
+                        {{/each}}
+                    {{/with}}
+                </table>
+
+
+
+
+
+
+            {{/with}}
+
+            <!--Sign-->
+            {{> signFooter}}
+
+        {{/reportTpl}}
+
+        <!--Auto print-->
+        <!--{{autoprint close="true"}}-->
+
+    {{else}}
+        {{> loading}}
+    {{/if}}
+
+</template>
