@@ -11,7 +11,8 @@ Laboratory.Schema.FeeReport = new SimpleSchema({
     //    optional: true
     //},
     date: {
-        type: String
+        type: String,
+        label:'Date Range'
     },
     exchange: {
         type: 'string',

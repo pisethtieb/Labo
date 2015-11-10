@@ -98,7 +98,6 @@ Meteor.methods({
                     overdueAmount += payment.overdueAmount;
                     paidAmount += payment.paidAmount;
                     outstandingAmount += payment.outstandingAmount;
-
                     laboObj.index = index;
                     laboObj._id = obj._id;
                     laboObj.laboDate = obj.laboDate;
@@ -110,13 +109,8 @@ Meteor.methods({
                     laboObj.outstandingAmount = numeral(payment.outstandingAmount).format('0,0');
                     laboObj.agentId = obj._agent.name;
                     laboObj.total = numeral(obj.total).format('0,0');
-
-
                     laboObj.paymentStaff = payment._staff.name;
-
-
                     content.push(laboObj);
-
                 }
                 // Do something
                 index++;
@@ -136,8 +130,6 @@ Meteor.methods({
                 paidAmount: numeral(paidAmount).format('0,0'),
                 overdueAmount: numeral(overdueAmount).format('0,0'),
                 total: numeral(total).format('0,0')
-
-
             }
         }
         //console.log(outstandingAmount);

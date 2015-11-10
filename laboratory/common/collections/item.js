@@ -113,7 +113,7 @@ Laboratory.Schema.Items = new SimpleSchema({
         optional: true,
         max: 250,
         autoform: {
-            type: "selectize",
+            type: "select",
             options: function () {
                 return Laboratory.List.prepend();
             }
@@ -127,7 +127,7 @@ Laboratory.Schema.Items = new SimpleSchema({
         optional: true,
         max: 250,
         autoform: {
-            type: "selectize",
+            type: "select",
             options: function () {
                 return Laboratory.List.Append();
             }

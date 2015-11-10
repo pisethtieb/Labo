@@ -29,7 +29,7 @@ Laboratory.Schema.FeeBalanceReport = new SimpleSchema({
         autoform: {
             type: 'select2',
             options: function () {
-                return Laboratory.ListForReport.feeStaffId();
+                return Laboratory.ListForReport.staffId();
             }
         }
     },
@@ -40,7 +40,7 @@ Laboratory.Schema.FeeBalanceReport = new SimpleSchema({
         autoform: {
             type: 'select2',
             options: function () {
-                return Laboratory.ListForReport.feeAgentId;
+                return Laboratory.ListForReport.agentId;
             }
         }
     },
@@ -51,7 +51,7 @@ Laboratory.Schema.FeeBalanceReport = new SimpleSchema({
         autoform: {
             type: 'select2',
             options: function () {
-                return Laboratory.ListForReport.feePatientId();
+                return Laboratory.ListForReport.patientId();
             }
         }
 

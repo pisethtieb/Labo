@@ -11,7 +11,8 @@ Laboratory.Schema.PaymentReport = new SimpleSchema({
     //    optional: true
     //},
     date: {
-        type: String
+        type: String,
+        label: 'Date Range'
     },
     exchange: {
         type: 'string',

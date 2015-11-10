@@ -29,7 +29,7 @@
                     <div class="title">
                         <div class="title-1x-kh-muol">{{khName}}</div>
                         <div class="title-1x">{{enName}}</div>
-                        <div><u>FeeBalance Report</u></div>
+                        <div><u>Labo Balance Report</u></div>
                         <div class="title-2x">{{enAddress}}</div>
                     </div>
                 {{/with}}
@@ -58,15 +58,13 @@
                     <tr>
                         <th>No</th>
                         <th>ID</th>
-                        <th>FeeBalanceDate</th>
-                        <th>Labo</th>
                         <th>LaboDate</th>
+                        <th>Labo Staff</th>
                         <th>Patient</th>
                         <th>Agent</th>
-                        <th>Staff</th>
-                        <th>OverDue Amount</th>
-                        <th>Paid Amount</th>
-                        <th>Outstanding Amount</th>
+
+                        <th>Labo Total</th>
+                        <th>Total Fee</th>
                     </tr>
                     </thead>
                     <tbody class="body">
@@ -74,32 +72,27 @@
                         <tr>
                             <td>{{index}}</td>
                             <td>{{_id}}</td>
-                            <td>{{feeBalanceDate}}</td>
-                            <td>{{_labo._id}}</td>
-                            <td>{{_labo.laboDate}}</td>
-                            <td>{{_patient.name}}</td>
-                            <td>{{_agent.name}}</td>
-                            <td>{{_staff.name}}</td>
-                            <td>{{ overdueAmount }}</td>
-                            <td>{{ paidAmount }}</td>
-                            <td>{{outstandingAmount}}</td>
+                            <td>{{laboDate}}</td>
+                            <td>{{staffId}}</td>
+                            <td>{{patientId}}</td>
+                            <td>{{agentId}}</td>
+                            <td>{{total }}</td>
+                            <td>{{ totalFee }}</td>
                         </tr>
                     {{/each}}
                     <tr>
-                        <td colspan="8" align="right">
-                            Total KHR:
+                        <td colspan="6" align="right">
+                            Total KHR :
                         </td>
-                        <td>{{footer.overdueAmount}}</td>
-                        <td>{{footer.paidAmount}}</td>
-                        <td>{{footer.outstandingAmount}}</td>
+                        <td>{{footer.total}}</td>
+                        <td>{{footer.totalFee}}</td>
                     </tr>
                     <tr>
-                        <td colspan="8" align="right">
+                        <td colspan="6" align="right">
                             Total USD:
                         </td>
-                        <td>{{footer.overdueAmountInDollar}}</td>
-                        <td>{{footer.paidAmountInDollar}}</td>
-                        <td>{{footer.outstandingAmountInDollar}}</td>
+                        <td>{{footer.totalInDollar}}</td>
+                        <td>{{footer.totalFeeInDollar}}</td>
                     </tr>
                     </tbody>
                 </table>

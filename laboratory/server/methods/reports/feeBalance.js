@@ -6,21 +6,25 @@ Meteor.methods({
             content: [{index: 'No Result'}],
             footer: {}
         };
-        var overdueAmount = 0,
-            outstandingAmount = 0,
+        var total = 0,
+            totalFee = 0,
             paidAmount = 0,
+            outstandingAmount = 0,
             exchangeId = params.exchange,
             patientId = params.patientId,
             staffId = params.staffId,
             agentId = params.agentId,
             exchange = Cpanel.Collection.Exchange.findOne(exchangeId);
-        //date = s.words(params.date, ' To '),
-        //    fDate = date[0],
-        //    newDate = new Date(date[1]);
-        //var tDate = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
-        //tDate = moment(tDate).format('YYYY-MM-DD');
+        /* date = s.words(params.date, ' To '),
+         fDate = date[0],
+         newDate = new Date(date[1]);
+         var tDate = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
+         tDate = moment(tDate).format('YYYY-MM-DD');*/
+        //console.log(params.date);
+
         fx.base = exchange.base;
         fx.rates = exchange.rates;
+
 
         /****** Title *****/
 
@@ -54,8 +58,6 @@ Meteor.methods({
         /****** Content *****/
         var content = [];
         var selector = {};
-        selector.feeDate = {$lte: moment(params.date + ' 23:59:59').format('YYYY-MM-DD HH:mm:ss')};
-
         if (!_.isEmpty(patientId)) {
             selector.patientId = patientId;
         }
@@ -68,39 +70,69 @@ Meteor.methods({
         if (!_.isEmpty(params.branch)) {
             selector.cpanel_branchId = params.branch;
         }
+        selector.laboDate = {$lte: moment(params.date + ' 23:59:59').format('YYYY-MM-DD HH:mm:ss')};
 
-
+        var content = [];
         var index = 1;
-
-        Laboratory.Collection.Fee.find(selector)
+        Laboratory.Collection.Labo.find(selector)
             .forEach(function (obj) {
+
+                var fee = Laboratory.Collection.Fee.findOne({laboId: obj._id}, {sort: {_id: -1}});
+                if (fee == null) {
+                    var laboObj = {};
+                    total += obj.total;
+                    totalFee += obj.totalFee;
+                    laboObj.index = index;
+                    laboObj._id = obj._id;
+                    laboObj.laboDate = obj.laboDate;
+                    laboObj.patientId = obj._patient.name;
+                    laboObj.staffId = obj._staff.name;
+                    laboObj.agentId = obj._agent.name;
+                    laboObj.total = numeral(obj.total).format('0,0');
+                    laboObj.totalFee = numeral(obj.totalFee).format('0,0');
+
+                    content.push(laboObj);
+                    //} else if (payment.outstandingAmount > 0) {
+                    //    var laboObj = {};
+                    //    total += obj.total;
+                    //    overdueAmount += payment.overdueAmount;
+                    //    paidAmount += payment.paidAmount;
+                    //    outstandingAmount += payment.outstandingAmount;
+                    //    laboObj.index = index;
+                    //    laboObj._id = obj._id;
+                    //    laboObj.laboDate = obj.laboDate;
+                    //    laboObj.patientId = obj._patient.name;
+                    //    laboObj.staffId = obj._staff.name;
+                    //    laboObj.paymentDate = payment.paymentDate;
+                    //    laboObj.overdueAmount = numeral(payment.overdueAmount).format('0,0');
+                    //    laboObj.paidAmount = numeral(payment.paidAmount).format('0,0');
+                    //    laboObj.outstandingAmount = numeral(payment.outstandingAmount).format('0,0');
+                    //    laboObj.agentId = obj._agent.name;
+                    //    laboObj.total = numeral(obj.total).format('0,0');
+                    //    laboObj.paymentStaff = payment._staff.name;
+                    //    content.push(laboObj);
+                }
                 // Do something
-                outstandingAmount += obj.outstandingAmount;
-                paidAmount += obj.paidAmount;
-                overdueAmount += obj.overdueAmount;
-                obj.outstandingAmount = numeral(obj.outstandingAmount).format('0,0');
-                obj.paidAmount = numeral(obj.paidAmount).format('0,0');
-                obj.overdueAmount = numeral(obj.overdueAmount).format('0,0');
-                obj.index = index;
-                content.push(obj);
                 index++;
             });
+
         if (content.length > 0) {
             data.content = content;
             data.footer = {
-                overdueAmountInDollar: numeral(fx.convert(overdueAmount, {from: 'KHR', to: 'USD'})).format('0,0.00'),
-                outstandingAmountInDollar: numeral(fx.convert(outstandingAmount, {
+                totalInDollar: numeral(fx.convert(total, {from: 'KHR', to: 'USD'})).format('0,0.00'),
+                //overdueAmountInDollar: numeral(fx.convert(overdueAmount, {from: 'KHR', to: 'USD'})).format('0,0.00'),
+                totalFeeInDollar: numeral(fx.convert(totalFee, {
                     from: 'KHR',
                     to: 'USD'
                 })).format('0,0.00'),
                 paidAmountInDollar: numeral(fx.convert(paidAmount, {from: 'KHR', to: 'USD'})).format('0,0.00'),
-
-                outstandingAmount: numeral(outstandingAmount).format('0,0'),
+                totalFee: numeral(totalFee).format('0,0'),
                 paidAmount: numeral(paidAmount).format('0,0'),
-                overdueAmount: numeral(overdueAmount).format('0,0')
-
+                //overdueAmount: numeral(overdueAmount).format('0,0'),
+                total: numeral(total).format('0,0')
             }
         }
+        //console.log(outstandingAmount);
         return data
     }
 });

@@ -46,7 +46,7 @@
             <div class="col-md-6">
                 {{> afQuickField name='staffId'}}
                 {{> afQuickField name='overdueAmount' value=total class="overdueAmount" readOnly='true'}}
-                {{> afQuickField name='paidAmount' value=total class="paidAmount"}}
+                {{> afQuickField name='paidAmount' value=total class="paidAmount" readOnly='true'}}
                 {{> afQuickField name='outstandingAmount' value=0 readOnly='true' class="balance"}}
                 <!--{{> afQuickField name='status'}}-->
             </div>
@@ -63,12 +63,13 @@
                 {{> afQuickField name='feeDate'}}
                 {{> afQuickField name='agentId'  readOnly='true'}}
                 {{> afQuickField name='laboId' type='text'  readOnly='true'}}
+                {{>afQuickField name='patientId'}}
             </div>
             <div class="col-md-6">
                 {{> afQuickField name='staffId'}}
                 {{> afQuickField name='overdueAmount' value=total class="overdueAmount" readOnly='true'}}
-                {{> afQuickField name='paidAmount' value=total class="paidAmount"}}
-                {{> afQuickField name='outstandingAmount' value=0 readOnly='true' class="balance"}}
+                {{> afQuickField name='paidAmount' value=total class="paidAmount" readOnly='true'}}
+                {{> afQuickField name='outstandingAmount' readOnly='true' class="balance"}}
                 <!--{{> afQuickField name='status'}}-->
             </div>
         </div>
