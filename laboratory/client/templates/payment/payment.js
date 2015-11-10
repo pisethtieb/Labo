@@ -300,7 +300,6 @@ function checkLastPayment(self) {
         $('.removePayment').hide();
     }
 }
-
 // calculate Balance
 function calculateBalance() {
     var overdueAmount = $('.overdueAmount').val();
@@ -330,5 +329,4 @@ function checkAvailable() {
     } else {
         return false
     }
-
 }

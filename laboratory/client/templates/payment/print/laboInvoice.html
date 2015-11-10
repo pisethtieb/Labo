@@ -9,21 +9,47 @@
                     <div class="title">
                         <div class="title-1x-kh-muol">{{khName}}</div>
                         <div class="title-1x">{{enName}}</div>
-                        <div style="text-decoration: underline;">Patient Result</div>
+                        <div style="text-decoration: underline;">Invoice</div>
                         <div class="title-2x">{{enAddress}}</div>
                     </div>
                 {{/with}}
+                {{#with header}}
+                    <tr>
+                        <td style="text-align: left" width="30%">labo : {{_id}}</td>
+                        <td style="text-align: left" width="30%">Patient : {{_patient.name}}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left" width="30%">Date : {{date}}</td>
+                        <td style="text-align: left" width="30%">Gender : {{_patient.gender}}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left" width="30%">Staff : {{_staff.name}}</td>
+                        <td style="text-align: left" width="30%">Age : {{_patient.age}}</td>
+                    </tr>
+                {{/with}}
                 <!--Header-->
-                <table width="100%" border="0">
-                    {{#with content}}
+                <table class="table table-bordered">
+                    <thead>
+                    <tr bgcolor="gray">
+                        <th>
+                            N<super style="text-decoration: underline;">0</super>
+                        </th>
+                        <th>Itemname</th>
+                        <th>Name</th>
+                        <th style="width:auto; text-align: center">Normal Value</th>
+                        <th>Result</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each content}}
+                        <tr>
+                            <td>{{index}}</td>
+                            <td>{{itemId}}</td>
+                            <td>{{name}}</td>
+                        </tr>
 
-                        {{_id}}<br>
-                        {{#each laboItem}}
-                            {{itemId}} | {{qty}}<br>
-
-
-                        {{/each}}
-                    {{/with}}
+                    {{/each}}
+                    </tbody>
                 </table>
 
 
