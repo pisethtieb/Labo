@@ -6,16 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d932e7d-5676-426d-b13f-40e24175d742" name="Default" comment="First commit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/server/methods/meteor_metheod/getLaboInvoiceId.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/client/templates/payment/print/laboInvoice.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/client/routers/laboInvoice.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/client/templates/payment/print/laboInvoice.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laboratory/server/methods/laboInvoice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/templates/payment/payment.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/payment/payment.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/client/templates/payment/payment.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/payment/payment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/server/methods/printResult.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/printResult.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Laboratory.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,8 +40,8 @@
       <file leaf-file-name="payment.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/laboratory/client/templates/payment/payment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55569005">
-              <caret line="238" column="56" selection-start-line="238" selection-start-column="56" selection-end-line="238" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.47094432">
+              <caret line="289" column="71" selection-start-line="289" selection-start-column="71" selection-end-line="289" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -1390,8 +1381,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laboratory/client/templates/payment/payment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55569005">
-          <caret line="238" column="56" selection-start-line="238" selection-start-column="56" selection-end-line="238" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.47094432">
+          <caret line="289" column="71" selection-start-line="289" selection-start-column="71" selection-end-line="289" selection-end-column="71" />
           <folding />
         </state>
       </provider>

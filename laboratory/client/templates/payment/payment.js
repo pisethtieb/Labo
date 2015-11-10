@@ -285,7 +285,11 @@ function onChangelaboId(e) {
 }
 //check OnAction
 function checkLastPayment(self) {
-    var checkingLastPayment = Laboratory.Collection.Payment.findOne({laboId: self.laboId}, {sort: {_id: -1}});
+
+
+    var payment = Laboratory.Collection.Payment.findOne({_id: self._id});
+    var checkingLastPayment = Laboratory.Collection.Payment.findOne({laboId: payment.laboId}, {sort: {_id: -1}});
+
     var lastPaymentId = checkingLastPayment._id;
     console.log(lastPaymentId == self._id);
     if (lastPaymentId == self._id) {
