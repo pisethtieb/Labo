@@ -30,8 +30,6 @@ Meteor.methods({
             data.footer = labo;
 
             data.footer.totalInDollar = numeral(fx.convert(labo.total, {from: 'KHR', to: 'USD'})).format('0,0.00');
-            console.log(data.footer.totalInDollar);
-            console.log(data.footer.totalInDollar);
         }
         return data
     }

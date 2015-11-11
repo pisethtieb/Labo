@@ -2,9 +2,7 @@
     <!--Is ready-->
     {{#if data}}
         {{#reportTpl options}}
-
             {{#with data}}
-
                 {{#with title}}
                     <div class="title">
                         <div class="title-1x-kh-muol">{{khName}}</div>
@@ -37,7 +35,7 @@
                         <th>Itemname</th>
                         <th>Qty</th>
                         <th>Price</th>
-                        <th>Total</th>
+                        <th>Amount</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -51,38 +49,39 @@
                                 <td>{{amount}}</td>
                             </tr>
                         {{/each}}
-
                     {{/each}}
                     <tr>
                         <td colspan="4" align="right">
-                            Total KHR:
+                            Total KHR (R):
                         </td>
                         <td>{{footer.total}}</td>
                     </tr>
                     <tr>
                         <td colspan="4" align="right">
-                            Total USD:
+                            Total USD ($):
+                        </td>
+                        <td>{{footer.totalInDollar}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="right">
+                            Paid Amount:
+                        </td>
+                        <td>{{footer.totalInDollar}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="right">
+                            OutStandingAmount:
                         </td>
                         <td>{{footer.totalInDollar}}</td>
                     </tr>
                     </tbody>
                 </table>
-
-
-
-
-
-
             {{/with}}
-
             <!--Sign-->
             {{> signFooter}}
-
         {{/reportTpl}}
-
         <!--Auto print-->
         <!--{{autoprint close="true"}}-->
-
     {{else}}
         {{> loading}}
     {{/if}}
