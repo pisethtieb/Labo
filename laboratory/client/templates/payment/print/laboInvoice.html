@@ -30,25 +30,41 @@
                 <!--Header-->
                 <table class="table table-bordered">
                     <thead>
-                    <tr bgcolor="gray">
+                    <tr>
                         <th>
-                            N<super style="text-decoration: underline;">0</super>
+                            N<sup>0</sup>
                         </th>
                         <th>Itemname</th>
-                        <th>Name</th>
-                        <th style="width:auto; text-align: center">Normal Value</th>
-                        <th>Result</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>Total</th>
                     </tr>
                     </thead>
                     <tbody>
                     {{#each content}}
-                        <tr>
-                            <td>{{index}}</td>
-                            <td>{{itemId}}</td>
-                            <td>{{name}}</td>
-                        </tr>
+                        {{#each laboItem}}
+                            <tr>
+                                <td>{{index}}</td>
+                                <td>{{itemName}}</td>
+                                <td>{{qty}}</td>
+                                <td>{{price}}</td>
+                                <td>{{amount}}</td>
+                            </tr>
+                        {{/each}}
 
                     {{/each}}
+                    <tr>
+                        <td colspan="4" align="right">
+                            Total KHR:
+                        </td>
+                        <td>{{footer.total}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="right">
+                            Total USD:
+                        </td>
+                        <td>{{footer.totalInDollar}}</td>
+                    </tr>
                     </tbody>
                 </table>
 

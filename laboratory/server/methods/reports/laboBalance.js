@@ -15,13 +15,6 @@ Meteor.methods({
             staffId = params.staffId,
             agentId = params.agentId,
             exchange = Cpanel.Collection.Exchange.findOne(exchangeId);
-        /* date = s.words(params.date, ' To '),
-         fDate = date[0],
-         newDate = new Date(date[1]);
-         var tDate = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
-         tDate = moment(tDate).format('YYYY-MM-DD');*/
-        //console.log(params.date);
-
         fx.base = exchange.base;
         fx.rates = exchange.rates;
 

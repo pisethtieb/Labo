@@ -30,4 +30,4 @@ Meteor.methods({
         return data
 
     }
-})
+});
