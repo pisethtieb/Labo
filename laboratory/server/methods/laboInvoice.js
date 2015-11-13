@@ -18,27 +18,38 @@ Meteor.methods({
         var labo = Laboratory.Collection.Labo.findOne(laboId);
         var content = [labo];
         var index = 1;
-        if (content.length > 0) {
-            labo.laboItem.forEach(function (item) {
-                item.itemName = Laboratory.Collection.Items.findOne({_id: item.itemId}).name;
-                item.index = index++;
+
+        labo.laboItem.forEach(function (item) {
+            item.itemName = Laboratory.Collection.Items.findOne({_id: item.itemId}).name;
+            item.index = index++;
+        });
+        data.payment = [];
+        var payment = Laboratory.Collection.Payment.find({
+            laboId: laboId
+        });
+        var totalPaid = 0;
+
+        if (payment.count() > 0) {
+            var i = 1;
+            payment.forEach(function (obj) {
+                obj.index = i;
+                totalPaid += parseFloat(obj.paidAmount);
+                i++;
+                data.payment.push(obj);
             });
-            var payment = Laboratory.Collection.Payment.findOne({laboId: laboId}, {sort: {_id: -2}});
-            if (payment !=null){
-                var N=1;
-                data.custom = payment;
-                data.custom.N = N++;
-
-            }
-
-            //console.log(index);
-            data.content = content;
-
-            data.header = labo;
-            data.header.date = moment().format('DD-MM-YYYY');
-            data.footer = labo;
-            data.footer.totalInDollar = numeral(fx.convert(labo.total, {from: 'KHR', to: 'USD'})).format('0,0.00');
         }
+        data.totalPaid=totalPaid;
+        data.footer.totalPaid = totalPaid;
+        console.log(data.footer.totalPaid);
+
+        //console.log(index);
+        data.content = content;
+
+        data.header = labo;
+        data.header.date = moment().format('DD-MM-YYYY');
+        data.footer = labo;
+        data.footer.totalInDollar = numeral(fx.convert(labo.total, {from: 'KHR', to: 'USD'})).format('0,0.00');
+
         return data
     }
 });

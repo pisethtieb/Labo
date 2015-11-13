@@ -74,15 +74,17 @@
                                 <th>paid Amount</th>
                             </tr>
                             </thead>
-
                             <tbody class="report-content-body">
-                            {{#with custom}}
+
+                            {{#each payment}}
+
                                 <tr class="td-custom">
-                                    <td class="index-style">{{N}}</td>
+                                    <td class="index-style">{{index}}</td>
                                     <td>{{paymentDate}}</td>
                                     <td>{{paidAmount}}</td>
                                 </tr>
-                            {{/with}}
+                            {{/each}}
+
                             </tbody>
                         </table>
                         <div style="width: 69%; margin-top: 20px">
@@ -105,7 +107,7 @@
                                     :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{total}}
                             </li>
                             <li>
-                                <strong>Paid Amount :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{paidAmount}}
+                                <strong>Paid Amount :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{totalPaid}}
                             </li>
 
                             <div style=" margin-top: 20px;border-top:1px solid #000000; padding-top: 20px;">
@@ -120,6 +122,7 @@
                         </ul>
                     {{/with}}
                 </div>
+                {{totalPaid}}
             {{/with}}
             <!--Sign-->
             {{> signFooter}}
