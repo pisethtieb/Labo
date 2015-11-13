@@ -28,9 +28,9 @@ Meteor.methods({
             laboId: laboId
         });
         var totalPaid = 0;
-
         if (payment.count() > 0) {
             var i = 1;
+
             payment.forEach(function (obj) {
                 obj.index = i;
                 totalPaid += parseFloat(obj.paidAmount);
@@ -38,17 +38,18 @@ Meteor.methods({
                 data.payment.push(obj);
             });
         }
-        data.totalPaid=totalPaid;
-        data.footer.totalPaid = totalPaid;
-        console.log(data.footer.totalPaid);
+        lastPayment=Laboratory.Collection.Payment.findOne({laboId:laboId},{sort:{_id:-1}});
+        data.paymentStaff=lastPayment._staff;
+        data.paymentDate=lastPayment.paymentDate;
 
+        data.totalPaid=totalPaid;
+        data.outstadingAmount=labo.total-totalPaid;
         //console.log(index);
         data.content = content;
-
         data.header = labo;
         data.header.date = moment().format('DD-MM-YYYY');
         data.footer = labo;
-        data.footer.totalInDollar = numeral(fx.convert(labo.total, {from: 'KHR', to: 'USD'})).format('0,0.00');
+        data.outstadingAmountIndolar = numeral(fx.convert( data.outstadingAmount, {from: 'KHR', to: 'USD'})).format('0,0.00');
 
         return data
     }

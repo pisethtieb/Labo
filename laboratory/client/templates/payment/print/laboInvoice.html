@@ -11,30 +11,32 @@
                         <div class="title-2x">{{enAddress}}</div>
                     </div>
                 {{/with}}
-                {{#with header}}
+
                     <div style="width: 50%; padding-top: 12px; float: left;">
                         <ul class="list-unstyled">
                             <li>
-                                <strong>PatientId</strong> {{patientId}}</li>
+                                <strong>PatientId</strong> {{header.patientId}}</li>
                             <li>
-                                <strong>PatientName</strong> {{_patient.name}}</li>
+                                <strong>PatientName</strong> {{header._patient.name}}</li>
                             <li>
-                                <strong>Gender:</strong> {{_patient.gender}}</li>
+                                <strong>Gender:</strong> {{header._patient.gender}}</li>
                             <li>
-                                <strong>Age:</strong> {{_patient.age}}</li>
+                                <strong>Age:</strong> {{header._patient.age}}</li>
                         </ul>
                     </div>
                     <div style="width: 50%; padding-top: 12px; float: right;">
                         <ul class="list-unstyled">
                             <li>
-                                <strong>LaboId: </strong> {{_id}}</li>
+                                <strong>LaboId: </strong> {{header._id}}</li>
                             <li>
-                                <strong>LaboDate: </strong> {{laboDate}}</li>
+                                <strong>LaboDate: </strong> {{header.laboDate}}</li>
                             <li>
-                                <strong>PaymentDate</strong> {{date}}</li>
+                                <strong>PaymentDate:</strong> {{paymentDate}}</li>
+                            <li>
+                                <strong>staff:</strong> {{paymentStaff.name}}</li>
                         </ul>
                     </div>
-                {{/with}}
+
                 <!--Header-->
                 <table class="table table-bordered">
                     <thead>
@@ -66,7 +68,7 @@
                     <!--Deposit-->
                     <div style="width: 50%; float: left">
                         <table class="table table-bordered">
-                            <caption>Last Payment Info</caption>
+                            <caption>Payment History</caption>
                             <thead>
                             <tr>
                                 <th>N<sup>o</sup></th>
@@ -100,32 +102,31 @@
 
                 </div>
                 <div style="width: 48%; float: right; margin-top: 20px">
-                    {{#with footer}}
+
                         <ul class="list-unstyled text-right">
                             <li>
-                                <strong>Total KHR
-                                    :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{total}}
+                                <strong>Total KHR (R)
+                                    :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{footer.total}}
                             </li>
                             <li>
-                                <strong>Paid Amount :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{totalPaid}}
+                                <strong>Paid Amount (R):</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{totalPaid}}
                             </li>
 
                             <div style=" margin-top: 20px;border-top:1px solid #000000; padding-top: 20px;">
                                 <li>
-                                    <strong>Total KHR:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{total}}
+                                    <strong>OutStanding Balance KHR (R):</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{outstadingAmount}}
                                 </li>
                                 <li>
-                                    <strong>Total KHR
-                                        :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{totalKhr}}
+                                    <strong>OutStanding Balance USD ($):
+                                        :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{outstadingAmountIndolar}}
                                 </li>
                             </div>
                         </ul>
-                    {{/with}}
+
                 </div>
-                {{totalPaid}}
+
             {{/with}}
             <!--Sign-->
-            {{> signFooter}}
         {{/reportTpl}}
         <!--Auto print-->
         <!--{{autoprint close="true"}}-->
