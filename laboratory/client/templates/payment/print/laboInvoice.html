@@ -12,25 +12,35 @@
                     </div>
                 {{/with}}
                 {{#with header}}
-                    <tr>
-                        <td style="text-align: left" width="30%">labo : {{_id}}</td>
-                        <td style="text-align: left" width="30%">Patient : {{_patient.name}}</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left" width="30%">Date : {{date}}</td>
-                        <td style="text-align: left" width="30%">Gender : {{_patient.gender}}</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left" width="30%">Staff : {{_staff.name}}</td>
-                        <td style="text-align: left" width="30%">Age : {{_patient.age}}</td>
-                    </tr>
+                    <div style="width: 50%; padding-top: 12px; float: left;">
+                        <ul class="list-unstyled">
+                            <li>
+                                <strong>PatientId</strong> {{patientId}}</li>
+                            <li>
+                                <strong>PatientName</strong> {{_patient.name}}</li>
+                            <li>
+                                <strong>Gender:</strong> {{_patient.gender}}</li>
+                            <li>
+                                <strong>Age:</strong> {{_patient.age}}</li>
+                        </ul>
+                    </div>
+                    <div style="width: 50%; padding-top: 12px; float: right;">
+                        <ul class="list-unstyled">
+                            <li>
+                                <strong>LaboId: </strong> {{_id}}</li>
+                            <li>
+                                <strong>LaboDate: </strong> {{laboDate}}</li>
+                            <li>
+                                <strong>PaymentDate</strong> {{date}}</li>
+                        </ul>
+                    </div>
                 {{/with}}
                 <!--Header-->
                 <table class="table table-bordered">
                     <thead>
                     <tr>
                         <th>
-                            N<sup>0</sup>
+                            N<sup>o</sup>
                         </th>
                         <th>Itemname</th>
                         <th>Qty</th>
@@ -50,32 +60,66 @@
                             </tr>
                         {{/each}}
                     {{/each}}
-                    <tr>
-                        <td colspan="4" align="right">
-                            Total KHR (R):
-                        </td>
-                        <td>{{footer.total}}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" align="right">
-                            Total USD ($):
-                        </td>
-                        <td>{{footer.totalInDollar}}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" align="right">
-                            Paid Amount:
-                        </td>
-                        <td>{{footer.totalInDollar}}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" align="right">
-                            OutStandingAmount:
-                        </td>
-                        <td>{{footer.totalInDollar}}</td>
-                    </tr>
                     </tbody>
                 </table>
+                <div style="width: 100%">
+                    <!--Deposit-->
+                    <div style="width: 50%; float: left">
+                        <table class="table table-bordered">
+                            <caption>Last Payment Info</caption>
+                            <thead>
+                            <tr>
+                                <th>N<sup>o</sup></th>
+                                <th>PaymentDate</th>
+                                <th>paid Amount</th>
+                            </tr>
+                            </thead>
+
+                            <tbody class="report-content-body">
+                            {{#with custom}}
+                                <tr class="td-custom">
+                                    <td class="index-style">{{N}}</td>
+                                    <td>{{paymentDate}}</td>
+                                    <td>{{paidAmount}}</td>
+                                </tr>
+                            {{/with}}
+                            </tbody>
+                        </table>
+                        <div style="width: 69%; margin-top: 20px">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <strong>អ្នកគិតលុយ :</strong> __________________
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--Total-->
+
+                </div>
+                <div style="width: 48%; float: right; margin-top: 20px">
+                    {{#with footer}}
+                        <ul class="list-unstyled text-right">
+                            <li>
+                                <strong>Total KHR
+                                    :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{total}}
+                            </li>
+                            <li>
+                                <strong>Paid Amount :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{paidAmount}}
+                            </li>
+
+                            <div style=" margin-top: 20px;border-top:1px solid #000000; padding-top: 20px;">
+                                <li>
+                                    <strong>Total KHR:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{total}}
+                                </li>
+                                <li>
+                                    <strong>Total KHR
+                                        :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{totalKhr}}
+                                </li>
+                            </div>
+                        </ul>
+                    {{/with}}
+                </div>
             {{/with}}
             <!--Sign-->
             {{> signFooter}}

@@ -4,7 +4,8 @@ Meteor.methods({
             title: {},
             header: {},
             content: [{index: 'No Item'}],
-            footer: {}
+            footer: {},
+            custom: {}
         };
         var exchange = Cpanel.Collection.Exchange.findOne({}, {sort: {dateTime: -1}});
         fx.base = exchange.base;
@@ -22,13 +23,20 @@ Meteor.methods({
                 item.itemName = Laboratory.Collection.Items.findOne({_id: item.itemId}).name;
                 item.index = index++;
             });
+            var payment = Laboratory.Collection.Payment.findOne({laboId: laboId}, {sort: {_id: -2}});
+            if (payment !=null){
+                var N=1;
+                data.custom = payment;
+                data.custom.N = N++;
+
+            }
+
             //console.log(index);
             data.content = content;
-            data.content.index = index++;
+
             data.header = labo;
             data.header.date = moment().format('DD-MM-YYYY');
             data.footer = labo;
-
             data.footer.totalInDollar = numeral(fx.convert(labo.total, {from: 'KHR', to: 'USD'})).format('0,0.00');
         }
         return data

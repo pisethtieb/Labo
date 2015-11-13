@@ -7,7 +7,7 @@ laboInvoiceTPL.helpers({
         // orientation = portrait, landscape
         return {
             //fontSize: 'bg',
-            paper: 'mini',
+            paper: 'a5',
             orientation: 'portrait'
         };
     },
