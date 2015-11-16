@@ -22,17 +22,17 @@
                         <tr>
                             <td style="text-align: left" width="40%">PatientID : {{patientId}}</td>
                             <td style="text-align: left" width="38%">Result : {{_id}}</td>
-                            <td style="text-align: left" width="auto">laboID : {{laboId}}</td>
+                            <td style="text-align: left" width="auto">LaboID : {{laboId}}</td>
                         </tr>
                         <tr>
                             <td style="text-align: left" width="40%">Patient Name : {{_patient.name}}</td>
                             <td style="text-align: left" width="38%">Result Date:  {{resultDate}}</td>
-                            <td style="text-align: left" width="auto">laboDate : {{laboDate}}</td>
+                            <td style="text-align: left" width="auto">LaboDate : {{laboDate}}</td>
                         </tr>
                         <tr>
                             <td style="text-align: left" width="40%">Dob : {{_patient.dob}}</td>
                             <td style="text-align: left" width="38%"></td>
-                            <td style="text-align: left" width="auto">staff: {{_staff.name}}</td>
+                            <td style="text-align: left" width="auto">Staff: {{_staff.name}}</td>
                         </tr>
                         <tr>
                             <td style="text-align: left" width="40%">Age: {{_patient.age}}</td>
@@ -40,7 +40,7 @@
                             <td style="text-align: left" width="auto">Agent: {{_agent.name}}</td>
                         </tr>
                         <tr>
-                            <td style="text-align: left" width="40%">telephone: {{_patient.telephone}}</td>
+                            <td style="text-align: left" width="40%">Telephone: {{_patient.telephone}}</td>
                             <td style="text-align: left" width="38%"></td>
                             <td style="text-align: left" width="auto"></td>
                         </tr>
@@ -50,13 +50,13 @@
                     <!--{{#with result}}-->
 
                 <!--Content-->
-                <table class="table table-bordered">
+            <br>
+                <table class="table">
                     <thead>
-                    <tr bgcolor="gray">
+                    <tr>
                         <th>
 
-                            N
-                            <super style="text-decoration: underline;">0</super>
+                            N<sup>0</sup>
                         </th>
                         <th>Item ID</th>
                         <th>Name</th>
@@ -82,6 +82,7 @@
                                         </thead>
                                         <tbody>
                                         {{#each childItem}}
+                                        <br>
                                             <tr>
                                                 <td width="33%">{{name}}</td>
                                                 <td width="33%">{{normalValue}}</td>
@@ -94,7 +95,11 @@
                                         </tbody>
                                     </table>
                                 {{else}}
-                                    {{normalValue}}
+                                    <tr>
+                                        <td width="52%">                </td>
+                                        <td width="0%">{{normalValue}}</td>
+                                        <td width="20%">                </td>
+                                    </tr>
 
                                 {{/if}}
 

@@ -89,6 +89,13 @@
                         {{> afQuickField name='agentId' readOnly=true}}
 
                     </div>
+                    Out Put Result Options
+                    <div>
+                            {{> afQuickField name="a" options="allowed" noselect=true}}
+                            {{#if afFieldValueContains name="a" value="foo"}}
+                                {{> afQuickField name="b"}}
+                            {{/if}}
+                    </div>
 
                 </div>
             </div>

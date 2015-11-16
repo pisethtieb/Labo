@@ -106,4 +106,4 @@ Laboratory.Schema.Result = new SimpleSchema({
 // Attach schema
 Laboratory.Collection.Result.attachSchema(Laboratory.Schema.Result);
 // Attach soft remove
-Laboratory.Collection.Result.attachBehaviour('softRemovable');
+//Laboratory.Collection.Result.attachBehaviour('softRemovable');
