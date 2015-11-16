@@ -15,6 +15,7 @@ Meteor.methods({
         /****** Header *****/
         //  data.header = params;
         /****** Content *****/
+        lastPayment = Laboratory.Collection.Payment.findOne({laboId: laboId}, {sort: {_id: -1}});
         var labo = Laboratory.Collection.Labo.findOne(laboId);
         var content = [labo];
         var index = 1;
@@ -36,21 +37,29 @@ Meteor.methods({
                 totalPaid += parseFloat(obj.paidAmount);
                 i++;
                 data.payment.push(obj);
+                data.outstadingAmount = labo.total - totalPaid;
+                data.outstadingAmountIndolar = numeral(fx.convert(data.outstadingAmount, {
+                    from: 'KHR',
+                    to: 'USD'
+                })).format('0,0.00');
+                data.paymentStaff = lastPayment._staff;
+                data.paymentDate = lastPayment.paymentDate;
             });
         }
-        lastPayment=Laboratory.Collection.Payment.findOne({laboId:laboId},{sort:{_id:-1}});
-        data.paymentStaff=lastPayment._staff;
-        data.paymentDate=lastPayment.paymentDate;
 
-        data.totalPaid=totalPaid;
-        data.outstadingAmount=labo.total-totalPaid;
+
+        data.totalPaid = totalPaid;
+
         //console.log(index);
+
+
         data.content = content;
         data.header = labo;
         data.header.date = moment().format('DD-MM-YYYY');
         data.footer = labo;
-        data.outstadingAmountIndolar = numeral(fx.convert( data.outstadingAmount, {from: 'KHR', to: 'USD'})).format('0,0.00');
+
 
         return data
+
     }
 });

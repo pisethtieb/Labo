@@ -12,30 +12,30 @@
                     </div>
                 {{/with}}
 
-                    <div style="width: 50%; padding-top: 12px; float: left;">
-                        <ul class="list-unstyled">
-                            <li>
-                                <strong>PatientId</strong> {{header.patientId}}</li>
-                            <li>
-                                <strong>PatientName</strong> {{header._patient.name}}</li>
-                            <li>
-                                <strong>Gender:</strong> {{header._patient.gender}}</li>
-                            <li>
-                                <strong>Age:</strong> {{header._patient.age}}</li>
-                        </ul>
-                    </div>
-                    <div style="width: 50%; padding-top: 12px; float: right;">
-                        <ul class="list-unstyled">
-                            <li>
-                                <strong>LaboId: </strong> {{header._id}}</li>
-                            <li>
-                                <strong>LaboDate: </strong> {{header.laboDate}}</li>
-                            <li>
-                                <strong>PaymentDate:</strong> {{paymentDate}}</li>
-                            <li>
-                                <strong>staff:</strong> {{paymentStaff.name}}</li>
-                        </ul>
-                    </div>
+                <div style="width: 50%; padding-top: 12px; float: left;">
+                    <ul class="list-unstyled">
+                        <li>
+                            <strong>PatientId</strong> {{header.patientId}}</li>
+                        <li>
+                            <strong>PatientName</strong> {{header._patient.name}}</li>
+                        <li>
+                            <strong>Gender:</strong> {{header._patient.gender}}</li>
+                        <li>
+                            <strong>Age:</strong> {{header._patient.age}}</li>
+                    </ul>
+                </div>
+                <div style="width: 50%; padding-top: 12px; float: right;">
+                    <ul class="list-unstyled">
+                        <li>
+                            <strong>LaboId: </strong> {{header._id}}</li>
+                        <li>
+                            <strong>LaboDate: </strong> {{header.laboDate}}</li>
+                        <li>
+                            <strong>PaymentDate:</strong> {{paymentDate}}</li>
+                        <li>
+                            <strong>Staff:</strong> {{paymentStaff.name}}</li>
+                    </ul>
+                </div>
 
                 <!--Header-->
                 <table class="table table-bordered">
@@ -92,7 +92,7 @@
                         <div style="width: 69%; margin-top: 20px">
                             <ul class="list-unstyled">
                                 <li>
-                                    <strong>អ្នកគិតលុយ :</strong> __________________
+                                    <strong>Staff Sign:</strong> __________________
                                 </li>
                             </ul>
                         </div>
@@ -103,25 +103,25 @@
                 </div>
                 <div style="width: 48%; float: right; margin-top: 20px">
 
-                        <ul class="list-unstyled text-right">
-                            <li>
-                                <strong>Total KHR (R)
-                                    :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{footer.total}}
-                            </li>
-                            <li>
-                                <strong>Paid Amount (R):</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{totalPaid}}
-                            </li>
+                    <ul class="list-unstyled text-right">
+                        <li>
+                            <strong>Total KHR (R)
+                                :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{footer.total}}
+                        </li>
+                        <li>
+                            <strong>Paid Amount (R):</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{totalPaid}}
+                        </li>
 
-                            <div style=" margin-top: 20px;border-top:1px solid #000000; padding-top: 20px;">
-                                <li>
-                                    <strong>OutStanding Balance KHR (R):</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{outstadingAmount}}
-                                </li>
-                                <li>
-                                    <strong>OutStanding Balance USD ($):
-                                        :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{outstadingAmountIndolar}}
-                                </li>
-                            </div>
-                        </ul>
+                        <div style=" margin-top: 20px;border-top:1px solid #000000; padding-top: 20px;">
+                            <li>
+                                <strong>OutStanding Balance KHR (R):</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{outstadingAmount}}
+                            </li>
+                            <li>
+                                <strong>OutStanding Balance USD ($):
+                                    :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{outstadingAmountIndolar}}
+                            </li>
+                        </div>
+                    </ul>
 
                 </div>
 
