@@ -41,6 +41,24 @@
                         {{> afQuickField name='agentId' readOnly=true}}
 
                     </div>
+                    <div class="container">
+                        Out Put Result Option
+                        <!--<p>The form below contains three checkboxes. The last option is disabled:</p>-->
+                        <form role="form">
+                            <div class="checkBold">
+                                <label><input type="checkbox" value="">Bold</label>
+                            </div>
+                            <div class="checkItalic">
+                                <label><input type="checkbox" value="">italic</label>
+                            </div>
+                            <div class="checkUnderline">
+                                <label><input type="checkbox" value="">Underline</label>
+                            </div>
+                            <div class="checkRed">
+                                <label><input type="checkbox" value="">Red</label>
+                            </div>
+                        </form>
+                    </div>
 
                 </div>
             </div>
@@ -89,14 +107,6 @@
                         {{> afQuickField name='agentId' readOnly=true}}
 
                     </div>
-                    Out Put Result Options
-                    <div>
-                            {{> afQuickField name="a" options="allowed" noselect=true}}
-                            {{#if afFieldValueContains name="a" value="foo"}}
-                                {{> afQuickField name="b"}}
-                            {{/if}}
-                    </div>
-
                 </div>
             </div>
         </div>

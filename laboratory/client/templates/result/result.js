@@ -90,6 +90,9 @@ insertTpl.events({
     },
     'click .printResult': function () {
         Session.set('savePrint', true);
+    },
+    'change .checkBold':function(){
+        $('.result').css('font-style', 'italic');
     }
 });
 
