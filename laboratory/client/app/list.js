@@ -147,7 +147,7 @@ Laboratory.List = {
         //    .forEach(function (obj) {
         //        list.push({label: obj.appendValue, value: obj.appendValue});
         //    });
-        list.push({label: "(Select One)", value: ""});
+        //list.push({label: "(Select One)", value: ""});
         list.push({label: '/mm3', value: '/mm3'});
         list.push({label: '/ ul', value: '/ ul'});
         list.push({label: '%', value: '%'});
@@ -174,7 +174,7 @@ Laboratory.List = {
     prepend: function (selectOne) {
         var list = [];
         if (!_.isEqual(selectOne, false)) {
-            list.push({label: "(Select One)", value: ''});
+            //list.push({label: "(Select One)", value: ''});
         }
 
         //Laboratory.Collection.Measure.find()

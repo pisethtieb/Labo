@@ -47,18 +47,19 @@ Meteor.methods({
             });
         }
 
+        if (lastPayment == null || undefined) {
+            data.outstadingAmount = labo.total;
+            data.outstadingAmountIndolar = numeral(fx.convert(data.outstadingAmount, {
+                from: 'KHR',
+                to: 'USD'
+            })).format('0,0.00');
 
+        }
         data.totalPaid = totalPaid;
-
-        //console.log(index);
-
-
         data.content = content;
         data.header = labo;
         data.header.date = moment().format('DD-MM-YYYY');
         data.footer = labo;
-
-
         return data
 
     }
