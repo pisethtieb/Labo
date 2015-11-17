@@ -129,6 +129,7 @@ indexTpl.events({
             console.log(data.total);
             doc.laboId = data._id;
             doc.patientId = data.patientId;
+            doc.agentId = data.agentId;
             //doc.paymentDate = moment().format("YYYY-MM-DD HH:mm:ss");
             doc.overdueAmount = data.total;
             doc.paidAmount = data.total;

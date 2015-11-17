@@ -20,3 +20,8 @@
     text-align: center;
     border:double;
 }
+.emphasized {
+    text-decoration: underline;
+    font-weight: bold;
+    font-style: italic;
+}

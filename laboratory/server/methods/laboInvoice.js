@@ -19,7 +19,6 @@ Meteor.methods({
         var labo = Laboratory.Collection.Labo.findOne(laboId);
         var content = [labo];
         var index = 1;
-
         labo.laboItem.forEach(function (item) {
             item.itemName = Laboratory.Collection.Items.findOne({_id: item.itemId}).name;
             item.index = index++;

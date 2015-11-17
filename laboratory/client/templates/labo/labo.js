@@ -207,7 +207,7 @@ indexTpl.events({
                     item.normalValue = '';
                 }
                 else {
-                    item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
+                    item.normalValue =  prependValue+ '  ' + getChildItem.normalValue + '  ' + appendValue;
                 }
                 item.name = getChildItem.name;
             });

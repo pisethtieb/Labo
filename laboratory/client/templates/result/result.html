@@ -53,7 +53,7 @@
                         </form>
                     </div>
                     <script type="text/javascript">
-                        $('input[name="textStyle"]').change(function () {
+                        $('input[name="textStyle"]').(function () {
                             if ($(this).val() == 'bold') {
                                 if ($(this).is(':checked')) $('.result').css('font-weight', 'bold');
                                 else $('.result').css('font-weight', 'normal');
