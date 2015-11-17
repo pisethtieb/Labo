@@ -53,12 +53,13 @@ Meteor.methods({
                 from: 'KHR',
                 to: 'USD'
             })).format('0,0.00');
-
+           data.paymentStaff=labo._staff;
+            data.paymentDate = moment().format('DD-MM-YYYY');
         }
         data.totalPaid = totalPaid;
         data.content = content;
         data.header = labo;
-        data.header.date = moment().format('DD-MM-YYYY');
+
         data.footer = labo;
         return data
 

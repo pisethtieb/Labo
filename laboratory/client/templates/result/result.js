@@ -91,8 +91,15 @@ insertTpl.events({
     'click .printResult': function () {
         Session.set('savePrint', true);
     },
-    'change .checkBold':function(){
-        $('.result').css('font-style', 'italic');
+    'change .checkBold': function () {
+        alert($('.checkBold').val());
+        //if ($('.checkBold').checked) {
+        //        alert('yes');
+        //    $('.result').css('font-weight', 'Bold');
+        //} else {
+        //    alert('no');
+        //    $('.result').css('font-weight', 'normal');
+        //}
     }
 });
 
@@ -159,12 +166,12 @@ showTpl.helpers({
                 o.childItem.forEach(function (child) {
                     childItemStr +=
                         '<tr>' +
-                        '<td>'+child.name+'</td>' +
-                        '<td>'+child.normalValue+'</td>' +
-                        '<td>'+child.result+'</td>' +
+                        '<td>' + child.name + '</td>' +
+                        '<td>' + child.normalValue + '</td>' +
+                        '<td>' + child.result + '</td>' +
                         '</tr>'
                 });
-                childItemStr+='</tbody></table>'
+                childItemStr += '</tbody></table>'
                 str += '<tr>' +
                     '<td>' + o.itemId + '</td>' +
                     '<td>' + o.name + '</td>' +
@@ -307,22 +314,22 @@ function calculateTotal() {
     var decimal_factor = decimal_places === 0 ? 1 : decimal_places * 10;
     $('.total')
         .animateNumber(
-        {
-            number: total * decimal_factor,
-            numberStep: function (now, tween) {
-                var floored_number = Math.floor(now) / decimal_factor,
-                    target = $(tween.elem);
-                if (decimal_places > 0) {
-                    // force decimal places even if they are 0
-                    floored_number = floored_number.toFixed(decimal_places);
-                    // replace '.' separator with ','
-                    floored_number = floored_number.toString().replace('.', ',');
+            {
+                number: total * decimal_factor,
+                numberStep: function (now, tween) {
+                    var floored_number = Math.floor(now) / decimal_factor,
+                        target = $(tween.elem);
+                    if (decimal_places > 0) {
+                        // force decimal places even if they are 0
+                        floored_number = floored_number.toFixed(decimal_places);
+                        // replace '.' separator with ','
+                        floored_number = floored_number.toString().replace('.', ',');
+                    }
+                    target.text('R' + floored_number);
                 }
-                target.text('R' + floored_number);
-            }
-        },
-        200
-    );
+            },
+            200
+        );
     //totalAmount
     var totalFee = 0;
     $('.fee').each(function () {
@@ -334,24 +341,24 @@ function calculateTotal() {
     var decimal_factorF = decimal_placesF === 0 ? 1 : decimal_placesF * 10;
     $('.totalFee')
         .animateNumber(
-        {
-            number: totalFee * decimal_factor,
+            {
+                number: totalFee * decimal_factor,
 
-            numberStep: function (now, tween) {
-                var floored_number = Math.floor(now) / decimal_factor,
-                    target = $(tween.elem);
+                numberStep: function (now, tween) {
+                    var floored_number = Math.floor(now) / decimal_factor,
+                        target = $(tween.elem);
 
-                if (decimal_factorF > 0) {
-                    // force decimal places even if they are 0
-                    floored_number = floored_number.toFixed(decimal_places);
+                    if (decimal_factorF > 0) {
+                        // force decimal places even if they are 0
+                        floored_number = floored_number.toFixed(decimal_places);
 
-                    // replace '.' separator with ','
-                    floored_number = floored_number.toString().replace('.', ',');
+                        // replace '.' separator with ','
+                        floored_number = floored_number.toString().replace('.', ',');
+                    }
+
+                    target.text('R' + floored_number);
                 }
-
-                target.text('R' + floored_number);
-            }
-        },
-        200
-    );
+            },
+            200
+        );
 }

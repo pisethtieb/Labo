@@ -44,21 +44,34 @@
                     <div class="container">
                         Out Put Result Option
                         <!--<p>The form below contains three checkboxes. The last option is disabled:</p>-->
-                        <form role="form">
-                            <div class="checkBold">
-                                <label><input type="checkbox" value="">Bold</label>
-                            </div>
-                            <div class="checkItalic">
-                                <label><input type="checkbox" value="">italic</label>
-                            </div>
-                            <div class="checkUnderline">
-                                <label><input type="checkbox" value="">Underline</label>
-                            </div>
-                            <div class="checkRed">
-                                <label><input type="checkbox" value="">Red</label>
-                            </div>
+                        <form>
+                            Bold:<input name="textStyle" type="checkbox" value="bold"/>
+                            Italic:<input name="textStyle" type="checkbox" value="italic"/>
+                            Underline:<input name="textStyle" type="checkbox" value="underline"/>
+                            Red:<input name="textStyle" type="checkbox" value="red"/>
+
                         </form>
                     </div>
+                    <script type="text/javascript">
+                        $('input[name="textStyle"]').change(function () {
+                            if ($(this).val() == 'bold') {
+                                if ($(this).is(':checked')) $('.result').css('font-weight', 'bold');
+                                else $('.result').css('font-weight', 'normal');
+                            }
+                            else if ($(this).val() == 'italic') {
+                                if ($(this).is(':checked')) $('.result').css('font-style', 'italic');
+                                else $('.result').css('font-style', 'normal');
+                            }
+                            else if ($(this).val() == 'underline') {
+                                if ($(this).is(':checked')) $('.result').css('text-decoration', 'underline');
+                                else $('.result').css('text-decoration', 'none');
+                            }
+                            else if ($(this).val() == 'red') {
+                                if ($(this).is(':checked')) $('.result').css('color', 'red');
+                                else $('.result').css('color', 'black');
+                            }
+                        });
+                    </script>
 
                 </div>
             </div>
@@ -107,6 +120,37 @@
                         {{> afQuickField name='agentId' readOnly=true}}
 
                     </div>
+                    <div class="container">
+                        Out Put Result Option
+                        <!--<p>The form below contains three checkboxes. The last option is disabled:</p>-->
+                        <form>
+                            Bold:<input name="textStyle" type="checkbox" value="bold"/>
+                            Italic:<input name="textStyle" type="checkbox" value="italic"/>
+                            Underline:<input name="textStyle" type="checkbox" value="underline"/>
+                            Red:<input name="textStyle" type="checkbox" value="red"/>
+
+                        </form>
+                    </div>
+                    <script type="text/javascript">
+                        $('input[name="textStyle"]').change(function () {
+                            if ($(this).val() == 'bold') {
+                                if ($(this).is(':checked')) $('.result').css('font-weight', 'bold');
+                                else $('.result').css('font-weight', 'normal');
+                            }
+                            else if ($(this).val() == 'italic') {
+                                if ($(this).is(':checked')) $('.result').css('font-style', 'italic');
+                                else $('.result').css('font-style', 'normal');
+                            }
+                            else if ($(this).val() == 'underline') {
+                                if ($(this).is(':checked')) $('.result').css('text-decoration', 'underline');
+                                else $('.result').css('text-decoration', 'none');
+                            }
+                            else if ($(this).val() == 'red') {
+                                if ($(this).is(':checked')) $('.result').css('color', 'red');
+                                else $('.result').css('color', 'black');
+                            }
+                        });
+                    </script>
                 </div>
             </div>
         </div>
@@ -214,7 +258,8 @@
         <li><a href="#" class="update">{{fa "pencil"}} Update</a></li>
         <li><a href="#" class="remove">{{fa "trash"}} Remove</a></li>
         <li><a href="#" class="show">{{fa "eye"}} Show</a></li>
-        <li><a href="/laboratory/result/print/{{this._id}}" target="_blank" class="printResult">{{fa "print"}} Print Result</a></li>
+        <li><a href="/laboratory/result/print/{{this._id}}" target="_blank" class="printResult">{{fa "print"}} Print
+            Result</a></li>
     {{/tabularAction}}
 </template>
 <!--childitem Objec Array File-->
