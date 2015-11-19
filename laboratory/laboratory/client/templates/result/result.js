@@ -101,11 +101,21 @@ insertTpl.events({
     'click .printResult': function () {
         Session.set('savePrint', true);
     },
-    'click .ArrayObjeResult': function (e) {
+    'click .result': function (e) {
         text.set('normalResult', e.currentTarget);
+        var checkBold = $(e.currentTarget).val();
+
+        if (checkBold.split('<b>')) {
+            $('.bold').prop('checked');
+        } else {
+            $('.bold').remove('unchecked');
+
+        }
+        debugger;
+
     },
     'change .bold': function (e) {
-        var regex = /(<([^>]+)>)/ig
+        var regex = /(<([^>]+)>)/ig;
         var currentText = text.get('normalResult');
         var originText = currentText.value;
         var elementName = $('[name="' + currentText.name + '"]');

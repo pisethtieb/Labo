@@ -59,6 +59,17 @@ indexTpl.events({
         }
 
     },
+    'click .printResult': function () {
+        var self = this;
+        var result = Laboratory.Collection.Result.findOne({laboId:self._id});
+        console.log(result);
+
+        if (result == null) {
+            alertify.error('No Result to print !');
+            return false
+        }
+        debugger;
+    },
     'click .update': function () {
         var self = this;
         if (hasResult(self)) {
@@ -549,22 +560,22 @@ function calculateTotal() {
     var decimal_factor = decimal_places === 0 ? 1 : decimal_places * 10;
     $('.total')
         .animateNumber(
-        {
-            number: total * decimal_factor,
-            numberStep: function (now, tween) {
-                var floored_number = Math.floor(now) / decimal_factor,
-                    target = $(tween.elem);
-                if (decimal_places > 0) {
-                    // force decimal places even if they are 0
-                    floored_number = floored_number.toFixed(decimal_places);
-                    // replace '.' separator with ','
-                    floored_number = floored_number.toString().replace('.', ',');
+            {
+                number: total * decimal_factor,
+                numberStep: function (now, tween) {
+                    var floored_number = Math.floor(now) / decimal_factor,
+                        target = $(tween.elem);
+                    if (decimal_places > 0) {
+                        // force decimal places even if they are 0
+                        floored_number = floored_number.toFixed(decimal_places);
+                        // replace '.' separator with ','
+                        floored_number = floored_number.toString().replace('.', ',');
+                    }
+                    target.text('R' + floored_number);
                 }
-                target.text('R' + floored_number);
-            }
-        },
-        200
-    );
+            },
+            200
+        );
     //totalAmount
     var totalFee = 0;
     $('.fee').each(function () {
@@ -579,26 +590,26 @@ function calculateTotal() {
 
     $('.totalFee')
         .animateNumber(
-        {
-            number: totalFee * decimal_factor,
+            {
+                number: totalFee * decimal_factor,
 
-            numberStep: function (now, tween) {
-                var floored_number = Math.floor(now) / decimal_factor,
-                    target = $(tween.elem);
+                numberStep: function (now, tween) {
+                    var floored_number = Math.floor(now) / decimal_factor,
+                        target = $(tween.elem);
 
-                if (decimal_factorF > 0) {
-                    // force decimal places even if they are 0
-                    floored_number = floored_number.toFixed(decimal_places);
+                    if (decimal_factorF > 0) {
+                        // force decimal places even if they are 0
+                        floored_number = floored_number.toFixed(decimal_places);
 
-                    // replace '.' separator with ','
-                    floored_number = floored_number.toString().replace('.', ',');
+                        // replace '.' separator with ','
+                        floored_number = floored_number.toString().replace('.', ',');
+                    }
+
+                    target.text('R' + floored_number);
                 }
-
-                target.text('R' + floored_number);
-            }
-        },
-        200
-    );
+            },
+            200
+        );
 
 }
 function hasResult(self) {

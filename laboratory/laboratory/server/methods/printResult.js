@@ -1,5 +1,5 @@
 Meteor.methods({
-    labo_printResult: function (resultId,laboId) {
+    labo_printResult: function (resultId, laboId) {
         var data = {
             title: {},
             header: {},
@@ -13,30 +13,32 @@ Meteor.methods({
         //  data.header = params;
 
         /****** Content *****/
-        var selector = {};
-        if(resultId != ''){
-            selector._id = resultId;
-            console.log(selector._id = resultId)
-        }
-        if(laboId != ''){
-            selector.laboId = laboId;
-            console.log(selector.laboId = laboId);
-        }
-        console.log(selector);
-        var result = Laboratory.Collection.Result.findOne(selector);
-        console.log(result);
-        var laboItem=[];
-        if(result!=null && result.laboItem!=null){
-            var i=1;
-            result.laboItem.forEach(function(item){
-                item.index=i;
-                i++;
-                laboItem.push(item);
-            })
-        }
-        result.laboItem=laboItem;
-        data.result = result;
-        return data
+        var checkResult = Laboratory.Collection.Result.findOne();
+        if (checkResult != null) {
 
+
+            var selector = {};
+            if (resultId != '') {
+                selector._id = resultId;
+            }
+            if (laboId != '') {
+                selector.laboId = laboId;
+            }
+
+            var result = Laboratory.Collection.Result.findOne(selector);
+
+            var laboItem = [];
+            if (result != null && result.laboItem != null) {
+                var i = 1;
+                result.laboItem.forEach(function (item) {
+                    item.index = i;
+                    i++;
+                    laboItem.push(item);
+                })
+            }
+            result.laboItem = laboItem;
+            data.result = result;
+            return data
+        }
     }
 });
