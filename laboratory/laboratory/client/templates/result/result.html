@@ -45,33 +45,33 @@
                         Out Put Result Option
                         <!--<p>The form below contains three checkboxes. The last option is disabled:</p>-->
                         <form>
-                            Bold:<input name="textStyle" type="checkbox" value="bold"/>
-                            Italic:<input name="textStyle" type="checkbox" value="italic"/>
-                            Underline:<input name="textStyle" type="checkbox" value="underline"/>
-                            Red:<input name="textStyle" type="checkbox" value="red"/>
+                            Bold:<input name="textStyle" type="checkbox" value="bold" class="bold"/>
+                            Italic:<input name="textStyle" type="checkbox" value="italic" class="bold"/>
+                            Underline:<input name="textStyle" type="checkbox" value="underline" class="underline"/>
+                            Red:<input name="textStyle" type="checkbox" value="red" class="red"/>
 
                         </form>
                     </div>
-                    <script type="text/javascript">
-                        $('input[name="textStyle"]').change(function () {
-                            if ($(this).val() == 'bold') {
-                                if ($(this).is(':checked')) $('.result').css('font-weight', 'bold');
-                                else $('.result').css('font-weight', 'normal');
-                            }
-                            else if ($(this).val() == 'italic') {
-                                if ($(this).is(':checked')) $('.result').css('font-style', 'italic');
-                                else $('.result').css('font-style', 'normal');
-                            }
-                            else if ($(this).val() == 'underline') {
-                                if ($(this).is(':checked')) $('.result').css('text-decoration', 'underline');
-                                else $('.result').css('text-decoration', 'none');
-                            }
-                            else if ($(this).val() == 'red') {
-                                if ($(this).is(':checked')) $('.result').css('color', 'red');
-                                else $('.result').css('color', 'black');
-                            }
-                        });
-                    </script>
+                    <!--<script type="text/javascript">-->
+                        <!--$('input[name="textStyle"]').change(function () {-->
+                            <!--if ($(this).val() == 'bold') {-->
+                                <!--if ($(this).is(':checked')) $('.result').css('font-weight', 'bold');-->
+                                <!--else $('.result').css('font-weight', 'normal');-->
+                            <!--}-->
+                            <!--else if ($(this).val() == 'italic') {-->
+                                <!--if ($(this).is(':checked')) $('.result').css('font-style', 'italic');-->
+                                <!--else $('.result').css('font-style', 'normal');-->
+                            <!--}-->
+                            <!--else if ($(this).val() == 'underline') {-->
+                                <!--if ($(this).is(':checked')) $('.result').css('text-decoration', 'underline');-->
+                                <!--else $('.result').css('text-decoration', 'none');-->
+                            <!--}-->
+                            <!--else if ($(this).val() == 'red') {-->
+                                <!--if ($(this).is(':checked')) $('.result').css('color', 'red');-->
+                                <!--else $('.result').css('color', 'black');-->
+                            <!--}-->
+                        <!--});-->
+                    <!--</script>-->
 
                 </div>
             </div>
@@ -128,26 +128,26 @@
 
                         </form>
                     </div>
-                    <script type="text/javascript">
-                        $('input[name="textStyle"]').change(function () {
-                            if ($(this).val() == 'bold') {
-                                if ($(this).is(':checked')) $('.result').css('font-weight', 'bold');
-                                else $('.result').css('font-weight', 'normal');
-                            }
-                            else if ($(this).val() == 'italic') {
-                                if ($(this).is(':checked')) $('.result').css('font-style', 'italic');
-                                else $('.result').css('font-style', 'normal');
-                            }
-                            else if ($(this).val() == 'underline') {
-                                if ($(this).is(':checked')) $('.result').css('text-decoration', 'underline');
-                                else $('.result').css('text-decoration', 'none');
-                            }
-                            else if ($(this).val() == 'red') {
-                                if ($(this).is(':checked')) $('.result').css('color', 'red');
-                                else $('.result').css('color', 'black');
-                            }
-                        });
-                    </script>
+                    <!--<script type="text/javascript">-->
+                        <!--$('input[name="textStyle"]').change(function () {-->
+                            <!--if ($(this).val() == 'bold') {-->
+                                <!--if ($(this).is(':checked')) $('.result').css('font-weight', 'bold');-->
+                                <!--else $('.result').css('font-weight', 'normal');-->
+                            <!--}-->
+                            <!--else if ($(this).val() == 'italic') {-->
+                                <!--if ($(this).is(':checked')) $('.result').css('font-style', 'italic');-->
+                                <!--else $('.result').css('font-style', 'normal');-->
+                            <!--}-->
+                            <!--else if ($(this).val() == 'underline') {-->
+                                <!--if ($(this).is(':checked')) $('.result').css('text-decoration', 'underline');-->
+                                <!--else $('.result').css('text-decoration', 'none');-->
+                            <!--}-->
+                            <!--else if ($(this).val() == 'red') {-->
+                                <!--if ($(this).is(':checked')) $('.result').css('color', 'red');-->
+                                <!--else $('.result').css('color', 'black');-->
+                            <!--}-->
+                        <!--});-->
+                    <!--</script>-->
                 </div>
             </div>
         </div>
@@ -300,7 +300,7 @@
             {{> afQuickField name=current.normalValue template="bootstrap3" label=false class="input-sm normalValue" readOnly=true}}
         </div>
         <div class="col-sm-2">
-            {{> afQuickField name=current.result template="bootstrap3" label=false class="input-sm result"}}
+            {{> afQuickField name=current.result template="bootstrap3" label=false class="input-sm ArrayObjeResult"}}
         </div>
     </div>
 

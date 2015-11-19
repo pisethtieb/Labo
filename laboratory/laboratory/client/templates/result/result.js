@@ -1,5 +1,5 @@
 Laboratory.resultState = new ReactiveObj();
-
+var text = new ReactiveObj();
 var indexTpl = Template.laboratory_result,
     insertTpl = Template.laboratory_resultInsert,
     updateTpl = Template.laboratory_resultUpdate,
@@ -101,15 +101,20 @@ insertTpl.events({
     'click .printResult': function () {
         Session.set('savePrint', true);
     },
-    'change .checkBold': function () {
-        alert($('.checkBold').val());
-        //if ($('.checkBold').checked) {
-        //        alert('yes');
-        //    $('.result').css('font-weight', 'Bold');
-        //} else {
-        //    alert('no');
-        //    $('.result').css('font-weight', 'normal');
-        //}
+    'click .ArrayObjeResult': function (e) {
+        text.set('normalResult', e.currentTarget);
+    },
+    'change .bold': function (e) {
+        var regex = /(<([^>]+)>)/ig
+        var currentText = text.get('normalResult');
+        var originText = currentText.value;
+        var elementName = $('[name="' + currentText.name + '"]');
+        var check = $(e.currentTarget).prop('checked');
+        if (check) {
+            elementName.val('<b>' + originText + '</b>');
+        } else {
+            elementName.val(originText.replace(regex, ''));
+        }
     }
 });
 
@@ -248,16 +253,14 @@ AutoForm.hooks({
                 return doc;
             }
         },
-        onSuccess: function (formType, id) {
+        onSuccess: function (formType, laboId) {
             alertify.labo().close();
             alertify.success("Success");
-            Meteor.call('getResultId', id, function (err, result) {
-                var res = Laboratory.Collection.Result.findOne(result);
-                var laboId = res.laboId;
-
-                var patientId = res.patientId;
+            Meteor.call('getLaboId', laboId, function (err, result) {
+                var res = Laboratory.Collection.Result.findOne(result).laboId;
+                debugger;
                 if (Session.get('savePrint')) {
-                    var url = '/laboratory/result/print/' + result;
+                    var url = '/laboratory/result/print/' + res;
                     window.open(url, '_blank');
                     //} else {
                     //    FlowRouter.go('laboratory.result',
@@ -352,22 +355,22 @@ function calculateTotal() {
     var decimal_factor = decimal_places === 0 ? 1 : decimal_places * 10;
     $('.total')
         .animateNumber(
-        {
-            number: total * decimal_factor,
-            numberStep: function (now, tween) {
-                var floored_number = Math.floor(now) / decimal_factor,
-                    target = $(tween.elem);
-                if (decimal_places > 0) {
-                    // force decimal places even if they are 0
-                    floored_number = floored_number.toFixed(decimal_places);
-                    // replace '.' separator with ','
-                    floored_number = floored_number.toString().replace('.', ',');
+            {
+                number: total * decimal_factor,
+                numberStep: function (now, tween) {
+                    var floored_number = Math.floor(now) / decimal_factor,
+                        target = $(tween.elem);
+                    if (decimal_places > 0) {
+                        // force decimal places even if they are 0
+                        floored_number = floored_number.toFixed(decimal_places);
+                        // replace '.' separator with ','
+                        floored_number = floored_number.toString().replace('.', ',');
+                    }
+                    target.text('R' + floored_number);
                 }
-                target.text('R' + floored_number);
-            }
-        },
-        200
-    );
+            },
+            200
+        );
     //totalAmount
     var totalFee = 0;
     $('.fee').each(function () {
@@ -379,24 +382,24 @@ function calculateTotal() {
     var decimal_factorF = decimal_placesF === 0 ? 1 : decimal_placesF * 10;
     $('.totalFee')
         .animateNumber(
-        {
-            number: totalFee * decimal_factor,
+            {
+                number: totalFee * decimal_factor,
 
-            numberStep: function (now, tween) {
-                var floored_number = Math.floor(now) / decimal_factor,
-                    target = $(tween.elem);
+                numberStep: function (now, tween) {
+                    var floored_number = Math.floor(now) / decimal_factor,
+                        target = $(tween.elem);
 
-                if (decimal_factorF > 0) {
-                    // force decimal places even if they are 0
-                    floored_number = floored_number.toFixed(decimal_places);
+                    if (decimal_factorF > 0) {
+                        // force decimal places even if they are 0
+                        floored_number = floored_number.toFixed(decimal_places);
 
-                    // replace '.' separator with ','
-                    floored_number = floored_number.toString().replace('.', ',');
+                        // replace '.' separator with ','
+                        floored_number = floored_number.toString().replace('.', ',');
+                    }
+
+                    target.text('R' + floored_number);
                 }
-
-                target.text('R' + floored_number);
-            }
-        },
-        200
-    );
+            },
+            200
+        );
 }

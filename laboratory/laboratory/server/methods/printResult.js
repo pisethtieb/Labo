@@ -1,5 +1,5 @@
 Meteor.methods({
-    labo_printResult: function (resultId) {
+    labo_printResult: function (resultId,laboId) {
         var data = {
             title: {},
             header: {},
@@ -13,9 +13,18 @@ Meteor.methods({
         //  data.header = params;
 
         /****** Content *****/
-
-
-        var result = Laboratory.Collection.Result.findOne(resultId);
+        var selector = {};
+        if(resultId != ''){
+            selector._id = resultId;
+            console.log(selector._id = resultId)
+        }
+        if(laboId != ''){
+            selector.laboId = laboId;
+            console.log(selector.laboId = laboId);
+        }
+        console.log(selector);
+        var result = Laboratory.Collection.Result.findOne(selector);
+        console.log(result);
         var laboItem=[];
         if(result!=null && result.laboItem!=null){
             var i=1;

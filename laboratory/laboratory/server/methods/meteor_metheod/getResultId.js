@@ -1,5 +1,5 @@
 Meteor.methods({
-   getResultId: function(id){
-       return ReactiveState.get(id);
+   getLaboId: function(laboId){
+       return ReactiveState.get(laboId);
    }
 });

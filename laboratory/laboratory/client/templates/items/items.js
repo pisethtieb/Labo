@@ -54,9 +54,10 @@ indexTpl.events({
     },
     'click .remove': function () {
         var id = this._id;
-        item = Laboratory.Collection.Labo.findOne({itemId: self._id});
+        item = Laboratory.Collection.Labo.find({laboItem: {$elemMatch: {itemId: id}}});
+        console.log(item);
         if (item) {
-            alertify.error('Item [' + self._id + '] is used in Labo');
+            alertify.error('Item [' + id + '] is used in Labo');
             return false;
 
         }

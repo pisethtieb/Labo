@@ -17,7 +17,7 @@ printResultTPL.helpers({
         var q = FlowRouter.getParam('resultId');
 
         var callId = 'printResult' + q;
-        var call = Meteor.callAsync(callId, 'labo_printResult', q);
+        var call = Meteor.callAsync(callId, 'labo_printResult', '', q);
 
         if (!call.ready()) {
             return false;
