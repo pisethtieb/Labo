@@ -34,6 +34,7 @@ indexTpl.events({
             .maximize();
     },
     'click .update': function () {
+
         var data = Laboratory.Collection.Result.findOne({_id: this._id});
         //var data = this;
         alertify.result(renderTemplate(updateTpl, data))
@@ -70,6 +71,15 @@ indexTpl.events({
  */
 insertTpl.onRendered(function () {
     Session.set('arrValue', this.data);
+    console.log(this.data);
+    datepicker();
+    createNewAlertify([
+        'staffAddon'
+    ]);
+});
+updateTpl.onRendered(function () {
+    Session.set('arrValue', this.data);
+    console.log(this.data);
     datepicker();
     createNewAlertify([
         'staffAddon'
@@ -124,17 +134,43 @@ insertTpl.helpers({
         return data.resultData;
     }
 });
+updateTpl.helpers({
+    resultDate: function () {
+        var data = Session.get('arrValue');
+        return data.resultData;
+    }
+});
+updateTpl.events({
+    'click .remove': function () {
+        var id = this._id;
+        alertify.confirm("Are you sure to delete [" + id + "] ?")
+            .set({
+                onok: function (result) {
+                    Laboratory.Collection.Result.remove(id, function (error) {
+                        if (error) {
+                            alertify.error(error.message);
+                        } else {
+                            alertify.labo().close();
+                            alertify.success("Success");
+
+                        }
+                    });
+                }
+            })
+    }
+});
 Template.laboResultObjectField.helpers({
     checkVal: function (currentObj) {
         var index = currentObj.itemId.split('.');
         var data = Session.get('arrValue');
-
         if (data) {
-            if (data.laboItem[index[1]].normalValue != '') {
+
+            if (data.laboItem[index[1]].normalValue != null) {
                 return true;
             }
             return false;
         }
+
 
     }
 
@@ -143,6 +179,7 @@ Template.laboResultObjectField.helpers({
 indexTpl.onDestroyed(function () {
     Session.set('arrValue', undefined);
 });
+
 
 showTpl.helpers({
     resultItems: function () {
@@ -222,12 +259,12 @@ AutoForm.hooks({
                 if (Session.get('savePrint')) {
                     var url = '/laboratory/result/print/' + result;
                     window.open(url, '_blank');
-                } else {
-                    FlowRouter.go('laboratory.result',
-                        {
-                            laboId: laboId, patientId: patientId
-                        }
-                    );
+                    //} else {
+                    //    FlowRouter.go('laboratory.result',
+                    //        {
+                    //            laboId: laboId, patientId: patientId
+                    //        }
+                    //    );
                 }
                 debugger;
             });
@@ -239,6 +276,7 @@ AutoForm.hooks({
     laboratory_resultUpdate: {
         onSuccess: function (formType, result) {
 
+            alertify.labo().close();
             alertify.result().close();
             alertify.success('Success');
         },
@@ -314,22 +352,22 @@ function calculateTotal() {
     var decimal_factor = decimal_places === 0 ? 1 : decimal_places * 10;
     $('.total')
         .animateNumber(
-            {
-                number: total * decimal_factor,
-                numberStep: function (now, tween) {
-                    var floored_number = Math.floor(now) / decimal_factor,
-                        target = $(tween.elem);
-                    if (decimal_places > 0) {
-                        // force decimal places even if they are 0
-                        floored_number = floored_number.toFixed(decimal_places);
-                        // replace '.' separator with ','
-                        floored_number = floored_number.toString().replace('.', ',');
-                    }
-                    target.text('R' + floored_number);
+        {
+            number: total * decimal_factor,
+            numberStep: function (now, tween) {
+                var floored_number = Math.floor(now) / decimal_factor,
+                    target = $(tween.elem);
+                if (decimal_places > 0) {
+                    // force decimal places even if they are 0
+                    floored_number = floored_number.toFixed(decimal_places);
+                    // replace '.' separator with ','
+                    floored_number = floored_number.toString().replace('.', ',');
                 }
-            },
-            200
-        );
+                target.text('R' + floored_number);
+            }
+        },
+        200
+    );
     //totalAmount
     var totalFee = 0;
     $('.fee').each(function () {
@@ -341,24 +379,24 @@ function calculateTotal() {
     var decimal_factorF = decimal_placesF === 0 ? 1 : decimal_placesF * 10;
     $('.totalFee')
         .animateNumber(
-            {
-                number: totalFee * decimal_factor,
+        {
+            number: totalFee * decimal_factor,
 
-                numberStep: function (now, tween) {
-                    var floored_number = Math.floor(now) / decimal_factor,
-                        target = $(tween.elem);
+            numberStep: function (now, tween) {
+                var floored_number = Math.floor(now) / decimal_factor,
+                    target = $(tween.elem);
 
-                    if (decimal_factorF > 0) {
-                        // force decimal places even if they are 0
-                        floored_number = floored_number.toFixed(decimal_places);
+                if (decimal_factorF > 0) {
+                    // force decimal places even if they are 0
+                    floored_number = floored_number.toFixed(decimal_places);
 
-                        // replace '.' separator with ','
-                        floored_number = floored_number.toString().replace('.', ',');
-                    }
-
-                    target.text('R' + floored_number);
+                    // replace '.' separator with ','
+                    floored_number = floored_number.toString().replace('.', ',');
                 }
-            },
-            200
-        );
+
+                target.text('R' + floored_number);
+            }
+        },
+        200
+    );
 }

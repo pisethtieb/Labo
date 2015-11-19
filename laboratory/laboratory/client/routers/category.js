@@ -7,6 +7,7 @@ LaboratoryRoutes.route('/category', {
         //this.register('laboratory_customer', subs.subscribe('laboratory_customer', Session.get('currentBranch')));
         // Address
         this.register('laboratory_category', subs.subscribe('laboratory_category'));
+        this.register('laboratory_items', subs.subscribe('laboratory_items'));
     },
     action: function (params, queryParams) {
         Layout.main('laboratory_category');

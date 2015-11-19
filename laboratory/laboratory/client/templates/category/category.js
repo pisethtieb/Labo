@@ -34,7 +34,12 @@ indexTpl.events({
     },
     'click .remove': function (e, t) {
         var self = this;
+        item = Laboratory.Collection.Items.findOne({categoryId: self._id});
+        if (item) {
+            alertify.error('Category [' + self._id + '] is used in Labo');
+            return false;
 
+        }
         alertify.confirm(
             fa("remove", "Category"),
             "Are you sure to delete [" + self._id + "]?",

@@ -75,7 +75,7 @@
 
         <div class="col-md-9">
             {{> afArrayField name="laboItem" id="laboItem" template="labolArrayField" subtemplate="laboObjectField"}}
-            <button type="submit"  class="btn btn-primary">{{fa "floppy-o"}} Save</button>
+            <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
             <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
 
         </div>
@@ -283,11 +283,18 @@
         <li><a href="#" class="update">{{fa "pencil"}} Update</a></li>
         <li><a href="#" class="remove">{{fa "trash"}} Remove</a></li>
         <li><a href="#" class="show">{{fa "eye"}} Show</a></li>
-        <li><a href="#" class="result">{{fa "hospital-o"}} Input Result</a></li>
+        <li><a href="#" class="result">{{fa "hospital-o"}} Input/Edit Result</a></li>
 
-        <li role="separator" class="divider"></li>
+        <b>
+            <li role="separator" class="divider"></li>
+        </b>
         <li><a href="/laboratory/labo/invoice/{{this._id}}" target="_blank">{{fa "print"}} Invoice</a></li>
+        <b>
+            <li role="separator" class="divider"></li>
+        </b>
 
+        <li><a href="/laboratory/result/print/{{this._id}}" target="_blank" class="printResult">{{fa "print"}} Print
+            Result</a></li>
         <!--<li><a href="#" class="laboPrintAction">{{fa "print"}} Invoice</a></li>-->
     {{/tabularAction}}
 </template>

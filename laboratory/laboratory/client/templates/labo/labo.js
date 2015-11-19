@@ -60,6 +60,13 @@ indexTpl.events({
 
     },
     'click .update': function () {
+        var self = this;
+        if (hasResult(self)) {
+            alertify.error('Labo[' + self._id + ']  is in use in Result or Payment! ');
+            return;
+        }
+
+
         var data = Laboratory.Collection.Labo.findOne({_id: this._id});
         //var data = this;
         alertify.labo(renderTemplate(updateTpl, data))
@@ -70,6 +77,11 @@ indexTpl.events({
     },
     'click .remove': function () {
         var id = this._id;
+        var self = this;
+        if (hasResult(self)) {
+            alertify.error('Labo[' + self._id + ']  is in use on Result or Payment! ');
+            return;
+        }
 
         alertify.confirm(
             fa("remove", "Item"),
@@ -152,7 +164,7 @@ indexTpl.events({
                     renderTemplate(Template.laboratory_paymentInsert, lastPayment));
             }
         } else {
-            self=Laboratory.Collection.Labo.findOne({_id:self._id});
+            self = Laboratory.Collection.Labo.findOne({_id: self._id});
             doc.laboId = self._id;
             doc.patientId = self.patientId;
             doc.agentId = self.agentId;
@@ -168,14 +180,16 @@ indexTpl.events({
     'click .result': function () {
 
         var self = this;
-        var hasResult = Laboratory.Collection.Result.findOne({laboId: self._id});
-        if (hasResult) {
-            var laboId = self._id;
-            var patientId = self.patientId;
-            debugger
-            FlowRouter.go('laboratory.result', {
-                laboId: laboId, patientId: patientId
-            });
+        var data = Laboratory.Collection.Result.findOne({laboId: self._id});
+        if (data) {
+            //var laboId = self._id;
+            //var patientId = self.patientId;
+            //debugger
+            alertify.labo(fa('pencil', 'Edit Result'), renderTemplate(Template.laboratory_resultUpdate, data))
+                .maximize();
+            //FlowRouter.go('laboratory.result', {
+            //    laboId: laboId, patientId: patientId
+            //});
         } else {
 
 
@@ -186,31 +200,32 @@ indexTpl.events({
                 var getChildItem = Laboratory.Collection.Items.findOne(item.itemId);
                 if (getChildItem.childItem != null || getChildItem.childItem != undefined) {
                     item.childItem = getChildItem.childItem;
+
                     getChildItem.childItem.forEach(function (objChildItem) {
+
                         var prependValue = objChildItem.prependValue = objChildItem.prependValue == null ? '' : objChildItem.prependValue;
                         var appendValue = objChildItem.appendValue = objChildItem.appendValue == null ? '' : objChildItem.appendValue;
-                        objChildItem.normalValue = appendValue + '  ' + objChildItem.normalValue + '  ' + prependValue;
-                        var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
-                        var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
-                        if (getChildItem.normalValue == null || undefined) {
-                            item.normalValue = '';
+                        //debugger;
+                        if (objChildItem.normalValue == null || undefined) {
+                            objChildItemtem.normalValue = null;
                         }
                         else {
-                            item.normalValue = appendValue + '  ' + getChildItem.normalValue + '  ' + prependValue;
+                            objChildItem.normalValue = prependValue + '  ' + objChildItem.normalValue + '  ' + appendValue;
                         }
-                        item.name = getChildItem.name;
+                        objChildItem.name = getChildItem.name;
                     });
                 }
                 var prependValue = getChildItem.prependValue = getChildItem.prependValue == null ? '' : getChildItem.prependValue;
                 var appendValue = getChildItem.appendValue = getChildItem.appendValue == null ? '' : getChildItem.appendValue;
                 if (getChildItem.normalValue == null || undefined) {
-                    item.normalValue = '';
+                    item.normalValue = null;
                 }
                 else {
-                    item.normalValue =  prependValue+ '  ' + getChildItem.normalValue + '  ' + appendValue;
+                    item.normalValue = prependValue + '  ' + getChildItem.normalValue + '  ' + appendValue;
                 }
                 item.name = getChildItem.name;
             });
+            debugger;
             alertify.labo(fa('plus', 'New Result'), renderTemplate(Template.laboratory_resultInsert, data))
                 .maximize();
         }
@@ -534,22 +549,22 @@ function calculateTotal() {
     var decimal_factor = decimal_places === 0 ? 1 : decimal_places * 10;
     $('.total')
         .animateNumber(
-            {
-                number: total * decimal_factor,
-                numberStep: function (now, tween) {
-                    var floored_number = Math.floor(now) / decimal_factor,
-                        target = $(tween.elem);
-                    if (decimal_places > 0) {
-                        // force decimal places even if they are 0
-                        floored_number = floored_number.toFixed(decimal_places);
-                        // replace '.' separator with ','
-                        floored_number = floored_number.toString().replace('.', ',');
-                    }
-                    target.text('R' + floored_number);
+        {
+            number: total * decimal_factor,
+            numberStep: function (now, tween) {
+                var floored_number = Math.floor(now) / decimal_factor,
+                    target = $(tween.elem);
+                if (decimal_places > 0) {
+                    // force decimal places even if they are 0
+                    floored_number = floored_number.toFixed(decimal_places);
+                    // replace '.' separator with ','
+                    floored_number = floored_number.toString().replace('.', ',');
                 }
-            },
-            200
-        );
+                target.text('R' + floored_number);
+            }
+        },
+        200
+    );
     //totalAmount
     var totalFee = 0;
     $('.fee').each(function () {
@@ -564,25 +579,35 @@ function calculateTotal() {
 
     $('.totalFee')
         .animateNumber(
-            {
-                number: totalFee * decimal_factor,
+        {
+            number: totalFee * decimal_factor,
 
-                numberStep: function (now, tween) {
-                    var floored_number = Math.floor(now) / decimal_factor,
-                        target = $(tween.elem);
+            numberStep: function (now, tween) {
+                var floored_number = Math.floor(now) / decimal_factor,
+                    target = $(tween.elem);
 
-                    if (decimal_factorF > 0) {
-                        // force decimal places even if they are 0
-                        floored_number = floored_number.toFixed(decimal_places);
+                if (decimal_factorF > 0) {
+                    // force decimal places even if they are 0
+                    floored_number = floored_number.toFixed(decimal_places);
 
-                        // replace '.' separator with ','
-                        floored_number = floored_number.toString().replace('.', ',');
-                    }
-
-                    target.text('R' + floored_number);
+                    // replace '.' separator with ','
+                    floored_number = floored_number.toString().replace('.', ',');
                 }
-            },
-            200
-        );
 
+                target.text('R' + floored_number);
+            }
+        },
+        200
+    );
+
+}
+function hasResult(self) {
+
+    var result = Laboratory.Collection.Result.findOne({laboId: self._id});
+    var payment = Laboratory.Collection.Payment.findOne({laboId: self._id});
+    /*debugger;
+     if (result || payment) {
+     alertify.error('Labo[' + self._id + ']  is in use on Result or Payment! ');
+     }*/
+    return result != null || payment != null;
 }

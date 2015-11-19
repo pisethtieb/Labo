@@ -118,4 +118,4 @@ Laboratory.Schema.Labo = new SimpleSchema({
 Laboratory.Collection.Labo.attachSchema(Laboratory.Schema.Labo);
 
 // Attach soft remove
-Laboratory.Collection.Labo.attachBehaviour('softRemovable');
+//Laboratory.Collection.Labo.attachBehaviour('softRemovable');

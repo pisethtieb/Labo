@@ -32,6 +32,7 @@ indexTpl.events({
     },
     'click .update': function (e, t) {
         var id = this._id;
+
         //get value from server
         Meteor.call('findPatient', id, function (err, data) {
             if (err) {
@@ -47,6 +48,10 @@ indexTpl.events({
     },
     'click .remove': function (e, t) {
         var self = this;
+        if (labo(self)) {
+            alertify.error('patient[' + self._id + '] is used in Labo');
+            return;
+        }
 
         alertify.confirm(
             fa("remove", "Patient"),
@@ -79,7 +84,6 @@ indexTpl.events({
     'dblclick tbody > tr': function (event) {
         var dataTable = $(event.target).closest('table').DataTable();
         var rowData = dataTable.row(event.currentTarget).data();
-        debugger
         //check already excite patient on labo
         if (rowData != undefined) {
 
@@ -223,4 +227,13 @@ function calculateAge(e) {
         }
 
     }
+}
+function labo(self) {
+
+    var labo = Laboratory.Collection.Labo.findOne({patientId: self._id});
+    /*debugger;
+     if (result || payment) {
+     alertify.error('Labo[' + self._id + ']  is in use on Result or Payment! ');
+     }*/
+    return labo != null;
 }
