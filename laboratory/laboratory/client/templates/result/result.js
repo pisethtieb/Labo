@@ -103,19 +103,29 @@ insertTpl.events({
     },
     'click .result': function (e) {
         text.set('normalResult', e.currentTarget);
-        var checkBold = $(e.currentTarget).val();
+        var val = $(e.currentTarget).val();
+        var format = getFormat(val);
 
-        if (checkBold.split('<b>')) {
-            $('.bold').prop('checked');
+        if (format.bold) {
+            $('.bold').prop('checked', true);
         } else {
-            $('.bold').remove('unchecked');
-
+            $('.bold').prop('checked', false);
         }
-        debugger;
+        if (format.italic) {
+            $('.italic').prop('checked', true);
+        } else {
+            $('.italic').prop('checked', false);
+        }
+        if (format.underline) {
+            $('.underline').prop('checked', true);
+        } else {
+            $('.underline').prop('checked', false);
+        }
+
 
     },
     'change .bold': function (e) {
-        var regex = /(<([^>]+)>)/ig;
+        var regex = /<b>(.*?)<\/b>/g;
         var currentText = text.get('normalResult');
         var originText = currentText.value;
         var elementName = $('[name="' + currentText.name + '"]');
@@ -123,7 +133,37 @@ insertTpl.events({
         if (check) {
             elementName.val('<b>' + originText + '</b>');
         } else {
-            elementName.val(originText.replace(regex, ''));
+            elementName.val(originText.match(regex).map(function (val) {
+                return val.replace(/<\/?b>/g, '');
+            }));
+        }
+    },
+    'change .italic': function (e) {
+        var regex = /<i>(.*?)<\/i>/g;
+        var currentText = text.get('normalResult');
+        var originText = currentText.value;
+        var elementName = $('[name="' + currentText.name + '"]');
+        var check = $(e.currentTarget).prop('checked');
+        if (check) {
+            elementName.val('<i>' + originText + '</i>');
+        } else {
+            elementName.val(originText.match(regex).map(function (val) {
+                return val.replace(/<\/?i>/g, '');
+            }));
+        }
+    },
+    'change .underline': function (e) {
+        var regex = /<u>(.*?)<\/u>/g;
+        var currentText = text.get('normalResult');
+        var originText = currentText.value;
+        var elementName = $('[name="' + currentText.name + '"]');
+        var check = $(e.currentTarget).prop('checked');
+        if (check) {
+            elementName.val('<u>' + originText + '</u>');
+        } else {
+            elementName.val(originText.match(regex).map(function (val) {
+                return val.replace(/<\/?u>/g, '');
+            }));
         }
     }
 });
@@ -156,22 +196,23 @@ updateTpl.helpers({
     }
 });
 updateTpl.events({
-    'click .remove': function () {
+    'click .remove': function (e, t) {
         var id = this._id;
-        alertify.confirm("Are you sure to delete [" + id + "] ?")
-            .set({
-                onok: function (result) {
-                    Laboratory.Collection.Result.remove(id, function (error) {
-                        if (error) {
-                            alertify.error(error.message);
-                        } else {
-                            alertify.labo().close();
-                            alertify.success("Success");
-
-                        }
-                    });
-                }
-            })
+        alertify.confirm(
+            fa("remove", "Result"),
+            "Are you sure to delete [" + id + "]?",
+            function () {
+                Laboratory.Collection.Result.remove(id, function (error) {
+                    if (error) {
+                        alertify.error(error.message);
+                    } else {
+                        alertify.labo().close();
+                        alertify.success("Success");
+                    }
+                });
+            },
+            null
+        );
     }
 });
 Template.laboResultObjectField.helpers({
@@ -412,4 +453,22 @@ function calculateTotal() {
             },
             200
         );
+}
+
+
+var getFormat = function (text) {
+    var format = {};
+    var bold = text.match(/<b[^>]*>([\s\S]*?)<\/b>/);
+    var italic = text.match(/<i[^>]*>([\s\S]*?)<\/i>/);
+    var underline = text.match(/<u[^>]*>([\s\S]*?)<\/u>/);
+    if (bold !== null) {
+        format.bold = true;
+    }
+    if (italic !== null) {
+        format.italic = true
+    }
+    if (underline !== null) {
+        format.underline = true;
+    }
+    return format;
 }

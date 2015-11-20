@@ -62,7 +62,6 @@ indexTpl.events({
     'click .printResult': function () {
         var self = this;
         var result = Laboratory.Collection.Result.findOne({laboId:self._id});
-        console.log(result);
         if (result == null) {
             alertify.error('No Result to print, Please Insert Data to print !');
             return false
