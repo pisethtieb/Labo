@@ -34,7 +34,12 @@ indexTpl.events({
     },
     'click .remove': function (e, t) {
         var self = this;
+        item = Laboratory.Collection.Labo.findOne({agentId: self._id});
+        if (item) {
+            alertify.error('Agent [' + self._id + '] is used in Labo');
+            return false;
 
+        }
         alertify.confirm(
             fa("remove", "agent"),
             "Are you sure to delete [" + self._id + "]?",

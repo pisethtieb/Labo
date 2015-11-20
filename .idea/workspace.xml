@@ -2,13 +2,213 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d932e7d-5676-426d-b13f-40e24175d742" name="Default" comment="First commit">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/app/compatibility/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/client/app/compatibility/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/app/config/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/client/app/config/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/app/helpers/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/client/app/helpers/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/app/libraries/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/client/app/libraries/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/app/list.js" afterPath="$PROJECT_DIR$/laboratory/client/app/list.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/app/list_for_report.js" afterPath="$PROJECT_DIR$/laboratory/client/app/list_for_report.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/app/startup/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/client/app/startup/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/css/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/client/css/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/css/double_click.css" afterPath="$PROJECT_DIR$/laboratory/client/css/double_click.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/js/jquery.animateNumber.min.js" afterPath="$PROJECT_DIR$/laboratory/client/js/jquery.animateNumber.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/client/routers/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/address.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/address.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/agent.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/agent.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/category.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/category.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/customer.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/fee.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/fee.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/home.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/home.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/items.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/items.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/labo.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/labo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/laboInvoice.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/laboInvoice.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/measure.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/measure.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/order.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/order.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/patient.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/patient.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/payment.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/payment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/printResult.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/printResult.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/reports/_group.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/reports/_group.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/reports/customer.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/reports/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/reports/fee.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/reports/fee.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/reports/feeBalance.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/reports/feeBalance.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/reports/labo.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/reports/labo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/reports/laboBalance.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/reports/laboBalance.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/reports/payment.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/reports/payment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/result.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/result.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/routers/staff.js" afterPath="$PROJECT_DIR$/laboratory/client/routers/staff.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/_collections_search/customer.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/_collections_search/customer.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/_collections_search/customer.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/_collections_search/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/_layout/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/client/templates/_layout/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/_layout/navbar.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/_layout/navbar.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/_layout/navbar_right.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/_layout/navbar_right.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/address/address.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/address/address.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/address/address.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/address/address.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/agent/agent.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/agent/agent.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/agent/agent.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/agent/agent.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/category/category.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/category/category.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/category/category.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/category/category.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/customer/customer.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/customer/customer.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/customer/customer.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/customer/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/fee/fee.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/fee/fee.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/fee/fee.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/fee/fee.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/home/home.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/home/home.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/home/home.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/home/home.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/items/items.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/items/items.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/items/items.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/items/items.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/labo/labo.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/labo/labo.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/labo/labo.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/labo/labo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/measure/measure.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/measure/measure.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/measure/measure.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/measure/measure.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/order/item.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/order/item.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/order/item.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/order/item.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/order/order.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/order/order.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/order/order.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/order/order.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/patient/patient.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/patient/patient.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/patient/patient.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/patient/patient.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/payment.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/payment/payment.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/payment.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/payment/payment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/print/laboInvoice.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/payment/print/laboInvoice.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/print/laboInvoice.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/payment/print/laboInvoice.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/customer.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/customer.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/customer.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/customerExcel.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/customerExcel.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/customerExcel.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/customerExcel.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/fee/fee.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/fee/fee.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/fee/fee.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/fee/fee.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/feebalance/feeBalance.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/feebalance/feeBalance.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/feebalance/feeBalance.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/feebalance/feeBalance.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/labo/labo.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/labo/labo.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/labo/labo.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/labo/labo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/labobalance/laboBalance.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/labobalance/laboBalance.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/labobalance/laboBalance.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/labobalance/laboBalance.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/payment/payment.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/payment/payment.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/reports/payment/payment.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/reports/payment/payment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/result/print/printResult.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/result/print/printResult.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/result/print/printResult.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/result/print/printResult.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/result/result.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/result/result.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/staff/staff.html" afterPath="$PROJECT_DIR$/laboratory/client/templates/staff/staff.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/staff/staff.js" afterPath="$PROJECT_DIR$/laboratory/client/templates/staff/staff.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/common/collections/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/address.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/address.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/agent.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/agent.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/category.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/category.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/customer.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/fee.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/fee.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/item.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/item.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/labo.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/labo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/measure.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/measure.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/order.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/order.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/patient.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/patient.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/payment.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/payment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/reports/customer.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/reports/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/reports/fee.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/reports/fee.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/reports/feeBalance.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/reports/feeBalance.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/reports/labo.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/reports/labo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/reports/laboBalance.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/reports/laboBalance.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/reports/payment.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/reports/payment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/result.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/result.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections/staff.js" afterPath="$PROJECT_DIR$/laboratory/common/collections/staff.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections_helper/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/common/collections_helper/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/collections_search/customer.js" afterPath="$PROJECT_DIR$/laboratory/common/collections_search/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/lib/config/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/common/lib/config/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/lib/config/module.js" afterPath="$PROJECT_DIR$/laboratory/common/lib/config/module.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/lib/config/namespace.js" afterPath="$PROJECT_DIR$/laboratory/common/lib/config/namespace.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/lib/reactiveState.js" afterPath="$PROJECT_DIR$/laboratory/common/lib/reactiveState.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/address.js" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/address.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/agent.js" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/agent.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/category.js" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/category.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/customer.js" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/fee.js" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/fee.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/items.js" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/items.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/labo.js" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/labo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/measure.js" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/measure.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/order.js" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/order.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/patient.js" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/patient.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/payment.js" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/payment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/result.js" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/result.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/common/tabulars/staff.js" afterPath="$PROJECT_DIR$/laboratory/common/tabulars/staff.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/app/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/server/app/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/app/security.js" afterPath="$PROJECT_DIR$/laboratory/server/app/security.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_cache/address.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_cache/address.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_cache/agent.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_cache/agent.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_cache/customer.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_cache/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_cache/fee.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_cache/fee.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_cache/items.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_cache/items.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_cache/labo.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_cache/labo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_cache/order.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_cache/order.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_cache/patient.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_cache/patient.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_cache/payment.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_cache/payment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_cache/result.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_cache/result.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/address.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/address.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/agent.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/agent.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/category.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/category.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/customer.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/fee.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/fee.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/item.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/item.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/labo.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/labo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/measure.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/measure.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/order.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/order.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/patient.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/patient.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/payment.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/payment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/result.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/result.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/collections_hook/staff.js" afterPath="$PROJECT_DIR$/laboratory/server/collections_hook/staff.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/server/methods/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/findLaboForAgent.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/findLaboForAgent.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/findLaboForPatient.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/findLaboForPatient.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/findLaboForlabo.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/findLaboForlabo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/getLabo.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/getLabo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/getPatient.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/getPatient.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/getagent.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/getagent.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/getpayment.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/getpayment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/laboInvoice.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/laboInvoice.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/meteor_metheod/getLaboInvoiceId.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/meteor_metheod/getLaboInvoiceId.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/meteor_metheod/getResultId.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/meteor_metheod/getResultId.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/meteor_metheod/laboratoryIdGenerator.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/meteor_metheod/laboratoryIdGenerator.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/printResult.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/printResult.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/reports/customer.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/reports/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/reports/customerExcel.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/reports/customerExcel.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/reports/fee.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/reports/fee.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/reports/feeBalance.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/reports/feeBalance.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/reports/labo.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/reports/labo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/reports/laboBalance.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/reports/laboBalance.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/methods/reports/payment.js" afterPath="$PROJECT_DIR$/laboratory/server/methods/reports/payment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/server/publications/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/address.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/address.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/agent.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/agent.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/category.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/category.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/customer.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/exchange.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/exchange.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/fee.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/fee.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/items.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/items.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/labo.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/labo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/measure.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/measure.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/order.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/order.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/patient.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/patient.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/payment.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/payment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/result.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/result.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/publications/staff.js" afterPath="$PROJECT_DIR$/laboratory/server/publications/staff.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/routers/address.js" afterPath="$PROJECT_DIR$/laboratory/server/routers/address.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/server/security/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/address.js" afterPath="$PROJECT_DIR$/laboratory/server/security/address.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/agent.js" afterPath="$PROJECT_DIR$/laboratory/server/security/agent.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/category.js" afterPath="$PROJECT_DIR$/laboratory/server/security/category.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/customer.js" afterPath="$PROJECT_DIR$/laboratory/server/security/customer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/fee.js" afterPath="$PROJECT_DIR$/laboratory/server/security/fee.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/items.js" afterPath="$PROJECT_DIR$/laboratory/server/security/items.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/labo.js" afterPath="$PROJECT_DIR$/laboratory/server/security/labo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/measure.js" afterPath="$PROJECT_DIR$/laboratory/server/security/measure.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/order.js" afterPath="$PROJECT_DIR$/laboratory/server/security/order.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/patient.js" afterPath="$PROJECT_DIR$/laboratory/server/security/patient.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/payment.js" afterPath="$PROJECT_DIR$/laboratory/server/security/payment.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/result.js" afterPath="$PROJECT_DIR$/laboratory/server/security/result.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/security/staff.js" afterPath="$PROJECT_DIR$/laboratory/server/security/staff.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/startup/fixtures/.gitkeep" afterPath="$PROJECT_DIR$/laboratory/server/startup/fixtures/.gitkeep" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/startup/fixtures/fixtures.js" afterPath="$PROJECT_DIR$/laboratory/server/startup/fixtures/fixtures.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/laboratory/laboratory/server/test.xlsx" afterPath="$PROJECT_DIR$/laboratory/server/test.xlsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/labo/labo.js" afterPath="$PROJECT_DIR$/laboratory/laboratory/client/templates/labo/labo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.html" afterPath="$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.js" afterPath="$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/npm-container/.npm/package/.gitignore" afterPath="$PROJECT_DIR$/packages/npm-container/.npm/package/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/npm-container/.npm/package/README" afterPath="$PROJECT_DIR$/packages/npm-container/.npm/package/README" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/npm-container/.npm/package/npm-shrinkwrap.json" afterPath="$PROJECT_DIR$/packages/npm-container/.npm/package/npm-shrinkwrap.json" />
     </list>
     <ignored path="Laboratory.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,51 +229,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="payment.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/payment.html">
+      <file leaf-file-name="result.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.122073576">
+              <caret line="257" column="0" selection-start-line="257" selection-start-column="0" selection-end-line="272" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="labo.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/labo/labo.js">
+        <entry file="file://$PROJECT_DIR$/laboratory/client/templates/labo/labo.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="77" selection-start-line="63" selection-start-column="77" selection-end-line="63" selection-end-column="77" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="result.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6885522">
-              <caret line="118" column="31" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
+              <caret line="205" column="35" selection-start-line="205" selection-start-column="35" selection-end-line="205" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="result.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.html">
+        <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="50" column="97" selection-start-line="50" selection-start-column="97" selection-end-line="50" selection-end-column="97" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="payment.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/payment.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="160" selection-end-column="10" />
+            <state vertical-scroll-proportion="-8.823529">
+              <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -100,9 +280,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/laboratory/client/templates/reports/feeBalance/feeBalance.js" />
-        <option value="$PROJECT_DIR$/laboratory/client/templates/reports/fee/fee.html" />
-        <option value="$PROJECT_DIR$/laboratory/client/templates/reports/feeBalance/feeBalance.html" />
         <option value="$PROJECT_DIR$/laboratory/client/templates/reports/payment/payment.html" />
         <option value="$PROJECT_DIR$/laboratory/client/templates/_layout/navbar.html" />
         <option value="$PROJECT_DIR$/laboratory/common/collections/payment.js" />
@@ -134,12 +311,10 @@
         <option value="$PROJECT_DIR$/laboratory/client/templates/payment/print/laboInvoice.html" />
         <option value="$PROJECT_DIR$/laboratory/common/collections/result.js" />
         <option value="$PROJECT_DIR$/laboratory/client/templates/result/print/printResult.html" />
-        <option value="$PROJECT_DIR$/laboratory/client/templates/result/result.js" />
         <option value="$PROJECT_DIR$/laboratory/client/css/double_click.css" />
         <option value="$PROJECT_DIR$/laboratory/server/methods/laboInvoice.js" />
         <option value="$PROJECT_DIR$/laboratory/client/templates/payment/payment.js" />
         <option value="$PROJECT_DIR$/laboratory/client/templates/labo/labo.js" />
-        <option value="$PROJECT_DIR$/laboratory/client/templates/result/result.html" />
         <option value="$PROJECT_DIR$/laboratory/client/templates/patient/patient.html" />
         <option value="$PROJECT_DIR$/laboratory/laboratory/client/routers/items.js" />
         <option value="$PROJECT_DIR$/laboratory/laboratory/client/templates/items/items.js" />
@@ -151,6 +326,11 @@
         <option value="$PROJECT_DIR$/laboratory/laboratory/client/templates/labo/labo.js" />
         <option value="$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.html" />
         <option value="$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.js" />
+        <option value="$PROJECT_DIR$/laboratory/client/js/jquery.animateNumber.min.js" />
+        <option value="$PROJECT_DIR$/laboratory/client/routers/agent.js" />
+        <option value="$PROJECT_DIR$/laboratory/client/templates/agent/agent.js" />
+        <option value="$PROJECT_DIR$/laboratory/client/templates/result/result.js" />
+        <option value="$PROJECT_DIR$/laboratory/client/templates/result/result.html" />
       </list>
     </option>
   </component>
@@ -162,8 +342,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1378" />
-    <option name="height" value="780" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -225,14 +405,6 @@
               <option name="myItemId" value="laboratory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -241,84 +413,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Labo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="methods" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Labo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="methods" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="meteor_metheod" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Labo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Labo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -333,10 +427,6 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="staff" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -345,10 +435,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Labo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -382,66 +468,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Labo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Labo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -461,36 +487,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Labo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Laboratory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Labo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laboratory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -534,18 +530,19 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/laboratory/server/methods/meteor_metheod" />
-      <recent name="$PROJECT_DIR$/laboratory/client/templates/payment" />
-      <recent name="$PROJECT_DIR$/laboratory/server/methods" />
-      <recent name="$PROJECT_DIR$/laboratory/client/routers" />
-      <recent name="C:\Users\somaly\Desktop\Labo\laboratory\client\templates\reports" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\somaly\Desktop\Labo" />
       <recent name="D:\Piseth\Laboratory1\Laboratory1\laboratory\common\collections" />
       <recent name="$PROJECT_DIR$/laboratory/server/collections_hook" />
       <recent name="$PROJECT_DIR$/laboratory/client/templates" />
       <recent name="$PROJECT_DIR$/laboratory/common/collections" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\somaly\Desktop\Labo" />
+      <recent name="$PROJECT_DIR$/laboratory/server/methods/meteor_metheod" />
+      <recent name="$PROJECT_DIR$/laboratory/client/templates/payment" />
+      <recent name="$PROJECT_DIR$/laboratory/server/methods" />
+      <recent name="$PROJECT_DIR$/laboratory/client/routers" />
     </key>
   </component>
   <component name="RunManager">
@@ -626,16 +623,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="780" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22313432" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26860118" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.81322503" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="11" y="137" width="1327" height="498" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.81629395" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="11" y="137" width="1327" height="498" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -701,23 +698,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/labo/labo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="77" selection-start-line="63" selection-start-column="77" selection-end-line="63" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.js">
+    <entry file="file://$PROJECT_DIR$/laboratory/client/js/jquery.animateNumber.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -725,87 +706,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.html">
+    <entry file="file://$PROJECT_DIR$/laboratory/client/templates/category/category.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="97" selection-start-line="50" selection-start-column="97" selection-end-line="50" selection-end-column="97" />
+          <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="41" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/payment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="160" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/labo/labo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="77" selection-start-line="63" selection-start-column="77" selection-end-line="63" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/payment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="160" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/labo/labo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="77" selection-start-line="63" selection-start-column="77" selection-end-line="63" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/payment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="160" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/payment.html">
+    <entry file="file://$PROJECT_DIR$/laboratory/client/js/jquery.animateNumber.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -834,140 +743,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/common/collections/labo.js">
+    <entry file="file://$PROJECT_DIR$/laboratory/client/js/jquery.animateNumber.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="12" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/common/collections/item.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/items/items.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="45" selection-start-line="83" selection-start-column="45" selection-end-line="83" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/routers/items.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29726517">
-          <caret line="10" column="72" selection-start-line="10" selection-start-column="72" selection-end-line="10" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/result/print/printResult.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/server/methods/meteor_metheod/getResultId.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.029726516">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/server/methods/getLabo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/routers/printResult.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="48" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/labo/labo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.911764">
-          <caret line="295" column="94" selection-start-line="295" selection-start-column="83" selection-end-line="295" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/server/methods/printResult.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/result/print/printResult.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-41.666668">
-          <caret line="105" column="68" selection-start-line="105" selection-start-column="68" selection-end-line="105" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/routers/labo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38968825">
-          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/routers/result.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/common/collections/result.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4004796">
-          <caret line="92" column="22" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/labo/labo.js">
+    <entry file="file://$PROJECT_DIR$/laboratory/client/templates/category/category.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="77" selection-start-line="63" selection-start-column="77" selection-end-line="63" selection-end-column="77" />
+          <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="41" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.html">
+    <entry file="file://$PROJECT_DIR$/laboratory/client/templates/agent/agent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="97" selection-start-line="50" selection-start-column="97" selection-end-line="50" selection-end-column="97" />
+        <state vertical-scroll-proportion="-2.3829432">
+          <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/payment/payment.js">
+    <entry file="file://$PROJECT_DIR$/laboratory/client/routers/agent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="160" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.24749164">
+          <caret line="7" column="72" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laboratory/laboratory/client/templates/result/result.js">
+    <entry file="file://$PROJECT_DIR$/laboratory/client/templates/labo/labo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6885522">
-          <caret line="118" column="31" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="205" column="35" selection-start-line="205" selection-start-column="35" selection-end-line="205" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.823529">
+          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laboratory/client/templates/result/result.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.122073576">
+          <caret line="257" column="0" selection-start-line="257" selection-start-column="0" selection-end-line="272" selection-end-column="2" />
           <folding />
         </state>
       </provider>

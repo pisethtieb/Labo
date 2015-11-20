@@ -5,6 +5,7 @@ LaboratoryRoutes.route('/agent', {
     subscriptions: function (params, queryParams) {
 
         this.register('laboratory_agent', subs.subscribe('laboratory_agent'));
+        this.register('laboratory_labo', subs.subscribe('laboratory_labo'));
     },
     action: function (params, queryParams) {
         Layout.main('laboratory_agent');
