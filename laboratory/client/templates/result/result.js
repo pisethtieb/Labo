@@ -59,6 +59,7 @@ insertTpl.events({
         Session.set('savePrint', true);
     },
     'click .result': function (e) {
+
         text.set('normalResult', e.currentTarget);
         var val = $(e.currentTarget).val();
         var format = getFormat(val);
@@ -89,10 +90,13 @@ insertTpl.events({
         var check = $(e.currentTarget).prop('checked');
         if (check) {
             elementName.val('<b>' + originText + '</b>');
+            elementName.hide();
+            $('p[name="' + currentText.name + '"]').html(currentText.value);
         } else {
             elementName.val(originText.match(regex).map(function (val) {
                 return val.replace(/<\/?b>/g, '');
             }));
+            $('p[name="' + currentText.name + '"]').html(currentText.value);
         }
     },
     'change .italic': function (e) {
