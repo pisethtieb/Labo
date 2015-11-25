@@ -53,24 +53,24 @@
                         </form>
                     </div>
                     <!--<script type="text/javascript">-->
-                        <!--$('input[name="textStyle"]').change(function () {-->
-                            <!--if ($(this).val() == 'bold') {-->
-                                <!--if ($(this).is(':checked')) $('.result').css('font-weight', 'bold');-->
-                                <!--else $('.result').css('font-weight', 'normal');-->
-                            <!--}-->
-                            <!--else if ($(this).val() == 'italic') {-->
-                                <!--if ($(this).is(':checked')) $('.result').css('font-style', 'italic');-->
-                                <!--else $('.result').css('font-style', 'normal');-->
-                            <!--}-->
-                            <!--else if ($(this).val() == 'underline') {-->
-                                <!--if ($(this).is(':checked')) $('.result').css('text-decoration', 'underline');-->
-                                <!--else $('.result').css('text-decoration', 'none');-->
-                            <!--}-->
-                            <!--else if ($(this).val() == 'red') {-->
-                                <!--if ($(this).is(':checked')) $('.result').css('color', 'red');-->
-                                <!--else $('.result').css('color', 'black');-->
-                            <!--}-->
-                        <!--});-->
+                    <!--$('input[name="textStyle"]').change(function () {-->
+                    <!--if ($(this).val() == 'bold') {-->
+                    <!--if ($(this).is(':checked')) $('.result').css('font-weight', 'bold');-->
+                    <!--else $('.result').css('font-weight', 'normal');-->
+                    <!--}-->
+                    <!--else if ($(this).val() == 'italic') {-->
+                    <!--if ($(this).is(':checked')) $('.result').css('font-style', 'italic');-->
+                    <!--else $('.result').css('font-style', 'normal');-->
+                    <!--}-->
+                    <!--else if ($(this).val() == 'underline') {-->
+                    <!--if ($(this).is(':checked')) $('.result').css('text-decoration', 'underline');-->
+                    <!--else $('.result').css('text-decoration', 'none');-->
+                    <!--}-->
+                    <!--else if ($(this).val() == 'red') {-->
+                    <!--if ($(this).is(':checked')) $('.result').css('color', 'red');-->
+                    <!--else $('.result').css('color', 'black');-->
+                    <!--}-->
+                    <!--});-->
                     <!--</script>-->
 
                 </div>
@@ -129,24 +129,24 @@
                         </form>
                     </div>
                     <!--<script type="text/javascript">-->
-                        <!--$('input[name="textStyle"]').change(function () {-->
-                            <!--if ($(this).val() == 'bold') {-->
-                                <!--if ($(this).is(':checked')) $('.result').css('font-weight', 'bold');-->
-                                <!--else $('.result').css('font-weight', 'normal');-->
-                            <!--}-->
-                            <!--else if ($(this).val() == 'italic') {-->
-                                <!--if ($(this).is(':checked')) $('.result').css('font-style', 'italic');-->
-                                <!--else $('.result').css('font-style', 'normal');-->
-                            <!--}-->
-                            <!--else if ($(this).val() == 'underline') {-->
-                                <!--if ($(this).is(':checked')) $('.result').css('text-decoration', 'underline');-->
-                                <!--else $('.result').css('text-decoration', 'none');-->
-                            <!--}-->
-                            <!--else if ($(this).val() == 'red') {-->
-                                <!--if ($(this).is(':checked')) $('.result').css('color', 'red');-->
-                                <!--else $('.result').css('color', 'black');-->
-                            <!--}-->
-                        <!--});-->
+                    <!--$('input[name="textStyle"]').change(function () {-->
+                    <!--if ($(this).val() == 'bold') {-->
+                    <!--if ($(this).is(':checked')) $('.result').css('font-weight', 'bold');-->
+                    <!--else $('.result').css('font-weight', 'normal');-->
+                    <!--}-->
+                    <!--else if ($(this).val() == 'italic') {-->
+                    <!--if ($(this).is(':checked')) $('.result').css('font-style', 'italic');-->
+                    <!--else $('.result').css('font-style', 'normal');-->
+                    <!--}-->
+                    <!--else if ($(this).val() == 'underline') {-->
+                    <!--if ($(this).is(':checked')) $('.result').css('text-decoration', 'underline');-->
+                    <!--else $('.result').css('text-decoration', 'none');-->
+                    <!--}-->
+                    <!--else if ($(this).val() == 'red') {-->
+                    <!--if ($(this).is(':checked')) $('.result').css('color', 'red');-->
+                    <!--else $('.result').css('color', 'black');-->
+                    <!--}-->
+                    <!--});-->
                     <!--</script>-->
                 </div>
             </div>
@@ -270,7 +270,7 @@
         <div class="col-md-2">
             <p><i>Normal Value</i></p>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-2">Result</div>
 
     </div>
     {{#if afFieldIsInvalid name=this.atts.name}}
@@ -300,8 +300,9 @@
             {{> afQuickField name=current.normalValue template="bootstrap3" label=false class="input-sm normalValue" readOnly=true}}
         </div>
         <div class="col-sm-2">
-            {{> afQuickField name=current.result template="bootstrap3" label=false class="input-sm result"}}
             <p name={{current.result}}></p>
+            {{> afQuickField name=current.result template="bootstrap3" label=false class="input-sm result"}}
+
         </div>
     </div>
 
