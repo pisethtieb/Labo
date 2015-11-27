@@ -433,19 +433,22 @@ AutoForm.hooks({
 //function On change to use on event
 function onChangeChild(e) {
     var child = $(e.currentTarget).val();
+    if (child == '  .,m') {
+        $('.hideValue').hide();
+        $('.hideChildItem').hide();
+    }
     if (child == 'yes') {
         $('.hideValue').hide();
         $('.hideChildItem').show();
-    } else if (child == '') {
-        $('.hideValue').hide();
-        $('.hideChildItem').hide();
-    } else if (child == 'no') {
+    }
+    if (child == 'no') {
         $('.normalValue').val();
         $('.prependValue').val();
         $('.appendValue').val();
         $('.hideValue').show();
         $('.hideChildItem').hide();
     }
+
 }
 //function status fore child Yes / No
 function show(childStatus) {

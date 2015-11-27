@@ -25,14 +25,38 @@
         {{#reportTpl options}}
             {{#with data}}
                 <!--Title-->
+
                 {{#with title}}
                     <div class="title">
-                        <div class="title-1x-kh-muol">{{khName}}</div>
-                        <div class="title-1x">{{enName}}</div>
-                        <div><u>Fee Report</u></div>
-                        <div class="title-2x">{{enAddress}}</div>
+                        <table class="report-title" style="width:100%;">
+                            <tr align="center">
+
+                                <td colspan="2">
+                                <td>
+                                    <img src="/rabbit1.png">&nbsp;
+                                </td>
+
+                                <td>
+                  <span class="report-company-name"
+                        style="font-family: 'Khmer OS Muol">{{khName}}</span><br>
+                                    <span class="report-company-name">{{enName}}</span><br>
+                                    <u>Fee Report</u><br>
+                                    {{khAddress}}, {{telephone}}
+                                </td>
+
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 {{/with}}
+                <!--{{#with title}}-->
+                    <!--<div class="title">-->
+                        <!--<div class="title-1x-kh-muol">{{khName}}</div>-->
+                        <!--<div class="title-1x">{{enName}}</div>-->
+                        <!--<div><u>Fee Report</u></div>-->
+                        <!--<div class="title-2x">{{enAddress}}</div>-->
+                    <!--</div>-->
+                <!--{{/with}}-->
                 <!--Header-->
                 {{#with header}}
                     <div style="width: 100%">

@@ -5,10 +5,29 @@
             {{#with data}}
                 {{#with title}}
                     <div class="title">
-                        <div class="title-1x-kh-muol">{{khName}}</div>
-                        <div class="title-1x">{{enName}}</div>
-                        <div style="text-decoration: underline;">Invoice</div>
-                        <div class="title-2x">{{enAddress}}</div>
+                        <!--<div class="title-1x-kh-muol">{{khName}}</div>-->
+                        <!--<div class="title-1x">{{enName}}</div>-->
+                        <!--<div style="text-decoration: underline;">Invoice</div>-->
+                        <!--<div class="title-2x">{{enAddress}}</div>-->
+                        <table class="report-title">
+                            <tr>
+                                <td>
+                                    <img src="/rabbit1.png">
+                                </td>
+                                <td>
+                                    <div class="header-style">
+                                        <span class="report-company-name" style="font-family: 'Khmer OS Muol">{{khName}}</span>
+                                        <br>
+                                        <span class="report-company-name">{{enName}}</span>
+                                        <br>
+                                        <span class="report-company-name">{{enAddress}}</span>
+                                        <br>
+                                        <u> វិក្កយបត្រ (Invoice)</u>
+                                        <br>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 {{/with}}
 
