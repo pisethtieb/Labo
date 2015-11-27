@@ -48,7 +48,7 @@
                             Bold:<input name="textStyle" type="checkbox" value="bold" class="bold"/>
                             Italic:<input name="textStyle" type="checkbox" value="italic" class="italic"/>
                             Underline:<input name="textStyle" type="checkbox" value="underline" class="underline"/>
-                            Red:<input name="textStyle" type="checkbox" value="red" class="red"/>
+                            <!--Red:<input name="textStyle" type="checkbox" value="red" class="red"/>-->
 
                         </form>
                     </div>
@@ -91,12 +91,10 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Laboratory Info</div>
                 <div class="panel-body">
-
                     {{> afQuickField name='resultDate'}}
                     {{> afQuickField name='laboDate' readOnly=true}}
                     {{> afQuickField name='laboId' readonly = true}}
                     {{> afQuickField name='patientId' readonly = true}}
-
                     <div class="form-group{{#if afFieldIsInvalid name='staffId'}} has-error{{/if}}"
                          data-required="true">
                         <label class="control-label" for="staffId">Staff ID</label>
@@ -115,16 +113,15 @@
                     </div>
                     <div>
                         {{> afQuickField name='agentId' readOnly=true}}
-
                     </div>
                     <div class="container">
                         Out Put Result Option
                         <!--<p>The form below contains three checkboxes. The last option is disabled:</p>-->
                         <form>
-                            Bold:<input name="textStyle" type="checkbox" value="bold"/>
-                            Italic:<input name="textStyle" type="checkbox" value="italic"/>
-                            Underline:<input name="textStyle" type="checkbox" value="underline"/>
-                            Red:<input name="textStyle" type="checkbox" value="red"/>
+                            Bold:<input name="textStyle" type="checkbox" value="bold" class="bold"/>
+                            Italic:<input name="textStyle" type="checkbox" value="italic" class="italic"/>
+                            Underline:<input name="textStyle" type="checkbox" value="underline" class="underline"/>
+                            <!--Red:<input name="textStyle" type="checkbox" value="red" class="red"/>-->
 
                         </form>
                     </div>
@@ -300,7 +297,7 @@
             {{> afQuickField name=current.normalValue template="bootstrap3" label=false class="input-sm normalValue" readOnly=true}}
         </div>
         <div class="col-sm-2">
-            <p name={{current.result}}></p>
+            <!--<p name={{current.result}}></p>-->
             {{> afQuickField name=current.result template="bootstrap3" label=false class="input-sm result"}}
 
         </div>

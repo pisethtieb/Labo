@@ -8,16 +8,41 @@
 
                 {{#with title}}
                     <div class="title">
-                        <div class="title-1x-kh-muol">{{khName}}</div>
-                        <div class="title-1x">{{enName}}</div>
-                        <div><u>Patient Result</u></div>
-                        <div class="title-2x">{{enAddress}}</div>
+                        <table class="report-title" style="width:100%;">
+                            <tr align="center">
+
+                                <td colspan="2">
+                                <td align="left">
+                                    <img src="/rabbit1.png"> &nbsp;
+                                </td>
+
+                                <td>
+                    <span class="report-company-name"
+                          style="font-family: 'Khmer OS Muol">{{khName}}</span><br>
+                                    <span class="report-company-name"> {{enName}}</span><br>
+
+                                    <u>Patient Result</u><br>
+                                    {{enAddress}}, {{telephone}}
+                                </td>
+
+                                </td>
+                            </tr>
+                        </table>
                     </div>
+                    <!--<div class="title">-->
+                    <!--<div class="title-1x-kh-muol">{{khName}}</div>-->
+                    <!--<div class="title-1x">{{enName}}</div>-->
+                    <!--<div><img src="/rabbit1.png"></div>-->
+                    <!--<div><u>Patient Result</u></div>-->
+                    <!--<div class="title-2x">{{enAddress}}</div>-->
+                    <!--<div class="title-2x">{{telephone}}</div>-->
+                    <!--</div>-->
                 {{/with}}
 
 
                 <!--Header-->
                 <table width="100%" border="0">
+                    <br>
                     {{#with result}}
                         <tr>
                             <td style="text-align: left" width="40%">PatientID : {{patientId}}</td>
@@ -50,7 +75,7 @@
                     <!--{{#with result}}-->
 
                 <!--Content-->
-            <br>
+                <br>
                 <table class="table">
                     <thead>
                     <tr>
@@ -70,40 +95,40 @@
                             <td>{{index}}</td>
                             <td>{{itemId}}</td>
                             <td>{{name}}</td>
-                            <td>
-                                {{#if isUndefinded normalValue}}
-                                    <table style="width: 100%; text-align:center;border-style: hidden">
-                                        <thead style="color: #0088cc;border-style: hidden">
-                                        <tr style="border-style: hidden">
-                                            <th width="33%" style="text-align: center"> Name</th>
-                                            <th width="33%" style="text-align: center"> Normal Value</th>
-                                            <th width="33%" style="text-align: center"> Result</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        {{#each childItem}}
-                                        <br>
-                                            <tr>
-                                                <td width="33%">{{name}}</td>
-                                                <td width="33%">{{normalValue}}</td>
-                                                <td width="33%" class="outResult">{{{result}}}
-                                                </td>
-
-                                            </tr>
-                                        {{/each}}
-                                        </tbody>
-                                    </table>
-                                {{else}}
-                                    <tr>
-                                        <td width="52%">                </td>
-                                        <td width="0%">{{normalValue}}</td>
-                                        <td width="20%">                </td>
+                        <td>
+                        {{#if isUndefinded normalValue}}
+                                <table style="width: 100%; text-align:center;border-style: hidden">
+                                    <thead style="color: #0088cc;border-style: hidden">
+                                    <tr style="border-style: hidden">
+                                        <th width="33%" style="text-align: center"> Name</th>
+                                        <th width="33%" style="text-align: center"> Normal Value</th>
+                                        <th width="33%" style="text-align: center"> Result</th>
                                     </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{#each childItem}}
+                                        <br>
+                                        <tr>
+                                            <td width="33%">{{name}}</td>
+                                            <td width="33%">{{normalValue}}</td>
+                                            <td width="33%" class="outResult">{{{result}}}
+                                            </td>
 
-                                {{/if}}
+                                        </tr>
+                                    {{/each}}
+                                    </tbody>
+                                </table>
+                        {{else}}
+                            <tr>
+                                <td width="52%"></td>
+                                <td width="0%">{{normalValue}}</td>
+                                <td width="20%"></td>
+                            </tr>
 
-                            </td>
-                            <td class="outResult"><b><i>{{{result}}}</i></b></td>
+                        {{/if}}
+
+                        </td>
+                        <td class="outResult"><b><i>{{{result}}}</i></b></td>
                         </tr>
 
                     {{/each}}

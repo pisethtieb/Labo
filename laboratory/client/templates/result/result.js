@@ -90,14 +90,14 @@ insertTpl.events({
         var check = $(e.currentTarget).prop('checked');
         if (check) {
             elementName.val('<b>' + originText + '</b>');
-            $('p[name="' + currentText.name + '"]').html(currentText.value);
+            //$('p[name="' + currentText.name + '"]').html(currentText.value);
 
 
         } else {
             elementName.val(originText.match(regex).map(function (val) {
                 return val.replace(/<\/?b>/g, '');
             }));
-            $('p[name="' + currentText.name + '"]').html(currentText.value);
+            //$('p[name="' + currentText.name + '"]').html(currentText.value);
         }
     },
     'change .italic': function (e) {
@@ -171,6 +171,91 @@ updateTpl.events({
             },
             null
         );
+    },
+    'click .staffAddon': function () {
+        alertify.staffAddon(renderTemplate(Template.laboratory_agentInsert))
+            .set({
+                title: fa("plus", "Agent")
+            })
+    },
+    'click #save': function () {
+        Session.set('savePrint', false);
+    },
+    'click #save-print': function () {
+        Session.set('savePrint', true);
+    },
+    'click .printResult': function () {
+        Session.set('savePrint', true);
+    },
+    'click .result': function (e) {
+        text.set('normalResult', e.currentTarget);
+        var val = $(e.currentTarget).val();
+        var format = getFormat(val);
+
+        if (format.bold) {
+            $('.bold').prop('checked', true);
+        } else {
+            $('.bold').prop('checked', false);
+        }
+        if (format.italic) {
+            $('.italic').prop('checked', true);
+        } else {
+            $('.italic').prop('checked', false);
+        }
+        if (format.underline) {
+            $('.underline').prop('checked', true);
+        } else {
+            $('.underline').prop('checked', false);
+        }
+
+
+    },
+
+    'change .bold': function (e) {
+        var regex = /<b>(.*?)<\/b>/g;
+        var currentText = text.get('normalResult');
+        var originText = currentText.value;
+        var elementName = $('[name="' + currentText.name + '"]');
+        var check = $(e.currentTarget).prop('checked');
+        if (check) {
+            elementName.val('<b>' + originText + '</b>');
+            //$('p[name="' + currentText.name + '"]').html(currentText.value);
+
+
+        } else {
+            elementName.val(originText.match(regex).map(function (val) {
+                return val.replace(/<\/?b>/g, '');
+            }));
+            //$('p[name="' + currentText.name + '"]').html(currentText.value);
+        }
+    },
+    'change .italic': function (e) {
+        var regex = /<i>(.*?)<\/i>/g;
+        var currentText = text.get('normalResult');
+        var originText = currentText.value;
+        var elementName = $('[name="' + currentText.name + '"]');
+        var check = $(e.currentTarget).prop('checked');
+        if (check) {
+            elementName.val('<i>' + originText + '</i>');
+        } else {
+            elementName.val(originText.match(regex).map(function (val) {
+                return val.replace(/<\/?i>/g, '');
+            }));
+        }
+    },
+    'change .underline': function (e) {
+        var regex = /<u>(.*?)<\/u>/g;
+        var currentText = text.get('normalResult');
+        var originText = currentText.value;
+        var elementName = $('[name="' + currentText.name + '"]');
+        var check = $(e.currentTarget).prop('checked');
+        if (check) {
+            elementName.val('<u>' + originText + '</u>');
+        } else {
+            elementName.val(originText.match(regex).map(function (val) {
+                return val.replace(/<\/?u>/g, '');
+            }));
+        }
     }
 });
 Template.laboResultObjectField.helpers({
